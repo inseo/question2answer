@@ -1,10 +1,10 @@
 {
 	"name": "Etalab",
-	"description": "Non-responsive theme without RTL support",
+	"description": "Etalab responsive theme with RTL support based on Snowflat Theme",
 	"version": "0.1",
 	"date": "2020-12-07",
 	"author": "Etalab",
 	"author_uri": "https://www.etalab.gouv.fr/",
 	"license": "GPLv2",
-	"min_q2a": "1.5"
+	"min_q2a": "1.7"
 }
