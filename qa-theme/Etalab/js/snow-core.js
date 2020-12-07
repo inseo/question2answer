@@ -23,11 +23,16 @@ $(document).ready(function () {
 	 */
 	$('#qam-account-toggle').click(function (e) {
 		e.stopPropagation();
+		if ($(this).attr("aria-expanded") == "false")
+			$(this).attr("aria-expanded", "true");
+		else
+			$(this).attr("aria-expanded", "false");
 		$(this).toggleClass('account-active');
 		$('.qam-account-items').slideToggle(100);
 	});
 
 	$(document).click(function () {
+		$('#qam-account-toggle.account-active').attr("aria-expanded", "false");
 		$('#qam-account-toggle.account-active').removeClass('account-active');
 		$('.qam-account-items:visible').slideUp(100);
 	});

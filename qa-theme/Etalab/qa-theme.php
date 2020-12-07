@@ -257,10 +257,10 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$class = $this->fixed_topbar ? ' fixed' : '';
 
-		$this->output('<div id="qam-topbar" class="clearfix' . $class . '">');
+		$this->output('<header role="banner" id="qam-topbar" class="clearfix' . $class . '">');
 
 		$this->nav_main_sub();
-		$this->output('</div> <!-- END qam-topbar -->');
+		$this->output('</header> <!-- END qam-topbar -->');
 
 		$this->output($this->ask_button());
 		$this->qam_search('the-top', 'the-top-search');
@@ -635,10 +635,10 @@ class qa_html_theme extends qa_html_theme_base
 		// finally output avatar with div tag
 		$handleBlock = empty($handle) ? '' : '<div class="qam-account-handle">' . qa_html($handle) . '</div>';
 		$this->output(
-			'<div id="qam-account-toggle" class="' . $toggleClass . '">',
+			'<button aria-expanded="false" id="qam-account-toggle" class="' . $toggleClass . '">',
 			$avatar,
 			$handleBlock,
-			'</div>'
+			'</button>'
 		);
 	}
 

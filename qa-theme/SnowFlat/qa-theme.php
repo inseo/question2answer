@@ -257,10 +257,10 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$class = $this->fixed_topbar ? ' fixed' : '';
 
-		$this->output('<div id="qam-topbar" class="clearfix' . $class . '">');
+		$this->output('<header role="banner" id="qam-topbar" class="clearfix' . $class . '">');
 
 		$this->nav_main_sub();
-		$this->output('</div> <!-- END qam-topbar -->');
+		$this->output('</header> <!-- END qam-topbar -->');
 
 		$this->output($this->ask_button());
 		$this->qam_search('the-top', 'the-top-search');
