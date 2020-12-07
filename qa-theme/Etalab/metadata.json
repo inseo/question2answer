@@ -1,0 +1,10 @@
+{
+	"name": "Etalab",
+	"description": "Non-responsive theme without RTL support",
+	"version": "0.1",
+	"date": "2020-12-07",
+	"author": "Etalab",
+	"author_uri": "https://www.etalab.gouv.fr/",
+	"license": "GPLv2",
+	"min_q2a": "1.5"
+}
