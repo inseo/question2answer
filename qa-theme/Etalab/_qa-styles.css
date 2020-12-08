@@ -101,17 +101,9 @@ html {
     box-sizing: border-box;
 }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background: #ecf0f1 !important;
     position: relative;
-    font-family: "Ubuntu", "Helvetica", "Arial", "FreeSans", sans-serif;
-    color: #34495e;
 }
 body.body-overflow {
     overflow-y: hidden !important;

@@ -1,0 +1,171 @@
+@if $toc {
+  /* - Color____________________Définition et assignation des couleurs */
+} @else {
+  /* Définition et assignation des couleurs [settings]
+  ========================================================================== */
+}
+
+// Définition
+// @note Les couleurs sont nommées grâce à l'outil [Chir.ag’s Name that Color](http://chir.ag/projects/name-that-color/).
+
+// Etalab
+$sail: #b4e1fa;
+$blue-ribbon: #006be6;
+$endeavou: #0053B3;
+$congress-blue: #003b80;
+$prussian-blue: #00234d;
+$white: #ffffff;
+$mystic: #ebeff3;
+$geyser: #c9d3df;
+$cadet-blue: #adb9c9;
+$regent-gray: #8393a7;
+$blue-bayoux: #53657d;
+$ebony-clay: #26353f;
+$mine-shaft: #383838;
+$cod-gray: #1c1c1c;
+$jade: #03bd5b;
+$tara: #daf5e7;
+$yellow-orange: #ff9947;
+$serenade: #fff0e4;
+$punch: #d63626;
+$sea-pink: #efaca6;
+
+
+
+
+
+// Legacy
+$alabaster: #f9f9f9;
+$aqua-squeeze: #e8f5f5;
+$black: #000;
+$dusty-gray: #999;
+$elephant: #112f42;
+$eastern-blue: #1c9b9c;
+$elm: #206f78;
+$fuel-yellow: #e9ac30;
+$mantis: #7db952;
+$mercury: #e1e1e1;
+$pickled-bluewood: #2f4554;
+$swans-down: #d7ecec;
+$valencia: #d25148;
+$white: #fff;
+$zanah: #d8eacb;
+
+// Abbreviations
+// - bgc => background-color
+// - bgi => background-image
+// - bdc => border-color
+// - txt => text (color)
+// - plh => placeholder (color)
+
+// prettier-ignore
+$theme-colors: (
+  // Valeurs par défaut
+      default-bgc: $white,
+      default-txt: $mine-shaft,
+  default-box-shadow: $black,
+
+  // Assignation [element]
+  code-bgc: $alabaster,
+  form-error-bdc: $valencia,
+  input-bdc: $mercury,
+  input-bdc_focus: $eastern-blue,
+  input-bgc: $alabaster,
+  link-txt_hover: $eastern-blue,
+  selection-bgc: $zanah,
+  selection-txt: $pickled-bluewood,
+
+  // Assignation [component]
+  access-bgc: $pickled-bluewood,
+  access-txt: $white,
+  access-bgc_hover: $elephant,
+  backdrop--access__before-bgc: $alabaster,
+  backdrop--limelight__before-bgc: $pickled-bluewood,
+  backdrop--limelight__after-bgc: $mantis,
+  background__before-bgc: $alabaster,
+  breadcrumb-txt: $white,
+  btn-bgc: $eastern-blue,
+  btn-txt: $white,
+  btn-bgc_hover: $elm,
+  card-bgc: $white,
+  card--negative-bgc: $pickled-bluewood,
+  card--negative-txt: $white,
+  card--negative__marker-bgc: $fuel-yellow,
+  disclosure__label-bdc: $fuel-yellow,
+  disclosure__btn__after-bgc: $eastern-blue,
+  disclosure__btn__after-bdc: $white,
+  expertise__feature-term-bgc: $valencia,
+  expertise__img--before-bgc: $fuel-yellow,
+  field-bdc: $mercury,
+  field-bgc: $mercury,
+  field-plh: $pickled-bluewood,
+  filter__form-bdc: $dusty-gray,
+  footer-bgc: $pickled-bluewood,
+  footer-txt: $white,
+  h0-txt: $fuel-yellow,
+  h0__before-bgc: $eastern-blue,
+  header__menu-bgc: $pickled-bluewood,
+  highlight-bdc: $aqua-squeeze,
+  highlitght--darker-bdc: $swans-down,
+  highlitght--dark-bdc: $elm,
+  label--after-bgc: $eastern-blue,
+  label--before-bgc: $white,
+  label--before-bdc: $dusty-gray,
+  langswitch-txt: $white,
+  langswitch-txt_hover: $pickled-bluewood,
+  message--error-bgc: $valencia,
+  message--error-txt: $valencia,
+  message--help-bgc: $aqua-squeeze,
+  message--help-txt: $elm,
+  modal-bdc: $mercury,
+  modal-bgc: $black,
+  modal-close-txt: $pickled-bluewood,
+  nav__back: $eastern-blue,
+  nav__back_hover: $elm,
+  nav__back_active: $white,
+  nav__btn-bgc_hover:  $pickled-bluewood,
+  nav__btn-txt_hover: $white,
+  nav__link-txt: $white,
+  nav__link-bgc_active: $elm,
+  nav__link-bgc_hover: $eastern-blue,
+  nav__panel-bgc:  $pickled-bluewood,
+  nav__panel-txt: $white,
+  nav__sublink-bgc_active: $eastern-blue,
+  nav__sublink-bgc_hover: $elm,
+  page-header-bgc: $pickled-bluewood,
+  page-header-txt: $white,
+  page-header__input-bdc: $white,
+  page-header__input-bgc: $white,
+  pagination__current-link-bgc: $pickled-bluewood,
+  pagination__current-link-txt: $white,
+  pagination__link-bgc_hover: $dusty-gray,
+  push-bgc: $pickled-bluewood,
+  push-txt: $white,
+  semicircle-bgc: $pickled-bluewood,
+  semicircle__before-bgc: $fuel-yellow,
+  semicircle--turquoise__before-bgc: $eastern-blue,
+  semicircle--green__before-bgc: $mantis,
+  semicircle--red__before-bgc: $valencia,
+  semicircle--text__content-txt: $white,
+  simpletooltip__bgc: $zanah,
+  simpletooltip__trigger-bdc: $zanah,
+  sort-bgc: $pickled-bluewood,
+  sort-txt: $white,
+  sort__content-bdc: $mantis,
+  sort__title-bdc: $mantis,
+  statistics-bgc: $pickled-bluewood,
+  statistics-txt: $white,
+  statistics-bgc_hover: $elephant,
+  submit-bgc_active: $elm,
+  submit-bgc_hover: $eastern-blue,
+  submit-txt_hover: $white,
+  summary-bgc: $alabaster,
+  summary__item-bgc: $fuel-yellow,
+  swiper__bullet-bgc: $dusty-gray,
+  swiper__bullet-bgc_active: $eastern-blue,
+  table-bdc: $mercury,
+  table__th-bgc: $aqua-squeeze,
+  tablist-bgc: $alabaster,
+  tag__img-txt: $valencia,
+  tag--invert__img-txt: $white,
+);

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+// Génération de la table des matières en en-tête de fichier.
+$toc: true;
+
+/* ------------------------ */
+/*    TABLE DES MATIÈRES    */
+/* ------------------------ */
+/*
+/* Les fichiers sont organisés selon la méthodologie ITCSS.
+/* @see https://speakerdeck.com/dafed/managing-css-projects-with-itcss
+/*
+/*
+/*
+/* SETTINGS */
+@import 'scss/settings/**/*.scss';
+/*
+/*
+/* GENERICS */
+@import 'scss/generics/_generics.normalize.scss';
+@import 'scss/generics/_generics.box-sizing.scss';
+@import 'scss/generics/_generics.reduced-motion.scss';
+@import 'scss/generics/_generics.focus.scss';
+@import 'scss/generics/_generics.reset.scss';
+/*
+/*
+/* ELEMENTS */
+@import 'scss/elements/**/*.scss';
+/*
+/*
+/* OBJECTS */
+@import 'scss/objetcs/**/*.scss';
+/*
+/*
+/* UTILITIES */
+@import 'scss/utilities/**/*.scss';
+
+
+// Génération de la feuille de styles.
+$toc: false;
+
+// SETTINGS
+@import 'scss/settings/**/*.scss';
+
+// TOOLS
+@import 'scss/tools/**/*.scss';
+
+// GENERICS
+@import 'scss/generics/_generics.normalize.scss';
+@import 'scss/generics/_generics.box-sizing.scss';
+@import 'scss/generics/_generics.reduced-motion.scss';
+@import 'scss/generics/_generics.focus.scss';
+@import 'scss/generics/_generics.reset.scss';
+
+// ELEMENTS
+@import 'scss/elements/**/*.scss';
+
+// OBJECTS
+@import 'scss/objetcs/**/*.scss';
+
+// UTILITIES
+@import 'scss/utilities/**/*.scss';
+
+// QUESTION2ANSWER ORIGINAL CSS FILE
+@import '_qa-styles.css';

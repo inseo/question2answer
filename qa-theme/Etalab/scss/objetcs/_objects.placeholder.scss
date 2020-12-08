@@ -1,0 +1,16 @@
+@if $toc {
+  /* - Placeholders_____________Placeholders pour mixins */
+} @else {
+  /* Placeholders pour mixins [object]
+  ========================================================================== */
+
+  /**
+  * Inclus le mixin dans un placeholder.
+  * Le code CSS sera intégré dans le noyau du placeholder.
+  * @see [Getting the most out of Sass placeholders](https://hugogiraudel.com/2014/03/31/getting-the-most-out-of-sass-placeholders/)
+  */
+
+  %o-visually-hidden {
+    @include visually-hidden($extend: false);
+  }
+}
