@@ -29,7 +29,7 @@ module.exports = {
   },
   toc: {
     src      : srcPath + '/styles/toc.scss',
-    watch    : srcPath + '/styles/**/*.scss',
+    watch    : srcPath + '/scss/**/*.scss',
     build    : buildPath + '/css'
   },
   patternlab: {

@@ -174,7 +174,6 @@ function cleanup() {
 
 // Watch
 function watch() {
-
   if (config.settings.styles)            gulp.watch(config.toc.watch, styles);
   if (config.settings.toc)               gulp.watch(config.toc.watch, toc);
   if (config.settings.scripts)           gulp.watch(config.scripts.src.concat, scripts);
