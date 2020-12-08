@@ -205,7 +205,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<nav role="navigation">');
 		$this->output('<button class="sb-toggle-left qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><i aria-hidden="true" class="icon-th-list"></i></button>');
 		$this->nav('main');
-		$this->output('</nav> <!-- END qam-main-nav-wrapper -->');
+		$this->output('</nav>');
 		$this->nav_user_search();
 		$this->output('</div> <!-- END qam-main-nav-wrapper -->');
 		$this->nav('sub');
@@ -239,7 +239,7 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Remove the '-' from the note for the category page (notes).
+	 * Remove the '-' from the note for the category page (notes) and add aria-current
 	 * @param array $navlink
 	 * @param string $class
 	 */
@@ -250,8 +250,27 @@ class qa_html_theme extends qa_html_theme_base
 			$replace = array(' <', '> ');
 			$navlink['note'] = str_replace($search, $replace, $navlink['note']);
 		}
-		parent::nav_link($navlink, $class);
-	}
+		if (isset($navlink['url'])) {
+			$this->output(
+				'<a href="' . $navlink['url'] . '" class="qa-' . $class . '-link' .
+				(@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
+				(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') .
+				'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') . 
+				(@$navlink['selected'] ? (' aria-current="true"') : '') .
+				(isset($navlink['target']) ? (' target="' . $navlink['target'] . '"') : '') . '>' . $navlink['label'] .
+				'</a>'
+			);
+		} else {
+			$this->output(
+				'<span class="qa-' . $class . '-nolink' . (@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
+				(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') . '"' .
+				(strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
+				'>' . $navlink['label'] . '</span>'
+			);
+		}
+
+		if (strlen(@$navlink['note']))
+			$this->output('<span class="qa-' . $class . '-note">' . $navlink['note'] . '</span>');	}
 
 	/**
 	 * Rearranges the layout:
