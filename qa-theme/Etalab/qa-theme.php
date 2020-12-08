@@ -218,7 +218,17 @@ class qa_html_theme extends qa_html_theme_base
 		$navigation = @$this->content['navigation'][$navtype];
 
 		if ($navtype == 'user' || isset($navigation)) {
-			$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
+			if($navtype == 'sub') {
+				$label = "";
+				foreach($this->content['navigation']['main'] as $data){
+					if($data['selected'] == 1) {
+						$label = $data['label'];
+					}
+				}
+				$this->output('<nav role="navigation" aria-label="'. $label .'" class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
+			}
+			else
+				$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
 
 			if ($navtype == 'user')
 				$this->logged_in();
@@ -236,7 +246,10 @@ class qa_html_theme extends qa_html_theme_base
 			$this->nav_clear($navtype);
 			$this->clear_context('nav_type');
 
-			$this->output('</div>');
+			if($navtype == 'sub')
+				$this->output('</nav>');
+			else
+				$this->output('</div>');
 		}
 	}
 
