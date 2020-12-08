@@ -201,12 +201,41 @@ class qa_html_theme extends qa_html_theme_base
 	public function nav_main_sub()
 	{
 		$this->output('<div class="qam-main-nav-wrapper clearfix">');
-		$this->output('<div class="sb-toggle-left qam-menu-toggle"><i class="icon-th-list"></i></div>');
-		$this->nav_user_search();
 		$this->logo();
+		$this->output('<nav role="navigation">');
+		$this->output('<button class="sb-toggle-left qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><i aria-hidden="true" class="icon-th-list"></i></button>');
 		$this->nav('main');
+		$this->output('</nav> <!-- END qam-main-nav-wrapper -->');
+		$this->nav_user_search();
 		$this->output('</div> <!-- END qam-main-nav-wrapper -->');
 		$this->nav('sub');
+	}
+
+	public function nav($navtype, $level = null)
+	{
+		$navigation = @$this->content['navigation'][$navtype];
+
+		if ($navtype == 'user' || isset($navigation)) {
+			$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
+
+			if ($navtype == 'user')
+				$this->logged_in();
+
+			// reverse order of 'opposite' items since they float right
+			foreach (array_reverse($navigation, true) as $key => $navlink) {
+				if (@$navlink['opposite']) {
+					unset($navigation[$key]);
+					$navigation[$key] = $navlink;
+				}
+			}
+
+			$this->set_context('nav_type', $navtype);
+			$this->nav_list($navigation, 'nav-' . $navtype, $level);
+			$this->nav_clear($navtype);
+			$this->clear_context('nav_type');
+
+			$this->output('</div>');
+		}
 	}
 
 	/**

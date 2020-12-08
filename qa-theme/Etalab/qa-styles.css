@@ -463,6 +463,9 @@ blockquote p {
         float: left;
         margin: 0 10px 0 0;
         font-size: 34px;
+        border: 0;
+        background: transparent;
+        color: #fff;
     }
     .qam-menu-toggle.current {
         color: #fff;

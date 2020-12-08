@@ -44,6 +44,10 @@ $(document).ready(function () {
 	$('.qam-menu-toggle').click(function () {
 		$('.qa-nav-main').slideToggle(100);
 		$(this).toggleClass('current');
+		if ($(this).attr("aria-expanded") == "false")
+			$(this).attr("aria-expanded", "true");
+		else
+			$(this).attr("aria-expanded", "false");
 	});
 
 	/*
