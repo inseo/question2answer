@@ -167,7 +167,7 @@ class qa_html_theme extends qa_html_theme_base
 
 		$this->qam_user_account();
 
-		$this->output('<div class="qam-account-items clearfix">');
+		$this->output('<div id="qam-account-items" class="qam-account-items clearfix">');
 
 		if (!qa_is_logged_in()) {
 			if (isset($this->content['navigation']['user']['login']) && !QA_FINAL_EXTERNAL_USERS) {
@@ -638,7 +638,7 @@ class qa_html_theme extends qa_html_theme_base
 		// finally output avatar with div tag
 		$handleBlock = !empty($avatar) && qa_is_logged_in() ? '' : '<div class="qam-account-handle">' . qa_html($handle) . '</div>';
 		$this->output(
-			'<button aria-expanded="false" title="'. $handle .'" aria-label="'. $handle .'" id="qam-account-toggle" class="' . $toggleClass . '">',
+			'<button aria-expanded="false" aria-controls="qam-account-items" title="'. $handle .'" aria-label="'. $handle .'" id="qam-account-toggle" class="' . $toggleClass . '">',
 			$avatar,
 			$handleBlock,
 			'</button>'
