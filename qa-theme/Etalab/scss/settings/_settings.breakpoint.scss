@@ -1,0 +1,27 @@
+@if $toc {
+  /* - Breakpoints______________Définition des paliers (grâce à la dépendance de Sass-MQ) */
+} @else {
+  /* Définition des paliers (grâce à la dépendance de Sass-MQ) [settings]
+  ========================================================================== */
+
+  /*
+   * @see [Sass-MQ documentation on how to use it](https://github.com/sass-mq/sass-mq#how-to-use-it) properly.
+   *
+   * .usage {
+   *   $mq-breakpoints: (
+   *     S: 800px,
+   *     M: 1160px,
+   *     L: 1440px
+   *   );
+   */
+}
+
+$mq-breakpoints: (
+  S: 800px,
+  M: 1160px,
+  L: 1440px,
+);
+
+//$mq-show-breakpoints: (S, M, L);
+
+@import "node_modules/sass-mq/mq";
