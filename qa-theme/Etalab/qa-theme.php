@@ -432,7 +432,12 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($this->content['feed']['url'])) {
 			$feed = $this->content['feed'];
 			$label = isset($feed['label']) ? $feed['label'] : '';
-			$this->output('<a href="' . $feed['url'] . '" title="' . $label . '"><i class="icon-rss qam-title-rss"></i></a>');
+			$this->output(
+				'<a href="' . $feed['url'] . '">',
+				'<i class="icon-rss qam-title-rss" aria-hidden="true" title="' . $label . '"></i>',
+				'<span class="u-visually-hidden">' . $label . '</span>',
+				'</a>'
+			);
 		}
 	}
 
