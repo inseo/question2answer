@@ -13,4 +13,8 @@
   %o-visually-hidden {
     @include visually-hidden($extend: false);
   }
+
+  %o-wrapper {
+    @include wrapper($extend: false);
+  }
 }
