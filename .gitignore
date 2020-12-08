@@ -18,3 +18,11 @@ Thumbs.db
 
 # Ignore french translation files
 /qa-lang/fr/
+
+# Ignore node_modules
+node_modules
+
+# Ignore CSS map
+/qa-theme/Etalab/qa-styles.css.map
+# Ignore generated content
+/qa-theme/Etalab/qa-styles.css

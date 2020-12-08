@@ -27,10 +27,7 @@
 .qa-a-item-content,
 .qa-c-item-buttons,
 .qa-c-item-clear,
-.qam-footer-row,
-.qam-qa-list-meta-box,
-.qa-nav-footer-list,
-.qa-footer-clear {
+.qam-qa-list-meta-box {
     *zoom: 1;
 }
 
@@ -57,10 +54,7 @@
 .qa-a-item-content:after,
 .qa-c-item-buttons:after,
 .qa-c-item-clear:after,
-.qam-footer-row:after,
 .qam-qa-list-meta-box:after,
-.qa-nav-footer-list:after,
-.qa-footer-clear:after,
 .qa-part-ranking:after,
 .qa-ranking-item:after {
     content: " ";
@@ -68,22 +62,7 @@
     clear: both;
 }
 
-/*------[ icon font ]------*/
-@font-face {
-    font-family: "fontello";
-    src: url("fonts/fontello.eot?70015067") format("embedded-opentype"),
-        url("fonts/fontello.eot?70015067#iefix") format("embedded-opentype"),
-        url("fonts/fontello.woff?70015067") format("woff"), url("fonts/fontello.ttf?70015067") format("truetype"),
-        url("fonts/fontello.svg?70015067#fontello") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
 /*------[ base css ]------*/
-html {
-    font-size: 16px;
-    line-height: 1.5;
-}
 
 :-moz-placeholder {
     color: #bdc3c7;
@@ -95,12 +74,6 @@ html {
     font-style: italic;
 }
 
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 body {
     background: #ecf0f1 !important;
     position: relative;
@@ -110,23 +83,7 @@ body.body-overflow {
     position: fixed;
 }
 
-a {
-    color: #2980b9;
-    text-decoration: none;
-}
-a:active,
-a:focus {
-    color: #3498db;
-    text-decoration: none;
-}
-a:visited {
-    color: #2980b9;
-    text-decoration: none;
-}
-a:hover {
-    color: #3498db;
-    text-decoration: underline;
-}
+
 
 .qa-main-heading {
     position: relative;
@@ -3242,139 +3199,7 @@ button {
     margin-right: 8px;
 }
 
-/*------[ footer ]------*/
-.qam-footer-box {
-    padding: 0;
-    background: #34495e;
-    color: #fff;
-    overflow: hidden;
-    margin: 0;
-}
-.qam-footer-box a {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-}
-.qam-footer-box a:hover,
-.qam-footer-box a:focus {
-    color: #fff;
-    border-bottom: 0;
-}
 
-.qam-footer-row a,
-.qam-footer-row a:visited {
-    display: block;
-    font-weight: normal;
-    border: none;
-    color: rgba(255, 255, 255, 0.75);
-}
-.qam-footer-row a:hover,
-.qam-footer-row a:focus,
-.qam-footer-row a:active,
-.qam-footer-row a:visited:hover,
-.qam-footer-row a:visited:focus,
-.qam-footer-row a:visited:active {
-    font-weight: normal;
-    border: none;
-}
-
-.qam-footer-col-heading {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
-    margin-top: 0;
-}
-
-@media (max-width: 979px) {
-    .qam-footer-col {
-        width: 100%;
-        padding: 10px;
-    }
-}
-@media (min-width: 980px) {
-    .qam-footer-row {
-        width: 100%;
-    }
-
-    .qam-footer-col {
-        width: 25%;
-        float: left;
-        padding: 1%;
-    }
-    .qam-footer-col:first-child {
-        padding-left: 0;
-    }
-    .qam-footer-col:last-child {
-        padding-right: 0;
-    }
-}
-@media (min-width: 1024px) {
-    .qam-footer-row {
-        width: 1024px;
-        margin: 0 auto;
-    }
-}
-
-.qa-footer {
-    padding: 10px;
-    background: #2c3e50;
-    color: #fff;
-    margin-bottom: 0;
-    font-size: 12px;
-    line-height: 12px;
-}
-.qa-footer a {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-}
-.qa-footer a:hover,
-.qa-footer a:focus {
-    color: #fff;
-    border-bottom: 0;
-}
-
-.qa-nav-footer-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.qa-nav-footer-item {
-    float: left;
-    padding: 0 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-}
-.qa-nav-footer-item:last-child {
-    border-right: 0;
-}
-
-.qa-nav-footer-link {
-    display: block;
-    font-weight: normal;
-}
-
-@media (max-width: 479px) {
-    .qa-nav-footer {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .qa-attribution {
-        display: block;
-    }
-}
-@media (min-width: 480px) {
-    .qa-nav-footer {
-        float: left;
-    }
-
-    .qa-attribution {
-        float: right;
-        display: block;
-        padding: 0 10px;
-        border-right: 1px solid rgba(255, 255, 255, 0.5);
-    }
-    .qa-attribution:nth-child(2) {
-        border-right: 0;
-    }
-}
 
 .qa-ask-box {
     padding: 10px 20px;

@@ -23,7 +23,7 @@
  *
  * @author Etalab <https://www.etalab.gouv.fr/>
  * @license http://www.gnu.org/copyleft/gpl.html
- * 
+ *
  * Snow theme HTML customizations
  *
  * @author Q2A Market <http://www.q2amarket.com>
@@ -271,7 +271,7 @@ class qa_html_theme extends qa_html_theme_base
 				'<a href="' . $navlink['url'] . '" class="qa-' . $class . '-link' .
 				(@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
 				(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') .
-				'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') . 
+				'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
 				(@$navlink['selected'] ? (' aria-current="true"') : '') .
 				(isset($navlink['target']) ? (' target="' . $navlink['target'] . '"') : '') . '>' . $navlink['label'] .
 				'</a>'
@@ -658,12 +658,15 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		// floated right
 		$this->output(
-			'<div class="qa-attribution">',
-			'Snow Theme by <a href="http://www.q2amarket.com">Q2A Market</a>',
-			'</div>'
+			'<ul class="qa-attribution-footer">',
+      '<li class="qa-attribution-footer-item">Snow Theme by <a class="qa-attribution-footer-link" href="http://www.q2amarket.com">Q2A Market</a></li>',
+			'<li class="qa-attribution-footer-item">Powered by <a class="qa-attribution-footer-link" href="http://www.question2answer.org/">Question2Answer</a></li>',
+      '</ul>'
 		);
-		parent::attribution();
-	}
+  }
+
+  // Remove empty div
+  public function footer_clear() {}
 
 	/**
 	 * User account navigation item. This will return based on login information.
