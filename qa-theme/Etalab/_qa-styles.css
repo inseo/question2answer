@@ -272,18 +272,8 @@ blockquote p {
     border-color: #e6e6e6;
 }
 
-.qa-search-button {
-    width: 36px;
-    height: 36px;
-    margin: 0 !important;
-    text-indent: -9999px;
-    background: #bdc3c7 url("images/search-icon-white.png") center no-repeat;
-    border: none;
-    outline: none;
-}
-
 @media (max-width: 979px) {
-    .qam-search {
+    #qam-sidepanel-mobile .qam-search {
         display: none;
     }
 }
@@ -299,7 +289,6 @@ blockquote p {
 }
 
 .qam-search.the-top {
-    display: none;
     margin: 0 10px 10px;
 }
 
@@ -3027,65 +3016,12 @@ button {
     display: none;
 }
 
-#qam-sidepanel-toggle {
-    display: none;
-}
-
 @media (min-width: 980px) {
     .qa-sidepanel {
         width: 25%;
         padding: 0;
         float: right;
         *zoom: 1;
-    }
-}
-
-@media (max-width: 979px) {
-    #qam-sidepanel-toggle {
-        display: block;
-        position: fixed;
-        bottom: 10px;
-        right: 0;
-        text-align: center;
-        font-size: 24px;
-        background: #9b59b6;
-        cursor: pointer;
-        transition: all 0.15s ease;
-        color: #95a5a6;
-        opacity: 0.5;
-        z-index: 999;
-    }
-    #qam-sidepanel-toggle.active {
-        opacity: 1;
-        color: #34495e;
-        right: 280px;
-        box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.5);
-    }
-    #qam-sidepanel-toggle [class^="icon-"]:before,
-    #qam-sidepanel-toggle [class*=" icon-"]:before {
-        line-height: 40px;
-        width: 30px;
-        height: 40px;
-        text-align: center;
-        color: #fff;
-    }
-
-    .qa-sidepanel {
-        width: 280px;
-        height: 100%;
-        position: fixed;
-        right: -280px;
-        top: 0;
-        overflow-y: auto;
-        z-index: 99999;
-        background: #fff;
-        transition: all 0.15s ease;
-        box-shadow: 0 0 0 0 transparent;
-    }
-    .qa-sidepanel.open {
-        right: 0 !important;
-        transition: all 0.15s ease;
-        box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -3525,73 +3461,6 @@ button {
     }
     .qam-ask-mobile a.wet-asphalt {
         background-color: #2f4154;
-    }
-
-    .qam-search-mobile {
-        background: #1abc9c url("images/icons/search-mobile.png") no-repeat center;
-        width: 64px;
-        display: table-cell;
-        border-left: 1px solid #1dd2af;
-        cursor: pointer;
-    }
-    .qam-search-mobile.active {
-        background-image: url("images/icons/search-mobile-collaps.png");
-    }
-    .qam-search-mobile.orange {
-        background-color: #ea940c;
-        border-left-color: #f4a62a;
-    }
-    .qam-search-mobile.orange.active {
-        background-color: #f39c12;
-    }
-    .qam-search-mobile.carrot {
-        background-color: #df7619;
-        border-left-color: #e98b39;
-    }
-    .qam-search-mobile.carrot.active {
-        background-color: #e67e22;
-    }
-    .qam-search-mobile.alizarin {
-        background-color: #e53f2e;
-        border-left-color: #ea6153;
-    }
-    .qam-search-mobile.alizarin.active {
-        background-color: #e74c3c;
-    }
-    .qam-search-mobile.turquoise {
-        background-color: #18af91;
-        border-left-color: #1dd2af;
-    }
-    .qam-search-mobile.turquoise.active {
-        background-color: #1abc9c;
-    }
-    .qam-search-mobile.emerald {
-        background-color: #2bc06a;
-        border-left-color: #40d47e;
-    }
-    .qam-search-mobile.emerald.active {
-        background-color: #2ecc71;
-    }
-    .qam-search-mobile.peter-river {
-        background-color: #2791d9;
-        border-left-color: #4aa3df;
-    }
-    .qam-search-mobile.peter-river.active {
-        background-color: #3498db;
-    }
-    .qam-search-mobile.amethyst {
-        background-color: #954eb1;
-        border-left-color: #a66bbe;
-    }
-    .qam-search-mobile.amethyst.active {
-        background-color: #9b59b6;
-    }
-    .qam-search-mobile.wet-asphalt {
-        background-color: #2f4154;
-        border-left-color: #3d566e;
-    }
-    .qam-search-mobile.wet-asphalt.active {
-        background-color: #34495e;
     }
 }
 

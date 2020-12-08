@@ -330,8 +330,10 @@ class qa_html_theme extends qa_html_theme_base
 		$this->nav_main_sub();
 		$this->output('</header> <!-- END qam-topbar -->');
 
+		$this->output('<div class="qam-ask-search-box">');
 		$this->output($this->ask_button());
 		$this->qam_search('the-top', 'the-top-search');
+		$this->output('</div>');
 	}
 
 	/**
@@ -349,18 +351,14 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- END qam-footer-box -->');
 	}
 
-	/**
-	 * Adds placeholder "Search..." for search box
-	 */
 	public function search_field($search)
 	{
-		$this->output(
-			sprintf('<input type="text" placeholder="%s..." %s value="%s" class="qa-search-field"/>',
-				$search['button_label'],
-				$search['field_tags'],
-				isset($search['value']) ? $search['value'] : ''
-			)
-		);
+		$this->output('<input type="text" placeholder="'. $search['button_label'] .'…" aria-label="'. $search['button_label'] .'…" ' . $search['field_tags'] . ' value="' . @$search['value'] . '" class="qa-search-field"/>');
+	}
+
+	public function search_button($search)
+	{
+		$this->output('<input type="submit" class="qa-search-button" value="' . $search['button_label'] . '" />');
 	}
 
 	/**
@@ -372,7 +370,6 @@ class qa_html_theme extends qa_html_theme_base
 		if ($this->template == 'user')
 			return;
 
-		$this->output('<div id="qam-sidepanel-toggle"><i class="icon-left-open-big"></i></div>');
 		$this->output('<div class="qa-sidepanel" id="qam-sidepanel-mobile">');
 		$this->qam_search();
 		$this->widgets('side', 'top');
@@ -730,11 +727,10 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$id = isset($ids) ? ' id="' . $ids . '"' : '';
 
-		$this->output('<div class="qam-search ' . $this->ask_search_box_class . ' ' . $addon_class . '"' . $id . '>');
+		$this->output('<div role="search" class="qam-search ' . $this->ask_search_box_class . ' ' . $addon_class . '"' . $id . '>');
 		$this->search();
 		$this->output('</div>');
 	}
-
 
 	/**
 	 * Dynamic CSS based on options and other interaction with Q2A.
@@ -769,14 +765,10 @@ class qa_html_theme extends qa_html_theme_base
 	private function ask_button()
 	{
 		return
-			'<div class="qam-ask-search-box">' .
 			'<div class="qam-ask-mobile">' .
 			'<a href="' . qa_path('ask', null, qa_path_to_root()) . '" class="' . $this->ask_search_box_class . '">' .
 			qa_lang_html('main/nav_ask') .
 			'</a>' .
-			'</div>' .
-			'<div class="qam-search-mobile ' . $this->ask_search_box_class . '" id="qam-search-mobile">' .
-			'</div>' .
 			'</div>';
 	}
 }
