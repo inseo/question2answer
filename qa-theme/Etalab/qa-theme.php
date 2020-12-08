@@ -30,6 +30,7 @@
  * @copyright (c) 2014, Q2A Market
  * @license http://www.gnu.org/copyleft/gpl.html
  */
+
 class qa_html_theme extends qa_html_theme_base
 {
 	protected $theme = 'etalab';
@@ -770,5 +771,31 @@ class qa_html_theme extends qa_html_theme_base
 			qa_lang_html('main/nav_ask') .
 			'</a>' .
 			'</div>';
+	}
+
+	/**
+	 * Accessibility of forms and datatables
+	 */
+	public function form_body($form)
+	{
+		if (@$form['boxed'])
+			$this->output('<div class="qa-form-table-boxed">');
+
+		$columns = $this->form_columns($form);
+
+		if ($columns)
+			$this->output('<table class="qa-form-' . $form['style'] . '-table" role="presentation">');
+
+		$this->form_ok($form, $columns);
+		$this->form_fields($form, $columns);
+		$this->form_buttons($form, $columns);
+
+		if ($columns)
+			$this->output('</table>');
+
+		$this->form_hidden($form);
+
+		if (@$form['boxed'])
+			$this->output('</div>');
 	}
 }
