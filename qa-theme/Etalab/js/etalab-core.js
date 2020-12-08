@@ -1,10 +1,7 @@
 /*
-	Q2A Market (c) Jatin Soni
-	http://www.q2amarket.com/
-
-	File:           js/snow-core.js
-	Version:        Snow 1.4
-	Description:    JavaScript helpers for SnowFlat theme
+	File:           js/etalab-core.js
+	Version:        Etalab 0.1
+	Description:    JavaScript helpers for Etalab theme (forked from Snow theme)
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by

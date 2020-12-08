@@ -126,7 +126,6 @@ a:active,
 a:focus {
     color: #3498db;
     text-decoration: none;
-    outline: 0;
 }
 a:visited {
     color: #2980b9;
@@ -372,7 +371,6 @@ blockquote p {
 .qa-notice-close-button:hover,
 .qa-notice-close-button:focus {
     background: transparent url("images/icons/close-red.png"); /* override generic input styles */
-    outline: none;
     border: none;
 }
 
@@ -492,7 +490,8 @@ blockquote p {
     display: block;
 }
 
-.qa-logo-link:hover {
+.qa-logo-link:hover,
+.qa-logo-link:focus {
     text-decoration: none;
 }
 
@@ -517,7 +516,8 @@ blockquote p {
         background: #34495e;
         padding: 5px 15px;
     }
-    .qa-logo-link:hover {
+    .qa-logo-link:hover,
+    .qa-logo-link:focus {
         background: #445f7a;
     }
 
@@ -605,7 +605,8 @@ blockquote p {
     width: auto;
     height: auto;
 }
-.qa-nav-main-link:hover {
+.qa-nav-main-link:hover,
+.qa-nav-main-link:focus {
     text-decoration: none;
     background: #445f7a;
 }
@@ -685,14 +686,16 @@ blockquote p {
 
 .qa-nav-sub-link,
 .qa-nav-sub-link:visited,
-.qa-nav-sub-link:hover {
+.qa-nav-sub-link:hover,
+.qa-nav-sub-link:focus {
     display: block;
     padding: 2px 10px 4px;
     color: #000;
 }
 .qa-nav-sub-link.qa-nav-sub-selected,
 .qa-nav-sub-link:visited.qa-nav-sub-selected,
-.qa-nav-sub-link:hover.qa-nav-sub-selected {
+.qa-nav-sub-link:hover.qa-nav-sub-selected,
+.qa-nav-sub-link:focus.qa-nav-sub-selected {
     background-color: #3498db;
     color: #fff;
 }
@@ -703,6 +706,8 @@ blockquote p {
 }
 
 #qam-account-toggle {
+    border: 0;
+    color: #fff;
     display: block;
     cursor: pointer;
     min-width: 60px;
@@ -712,7 +717,8 @@ blockquote p {
     background-color: #34495e;
     text-align: center;
 }
-#qam-account-toggle:hover {
+#qam-account-toggle:hover,
+#qam-account-toggle:focus {
     background: #445f7a;
 }
 #qam-account-toggle .qam-auth-key {
@@ -769,7 +775,8 @@ blockquote p {
     line-height: 20px;
     border: 1px solid #27ae60;
 }
-.qa-nav-user-register .qa-nav-user-link:hover {
+.qa-nav-user-register .qa-nav-user-link:hover,
+.qa-nav-user-register .qa-nav-user-link:focus {
     background-color: #2ecc71;
     border-color: #2ecc71;
     text-decoration: none;
@@ -867,13 +874,18 @@ blockquote p {
 }
 
 .qa-logged-in:hover,
+.qa-logged-in:focus,
 .qam-logged-in-points:hover,
-.qa-nav-user-item:hover {
+.qam-logged-in-points:focus,
+.qa-nav-user-item:hover,
+.qa-nav-user-item:focus {
     background-color: #2c3e50;
 }
 
 .qa-nav-user-facebook-login:hover,
-.qa-nav-user-register:hover {
+.qa-nav-user-facebook-login:focus,
+.qa-nav-user-register:hover,
+.qa-nav-user-register:focus {
     background-color: transparent;
 }
 
@@ -911,7 +923,8 @@ blockquote p {
     color: #ecf0f1;
     font-size: 1.4em;
 }
-.qam-title-rss:hover {
+.qam-title-rss:hover,
+.qam-title-rss:focus {
     color: #fff;
 }
 .qam-title-rss:before {
@@ -930,7 +943,8 @@ blockquote p {
     font-size: 14px;
     margin-bottom: 20px;
 }
-.qa-post-content tr:hover {
+.qa-post-content tr:hover,
+.qa-post-content tr:focus {
     background-color: #f4f4f4;
 }
 .qa-post-content th,
@@ -982,7 +996,9 @@ blockquote p {
     border: none;
 }
 .qa-favorite-button:hover,
-.qa-unfavorite-button:hover {
+.qa-favorite-button:focus,
+.qa-unfavorite-button:hover,
+.qa-unfavorite-button:focus {
     background-color: #f39c12;
     background-position: center -38px;
 }
@@ -1294,7 +1310,8 @@ blockquote p {
 .qa-q-item-title a:visited {
     color: #3498db;
 }
-.qa-q-item-title:hover .qam-q-list-close-icon {
+.qa-q-item-title:hover .qam-q-list-close-icon,
+.qa-q-item-title:focus .qam-q-list-close-icon {
     background-color: #c0392b;
     cursor: help;
 }
@@ -1400,7 +1417,9 @@ blockquote p {
     transition: background 0.25s ease-in-out;
 }
 .qa-tag-link:hover,
-.qa-widget-side .qa-q-view-tag-item:hover {
+.qa-tag-link:focus,
+.qa-widget-side .qa-q-view-tag-item:hover,
+.qa-widget-side .qa-q-view-tag-item:focus {
     background: #f39c12;
     color: #fff !important;
 }
@@ -1465,7 +1484,8 @@ blockquote p {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-page-selected a:hover {
+.qa-page-selected a:hover,
+.qa-page-selected a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -1521,7 +1541,8 @@ blockquote p {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-template-admin .qa-message-avatar-meta .qa-message-who-data a a:hover {
+.qa-template-admin .qa-message-avatar-meta .qa-message-who-data a a:hover,
+.qa-template-admin .qa-message-avatar-meta .qa-message-who-data a a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -1690,6 +1711,7 @@ blockquote p {
 .qa-browse-cat-nolink,
 .qa-browse-cat-link,
 .qa-browse-cat-link:hover,
+.qa-browse-cat-link:focus,
 .qa-browse-cat-link:visited {
     background-color: #e74c3c;
     display: inline-block;
@@ -1751,7 +1773,8 @@ blockquote p {
     top: 0;
     left: 0;
 }
-.qa-browse-cat-note a:hover {
+.qa-browse-cat-note a:hover,
+.qa-browse-cat-note a:focus {
     background-color: #48d684;
     text-decoration: none;
 }
@@ -1854,7 +1877,8 @@ blockquote p {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-part-form-message .qam-pm-message a:hover {
+.qa-part-form-message .qam-pm-message a:hover,
+.qa-part-form-message .qam-pm-message a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -1890,14 +1914,12 @@ textarea:focus,
 select:focus {
     background-color: #fff;
     border-color: #3498db;
-    outline: 0;
 }
 input::-moz-focus-inner,
 textarea::-moz-focus-inner,
 select::-moz-focus-inner {
     padding: 0;
     border: 0;
-    outline: 0;
 }
 
 select:-moz-focusring {
@@ -1968,15 +1990,17 @@ button {
 .qa-form-basic-button:hover,
 .qa-form-basic-button:focus {
     border: 0;
-    outline: 0;
     background-color: #4aa3df;
 }
 .qa-form-tall-button a,
 .qa-form-tall-button a:hover,
+.qa-form-tall-button a:focus,
 .qa-form-wide-button a,
 .qa-form-wide-button a:hover,
+.qa-form-wide-button a:focus,
 .qa-form-basic-button a,
-.qa-form-basic-button a:hover {
+.qa-form-basic-button a:hover,
+.qa-form-basic-button a:focus {
     color: #fff;
 }
 
@@ -2099,7 +2123,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-ask-similar-title a:hover {
+.qa-ask-similar-title a:hover,
+.qa-ask-similar-title a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -2238,7 +2263,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-template-favorites h2 a:hover {
+.qa-template-favorites h2 a:hover,
+.qa-template-favorites h2 a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -2278,7 +2304,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-suggest-next a:hover {
+.qa-suggest-next a:hover,
+.qa-suggest-next a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -2303,10 +2330,10 @@ button {
 .qa-form-light-button:focus {
     background-color: #476481;
     border: 0;
-    outline: 0;
 }
 .qa-form-light-button a,
-.qa-form-light-button a:hover {
+.qa-form-light-button a:hover,
+.qa-form-light-button a:focus {
     color: #fff;
 }
 
@@ -2506,22 +2533,26 @@ button {
     display: block;
     content: url("images/icons/closed-note.png");
 }
-.qa-q-view-closed:hover {
+.qa-q-view-closed:hover,
+.qa-q-view-closed:focus {
     padding: 10px 10px 10px 54px;
     margin-bottom: 5px;
     background: #e74c3c;
     color: #fff;
     cursor: help;
 }
-.qa-q-view-closed:hover a {
+.qa-q-view-closed:hover a,
+.qa-q-view-closed:focus a {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-q-view-closed:hover a:hover {
+.qa-q-view-closed:hover a:hover,
+.qa-q-view-closed:hover a:focus {
     color: #fff;
     border-bottom: 0;
 }
-.qa-q-view-closed:hover:before {
+.qa-q-view-closed:hover:before,
+.qa-q-view-closed:focus:before {
     background-color: #c0392b;
     content: url("images/icons/closed-note-white.png");
 }
@@ -2591,7 +2622,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-#a_list_title a:hover {
+#a_list_title a:hover,
+#a_list_title a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -2877,7 +2909,8 @@ button {
     background-color: #d6dadb;
 }
 .qa-c-list-item .qa-form-light-button a,
-.qa-c-list-item .qa-form-light-button a:hover {
+.qa-c-list-item .qa-form-light-button a:hover,
+.qa-c-list-item .qa-form-light-button a:focus {
     color: #34495e;
 }
 .qa-c-list-item .qa-form-light-button-comment {
@@ -2981,7 +3014,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-widget-main h2:first-of-type a:hover {
+.qa-widget-main h2:first-of-type a:hover,
+.qa-widget-main h2:first-of-type a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -3094,7 +3128,8 @@ button {
     border-bottom: 1px dotted #fff;
     font-weight: bold;
 }
-.qa-sidebar a:hover {
+.qa-sidebar a:hover,
+.qa-sidebar a:focus {
     color: #fff;
     border-bottom: 0;
     text-decoration: none;
@@ -3157,7 +3192,8 @@ button {
 .qa-activity-count-item:hover {
     cursor: help;
 }
-.qa-activity-count-item:hover:before {
+.qa-activity-count-item:hover:before,
+.qa-activity-count-item:focus:before {
     opacity: 1;
     -webkit-animation: shake 0.25s;
     animation: shake 0.25s;
@@ -3288,7 +3324,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qam-footer-box a:hover {
+.qam-footer-box a:hover,
+.qam-footer-box a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -3357,7 +3394,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-footer a:hover {
+.qa-footer a:hover,
+.qa-footer a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -3418,7 +3456,8 @@ button {
     color: #fff;
     border-bottom: 1px dotted #fff;
 }
-.qa-ask-box a:hover {
+.qa-ask-box a:hover,
+.qa-ask-box a:focus {
     color: #fff;
     border-bottom: 0;
 }
@@ -3458,7 +3497,8 @@ button {
         color: #fff;
         border-bottom: 1px dotted #fff;
     }
-    .qam-ask-mobile a a:hover {
+    .qam-ask-mobile a a:hover,
+    .qam-ask-mobile a a:focus {
         color: #fff;
         border-bottom: 0;
     }

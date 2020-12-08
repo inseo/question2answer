@@ -1,10 +1,10 @@
 <?php
 /*
-	Snow Theme for Question2Answer Package
-	Copyright (C) 2014 Q2A Market <http://www.q2amarket.com>
+	Etalab Theme for Question2Answer Package
+	Forked from Snow Theme <http://www.q2amarket.com>
 
 	File:           qa-theme.php
-	Version:        Snow 1.4
+	Version:        Etalab 0.1
 	Description:    Q2A theme class
 
 	This program is free software: you can redistribute it and/or modify
@@ -19,6 +19,11 @@
 */
 
 /**
+ * Etalab theme HTML customizations
+ *
+ * @author Etalab <https://www.etalab.gouv.fr/>
+ * @license http://www.gnu.org/copyleft/gpl.html
+ * 
  * Snow theme HTML customizations
  *
  * @author Q2A Market <http://www.q2amarket.com>
@@ -106,7 +111,7 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function head_script()
 	{
-		$jsUrl = $this->rooturl . $this->js_dir . '/snow-core.js?' . QA_VERSION;
+		$jsUrl = $this->rooturl . $this->js_dir . '/etalab-core.js?' . QA_VERSION;
 		$this->content['script'][] = '<script src="' . $jsUrl . '"></script>';
 
 		parent::head_script();
@@ -622,20 +627,18 @@ class qa_html_theme extends qa_html_theme_base
 			}
 
 			$avatar = strip_tags($tobar_avatar, '<img>');
-			if (!empty($avatar))
-				$handle = '';
 		}
 		else {
 			// display login icon and label
 			$handle = $this->content['navigation']['user']['login']['label'];
 			$toggleClass = 'qam-logged-out';
-			$avatar = '<i class="icon-key qam-auth-key"></i>';
+			$avatar = '<i aria-hidden="true" class="icon-key qam-auth-key"></i>';
 		}
 
 		// finally output avatar with div tag
-		$handleBlock = empty($handle) ? '' : '<div class="qam-account-handle">' . qa_html($handle) . '</div>';
+		$handleBlock = !empty($avatar) && qa_is_logged_in() ? '' : '<div class="qam-account-handle">' . qa_html($handle) . '</div>';
 		$this->output(
-			'<button aria-expanded="false" id="qam-account-toggle" class="' . $toggleClass . '">',
+			'<button aria-expanded="false" title="'. $handle .'" aria-label="'. $handle .'" id="qam-account-toggle" class="' . $toggleClass . '">',
 			$avatar,
 			$handleBlock,
 			'</button>'
