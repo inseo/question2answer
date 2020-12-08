@@ -32,6 +32,10 @@ $toc: true;
 @import 'scss/objetcs/**/*.scss';
 /*
 /*
+/* COMPONENTS */
+@import 'scss/components/**/*.scss';
+/*
+/*
 /* UTILITIES */
 @import 'scss/utilities/**/*.scss';
 
@@ -57,6 +61,9 @@ $toc: false;
 
 // OBJECTS
 @import 'scss/objetcs/**/*.scss';
+
+// COMPONENTS
+@import 'scss/components/**/*.scss';
 
 // UTILITIES
 @import 'scss/utilities/**/*.scss';

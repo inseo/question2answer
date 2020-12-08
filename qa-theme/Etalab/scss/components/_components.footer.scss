@@ -1,0 +1,67 @@
+@if $toc {
+  /* - Footer_____________Pied de page du site */
+} @else {
+  /* Pied de page du site [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qam-footer-box {
+    @extend %o-wrapper;
+    margin-top: rem(40); // 40px
+  }
+
+
+  // Conteneur interne
+  .qa-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: rem(16) 0; // 16px
+    font-size: rem(12); // 12px
+    border-top: 1px solid theme(default-bdc);
+
+    @include mq($until: XS) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+  // Conteneur de la navigation
+  .qa-nav-footer {
+    @include mq($from: XS) {
+      margin-right: auto;
+    }
+  }
+
+
+  // Copyright
+  .qa-attribution-footer-item {
+    display: inline;
+    position: relative;
+    margin-left: rem(4); // 4px
+
+    &:not(:first-child)::before {
+      content: "";
+      display: inline-block;
+      height: rem(16); // 16px
+      width: 1px;
+      margin-right: rem(4); // 4px
+      vertical-align: middle;
+      background-color: theme(default-bdc);
+    }
+  }
+
+
+  // Links
+  .qa-attribution-footer-link,
+  .qa-nav-footer-link {
+    color: theme(attribution-footer-link);
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 1px 0 0 currentColor;
+    }
+  }
+}
