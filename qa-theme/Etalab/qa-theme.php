@@ -163,7 +163,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function nav_user_search()
 	{
 		// outputs login form if user not logged in
-		$this->output('<div class="qam-account-items-wrapper">');
+		$this->output('<nav role="navigation" class="qam-account-items-wrapper">');
 
 		$this->qam_user_account();
 
@@ -176,23 +176,25 @@ class qa_html_theme extends qa_html_theme_base
 				$inputType = $emailOnly ? 'email' : 'text';
 				$this->output(
 					'<form action="' . $login['url'] . '" method="post">',
-						'<input type="' . $inputType . '" name="emailhandle" dir="auto" placeholder="' . trim(qa_lang_html($emailOnly ? 'users/email_label' : 'users/email_handle_label'), ':') . '"/>',
-						'<input type="password" name="password" dir="auto" placeholder="' . trim(qa_lang_html('users/password_label'), ':') . '"/>',
+						'<label for="qam-emailhandle">'. trim(qa_lang_html($emailOnly ? 'users/email_label' : 'users/email_handle_label'), ':') .'</label>',
+						'<input type="' . $inputType . '" autocomplete="username" name="emailhandle" id="qam-emailhandle" aria-required="true" dir="auto" />',
+						'<label for="qam-password">'. trim(qa_lang_html('users/password_label'), ':') .'</label>',
+						'<input type="password" autocomplete="current-password" name="password" id="qam-password" aria-required="true" dir="auto" />',
 						'<div><input type="checkbox" name="remember" id="qam-rememberme" value="1"/>',
 						'<label for="qam-rememberme">' . qa_lang_html('users/remember') . '</label></div>',
 						'<input type="hidden" name="code" value="' . qa_html(qa_get_form_security_code('login')) . '"/>',
 						'<input type="submit" value="' . $login['label'] . '" class="qa-form-tall-button qa-form-tall-button-login" name="dologin"/>',
 					'</form>'
 				);
-
 				// remove regular navigation link to log in page
 				unset($this->content['navigation']['user']['login']);
+				unset($this->content['navigation']['user']['register']);
 			}
 		}
 
 		$this->nav('user');
 		$this->output('</div> <!-- END qam-account-items -->');
-		$this->output('</div> <!-- END qam-account-items-wrapper -->');
+		$this->output('</nav> <!-- END qam-account-items-wrapper -->');
 	}
 
 	/**
@@ -681,10 +683,18 @@ class qa_html_theme extends qa_html_theme_base
 			$handle = $this->content['navigation']['user']['login']['label'];
 			$toggleClass = 'qam-logged-out';
 			$avatar = '<i aria-hidden="true" class="icon-key qam-auth-key"></i>';
+
+			// display register link
+			$register = $this->content['navigation']['user']['register'];
+			$this->output(
+				'<a href="' . $register['url'] . '">',
+				'<i aria-hidden="true" class="icon-user-add qam-auth-key"></i>' .$register['label'],
+				'</a>'
+			);
 		}
 
 		// finally output avatar with div tag
-		$handleBlock = !empty($avatar) && qa_is_logged_in() ? '' : '<div class="qam-account-handle">' . qa_html($handle) . '</div>';
+		$handleBlock = !empty($avatar) && qa_is_logged_in() ? '' : qa_html($handle);
 		$this->output(
 			'<button aria-expanded="false" aria-controls="qam-account-items" title="'. $handle .'" aria-label="'. $handle .'" id="qam-account-toggle" class="' . $toggleClass . '">',
 			$avatar,
