@@ -289,7 +289,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->header();
 
 		$extratags = isset($this->content['wrapper_tags']) ? $this->content['wrapper_tags'] : '';
-		$this->output('<div class="qa-body-wrapper"' . $extratags . '>', '');
+		$this->output('<main role="main" class="qa-body-wrapper"' . $extratags . '>', '');
 		$this->widgets('full', 'high');
 
 		$this->output('<div class="qa-main-wrapper">', '');
@@ -298,7 +298,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- END main-wrapper -->');
 
 		$this->widgets('full', 'low');
-		$this->output('</div> <!-- END body-wrapper -->');
+		$this->output('</main> <!-- END body-wrapper -->');
 
 		$this->footer();
 
