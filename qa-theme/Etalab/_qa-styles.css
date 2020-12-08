@@ -68,22 +68,7 @@
     clear: both;
 }
 
-/*------[ icon font ]------*/
-@font-face {
-    font-family: "fontello";
-    src: url("fonts/fontello.eot?70015067") format("embedded-opentype"),
-        url("fonts/fontello.eot?70015067#iefix") format("embedded-opentype"),
-        url("fonts/fontello.woff?70015067") format("woff"), url("fonts/fontello.ttf?70015067") format("truetype"),
-        url("fonts/fontello.svg?70015067#fontello") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
 /*------[ base css ]------*/
-html {
-    font-size: 16px;
-    line-height: 1.5;
-}
 
 :-moz-placeholder {
     color: #bdc3c7;
