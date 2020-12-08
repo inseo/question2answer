@@ -59,9 +59,11 @@ $(document).ready(function () {
 	}
 
 	function closeMenuToggle() {
-		$('.qam-menu-toggle.current').attr("aria-expanded", "false");
-		$('.qam-menu-toggle.current').removeClass('current');
-		$('.qa-nav-main:visible').slideUp(100);
+		if($('.qam-menu-toggle').is(':visible')) {
+			$('.qam-menu-toggle.current').attr("aria-expanded", "false");
+			$('.qam-menu-toggle.current').removeClass('current');
+			$('.qa-nav-main:visible').slideUp(100);
+		}
 	}
 
 	$('.qam-account-items').click(function (event) {
