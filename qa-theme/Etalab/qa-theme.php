@@ -777,7 +777,7 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Accessibility of forms and datatables
+	 * Accessibility of forms and layout tables
 	 */
 	public function form_body($form)
 	{
@@ -800,5 +800,294 @@ class qa_html_theme extends qa_html_theme_base
 
 		if (@$form['boxed'])
 			$this->output('</div>');
+	}
+
+	public function form_ok($form, $columns)
+	{
+		$this->output('<tr role="status">');
+		if (!empty($form['ok'])) {
+			$this->output(
+				'<td colspan="' . $columns . '" class="qa-form-' . $form['style'] . '-ok">',
+				$form['ok'],
+				'</td>',
+			);
+		}
+		$this->output('</tr>');
+	}
+
+	public function form_field_rows($form, $columns, $field)
+	{
+		$style = $form['style'];
+
+		if (isset($field['style'])) { // field has different style to most of form
+			$style = $field['style'];
+			$colspan = $columns;
+			$columns = ($style == 'wide') ? 2 : 1;
+		} else
+			$colspan = null;
+
+		$prefixed = (@$field['type'] == 'checkbox') && ($columns == 1) && !empty($field['label']);
+		$suffixed = (@$field['type'] == 'select' || @$field['type'] == 'number') && $columns == 1 && !empty($field['label']) && !@$field['loose'];
+		$skipdata = @$field['tight'];
+		$tworows = ($columns == 1) && (!empty($field['label'])) && (!$skipdata) &&
+			((!($prefixed || $suffixed)) || (!empty($field['error'])) || (!empty($field['note'])));
+
+		if (isset($field['id'])) {
+			if ($columns == 1) {
+				if (isset($field['type']) && $field['type'] == "select-radio") {
+					$this->output('<tbody id="' . $field['id'] . '" role="radiogroup" aria-label="'. $field['label'] .'">', '<tr>');
+				} else {
+					$this->output('<tbody id="' . $field['id'] . '" role="presentation">', '<tr>');
+				}				
+			}
+			else
+				$this->output('<tr id="' . $field['id'] . '">');
+		} else
+			$this->output('<tr>');
+
+		if ($columns > 1 || !empty($field['label']))
+			$this->form_label($field, $style, $columns, $prefixed, $suffixed, $colspan);
+
+		if ($tworows) {
+			$this->output(
+				'</tr>',
+				'<tr>'
+			);
+		}
+
+		if (!$skipdata)
+			$this->form_data($field, $style, $columns, !($prefixed || $suffixed), $colspan);
+
+		$this->output('</tr>');
+
+		if ($columns == 1 && isset($field['id']))
+			$this->output('</tbody>');
+	}
+	
+	public function form_label($field, $style, $columns, $prefixed, $suffixed, $colspan)
+	{
+		$extratags = '';
+
+		if ($columns > 1 && (@$field['type'] == 'select-radio' || @$field['rows'] > 1))
+			$extratags .= ' style="vertical-align:top;"';
+
+		if (isset($colspan))
+			$extratags .= ' colspan="' . $colspan . '"';
+
+		$this->output('<td class="qa-form-' . $style . '-label"' . $extratags . '>');
+
+		// Add <label> when field with id or name is identified (except for select-radio)
+		$id = $this->extractAttributeFromTags($field, "id");
+		if (!isset($id)) {
+			$id = $this->extractAttributeFromTags($field, "name");
+		}
+		if(isset($field['type']) && $field['type'] == "select-radio") {
+
+		} else {
+			isset($id) ? $this->output('<label for="' . $id . '">') : '';;
+		}
+
+		if ($prefixed) {
+			$this->form_field($field, $style);
+		}
+
+		$this->output(@$field['label']);
+		if ($suffixed) {
+			$this->output('&nbsp;');
+			$this->form_field($field, $style);
+		}
+
+		if(isset($field['type']) && $field['type'] == "select-radio") {
+
+		} else {
+			isset($id) ? $this->output('</label>') : '';;
+		}
+		$this->output('</td>');
+	}
+
+	// Find the field's id 
+	private function extractAttributeFromTags($field, $attribute) {
+		// Find the field's id or create it with the field's name
+		$id = null;
+		if(isset($field['tags'])) {
+			preg_match('~'.$attribute.'="(.*?)"~', $field['tags'], $output); 
+			isset($output[1]) ? $id = $output[1] : $id = null;
+		}
+		return $id;
+	}
+	
+	public function form_checkbox($field, $style)
+	{
+		$this->output('<input ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output(@$field['tags'] . ' type="checkbox" value="1"' . (@$field['value'] ? ' checked' : '') . ' class="qa-form-' . $style . '-checkbox"/>');
+	}
+
+	public function form_password($field, $style)
+	{
+		$this->output('<input ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output(@$field['tags'] . ' type="password" value="' . @$field['value'] . '" class="qa-form-' . $style . '-text"/>');
+	}
+
+	public function form_number($field, $style)
+	{
+		$this->output('<input ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output(@$field['tags'] . ' type="text" value="' . @$field['value'] . '" class="qa-form-' . $style . '-number"/>');
+	}
+
+	public function form_file($field, $style)
+	{
+		$this->output('<input ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output(@$field['tags'] . ' type="file" class="qa-form-' . $style . '-file"/>');
+	}
+
+	/**
+	 * Output a <select> element. The $field array may contain the following keys:
+	 *   options: (required) a key-value array containing all the options in the select.
+	 *   tags: any attributes to be added to the select.
+	 *   value: the selected value from the 'options' parameter.
+	 *   match_by: whether to match the 'value' (default) or 'key' of each option to determine if it is to be selected.
+	 * @param $field
+	 * @param $style
+	 */
+	public function form_select($field, $style)
+	{
+		$this->output('<select ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output((isset($field['tags']) ? $field['tags'] : '') . ' class="qa-form-' . $style . '-select">');
+
+		// Only match by key if it is explicitly specified. Otherwise, for backwards compatibility, match by value
+		$matchbykey = isset($field['match_by']) && $field['match_by'] === 'key';
+
+		foreach ($field['options'] as $key => $value) {
+			$selected = isset($field['value']) && (
+				($matchbykey && $key === $field['value']) ||
+				(!$matchbykey && $value === $field['value'])
+			);
+			$this->output('<option value="' . $key . '"' . ($selected ? ' selected' : '') . '>' . $value . '</option>');
+		}
+
+		$this->output('</select>');
+	}
+
+	public function form_select_radio($field, $style)
+	{
+		$radios = 0;
+
+		$this->output('<div role="list">');
+		foreach ($field['options'] as $tag => $value) {
+			$id = null;
+			$tags = @$field['tags'];
+			
+			// Resolve issue: all radio inputs have the same id :(
+			if($this->extractAttributeFromTags($field, "id") !== null) {
+				$id = $this->extractAttributeFromTags($field, "id");
+				$tags = str_replace ('id="'.$id.'"', 'id="'.$id. $radios.'"', $tags);
+			} else {
+				if($this->extractAttributeFromTags($field, "name") !== null) {
+					$id = $this->extractAttributeFromTags($field, "name");
+					$tags .= ' id="'.$id.$radios.'"';
+				}
+			}			
+			$this->output('<div role="listitem">');
+			$this->output('<label for="'.$id.$radios.'">'); 
+			$this->output('<input ' . @$tags . ' type="radio" value="' . $tag . '"' . (($value == @$field['value']) ? ' checked' : '') . ' class="qa-form-' . $style . '-radio"/> ');
+			$this->output($value);
+			$this->output('</label>');
+			$this->output('</div>');
+
+			$radios++;
+		}
+		$this->output('</div>');
+	}
+
+	public function form_email($field, $style)
+	{
+		$id = null;
+		$ariaDescribedBy = "";
+		$tags = @$field['tags'];
+		print_r($field);
+		if($this->extractAttributeFromTags($field, "id") !== null) {
+			$id = $this->extractAttributeFromTags($field, "id");
+		} else {
+			if($this->extractAttributeFromTags($field, "name") !== null) {
+				$id = $this->extractAttributeFromTags($field, "name");
+				$tags .= ' id="'.$id.'"';
+			}
+		}
+		if(isset($field['error']) && $field['error'] !== "") {
+			$ariaDescribedBy .= "error_".$id." ";
+			$tags .= ' aria-invalid="true"';
+		}
+		if(isset($field['note']))
+			$ariaDescribedBy .= "note_".$id." ";
+		if($ariaDescribedBy !== "")
+			$tags .= ' aria-describedby="'.$ariaDescribedBy.'"';
+		$this->output('<input '. $tags . ' type="email" value="' . @$field['value'] . '" class="qa-form-' . $style . '-email"/>');
+	}
+
+	public function form_text_single_row($field, $style)
+	{
+		$this->output('<input ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output(@$field['tags'] . ' type="text" value="' . @$field['value'] . '" class="qa-form-' . $style . '-text"/>');
+	}
+
+	public function form_text_multi_row($field, $style)
+	{
+		$this->output('<textarea ');
+		if($this->extractAttributeFromTags($field, "id") == null) {
+			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
+		}
+		$this->output(@$field['tags'] . ' rows="' . (int)$field['rows'] . '" cols="40" class="qa-form-' . $style . '-text">' . @$field['value'] . '</textarea>');
+	}
+
+	public function form_error($field, $style, $columns)
+	{
+		$id = "error_";
+		// Resolve issue: all radio inputs have the same id :(
+		if($this->extractAttributeFromTags($field, "id") !== null) {
+			$id .= $this->extractAttributeFromTags($field, "id");
+		} else {
+			if($this->extractAttributeFromTags($field, "name") !== null) {
+				$id .= $this->extractAttributeFromTags($field, "name");
+			}
+		}
+
+		$tag = ($columns > 1) ? 'span' : 'p';
+
+		$this->output('<' . $tag . ' id="'. $id .'" class="qa-form-' . $style . '-error">' . $field['error'] . '</' . $tag . '>');
+	}
+
+	public function form_note($field, $style, $columns)
+	{
+		$id = "note_";
+		// Resolve issue: all radio inputs have the same id :(
+		if($this->extractAttributeFromTags($field, "id") !== null) {
+			$id .= $this->extractAttributeFromTags($field, "id");
+		} else {
+			if($this->extractAttributeFromTags($field, "name") !== null) {
+				$id .= $this->extractAttributeFromTags($field, "name");
+			}
+		}
+
+		$tag = ($columns > 1) ? 'span' : 'div';
+
+		$this->output('<' . $tag . ' id="'. $id .'" class="qa-form-' . $style . '-note">' . @$field['note'] . '</' . $tag . '>');
 	}
 }
