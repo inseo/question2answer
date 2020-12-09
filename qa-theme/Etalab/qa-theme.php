@@ -1019,7 +1019,6 @@ class qa_html_theme extends qa_html_theme_base
 		$id = null;
 		$ariaDescribedBy = "";
 		$tags = @$field['tags'];
-		print_r($field);
 		if($this->extractAttributeFromTags($field, "id") !== null) {
 			$id = $this->extractAttributeFromTags($field, "id");
 		} else {
