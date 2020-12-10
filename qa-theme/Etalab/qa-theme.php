@@ -95,8 +95,7 @@ class qa_html_theme extends qa_html_theme_base
 				"}",
 				"</style>",
 			));
-		}
-		else {
+		} else {
 			// add Ubuntu font CSS file from Google Fonts
 			$this->content['css_src'][] = 'https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i';
 		}
@@ -128,8 +127,7 @@ class qa_html_theme extends qa_html_theme_base
 			$userpoints = qa_get_logged_in_points();
 			$pointshtml = $userpoints == 1
 				? qa_lang_html_sub('main/1_point', '1', '1')
-				: qa_html(qa_format_number($userpoints))
-			;
+				: qa_html(qa_format_number($userpoints));
 			$this->output('<div class="qam-logged-in-points">' . $pointshtml . '</div>');
 		}
 	}
@@ -177,14 +175,14 @@ class qa_html_theme extends qa_html_theme_base
 				$inputType = $emailOnly ? 'email' : 'text';
 				$this->output(
 					'<form action="' . $login['url'] . '" method="post">',
-						'<label for="qam-emailhandle">'. trim(qa_lang_html($emailOnly ? 'users/email_label' : 'users/email_handle_label'), ':') .'</label>',
-						'<input type="' . $inputType . '" autocomplete="username" name="emailhandle" id="qam-emailhandle" aria-required="true" dir="auto" />',
-						'<label for="qam-password">'. trim(qa_lang_html('users/password_label'), ':') .'</label>',
-						'<input type="password" autocomplete="current-password" name="password" id="qam-password" aria-required="true" dir="auto" />',
-						'<div><input type="checkbox" name="remember" id="qam-rememberme" value="1"/>',
-						'<label for="qam-rememberme">' . qa_lang_html('users/remember') . '</label></div>',
-						'<input type="hidden" name="code" value="' . qa_html(qa_get_form_security_code('login')) . '"/>',
-						'<input type="submit" value="' . $login['label'] . '" class="qa-form-tall-button qa-form-tall-button-login" name="dologin"/>',
+					'<label for="qam-emailhandle">' . trim(qa_lang_html($emailOnly ? 'users/email_label' : 'users/email_handle_label'), ':') . '</label>',
+					'<input type="' . $inputType . '" autocomplete="username" name="emailhandle" id="qam-emailhandle" aria-required="true" dir="auto" />',
+					'<label for="qam-password">' . trim(qa_lang_html('users/password_label'), ':') . '</label>',
+					'<input type="password" autocomplete="current-password" name="password" id="qam-password" aria-required="true" dir="auto" />',
+					'<div><input type="checkbox" name="remember" id="qam-rememberme" value="1"/>',
+					'<label for="qam-rememberme">' . qa_lang_html('users/remember_label') . '</label></div>',
+					'<input type="hidden" name="code" value="' . qa_html(qa_get_form_security_code('login')) . '"/>',
+					'<input type="submit" value="' . $login['label'] . '" class="qa-form-tall-button qa-form-tall-button-login" name="dologin"/>',
 					'</form>'
 				);
 				// remove regular navigation link to log in page
@@ -219,16 +217,15 @@ class qa_html_theme extends qa_html_theme_base
 		$navigation = @$this->content['navigation'][$navtype];
 
 		if ($navtype == 'user' || isset($navigation)) {
-			if($navtype == 'sub') {
+			if ($navtype == 'sub') {
 				$label = "";
-				foreach($this->content['navigation']['main'] as $data){
-					if($data['selected'] == 1) {
+				foreach ($this->content['navigation']['main'] as $data) {
+					if ($data['selected'] == 1) {
 						$label = $data['label'];
 					}
 				}
-				$this->output('<nav role="navigation" aria-label="'. $label .'" class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
-			}
-			else
+				$this->output('<nav role="navigation" aria-label="' . $label . '" class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
+			} else
 				$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
 
 			if ($navtype == 'user')
@@ -247,7 +244,7 @@ class qa_html_theme extends qa_html_theme_base
 			$this->nav_clear($navtype);
 			$this->clear_context('nav_type');
 
-			if($navtype == 'sub')
+			if ($navtype == 'sub')
 				$this->output('</nav>');
 			else
 				$this->output('</div>');
@@ -269,24 +266,25 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($navlink['url'])) {
 			$this->output(
 				'<a href="' . $navlink['url'] . '" class="qa-' . $class . '-link' .
-				(@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
-				(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') .
-				'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
-				(@$navlink['selected'] ? (' aria-current="true"') : '') .
-				(isset($navlink['target']) ? (' target="' . $navlink['target'] . '"') : '') . '>' . $navlink['label'] .
-				'</a>'
+					(@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
+					(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') .
+					'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
+					(@$navlink['selected'] ? (' aria-current="true"') : '') .
+					(isset($navlink['target']) ? (' target="' . $navlink['target'] . '"') : '') . '>' . $navlink['label'] .
+					'</a>'
 			);
 		} else {
 			$this->output(
 				'<span class="qa-' . $class . '-nolink' . (@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
-				(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') . '"' .
-				(strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
-				'>' . $navlink['label'] . '</span>'
+					(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') . '"' .
+					(strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
+					'>' . $navlink['label'] . '</span>'
 			);
 		}
 
 		if (strlen(@$navlink['note']))
-			$this->output('<span class="qa-' . $class . '-note">' . $navlink['note'] . '</span>');	}
+			$this->output('<span class="qa-' . $class . '-note">' . $navlink['note'] . '</span>');
+	}
 
 	/**
 	 * Rearranges the layout:
@@ -354,7 +352,7 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function search_field($search)
 	{
-		$this->output('<input type="text" placeholder="'. $search['button_label'] .'…" aria-label="'. $search['button_label'] .'…" ' . $search['field_tags'] . ' value="' . @$search['value'] . '" class="qa-search-field"/>');
+		$this->output('<input type="text" placeholder="' . $search['button_label'] . '…" aria-label="' . $search['button_label'] . '…" ' . $search['field_tags'] . ' value="' . @$search['value'] . '" class="qa-search-field"/>');
 	}
 
 	public function search_button($search)
@@ -659,14 +657,16 @@ class qa_html_theme extends qa_html_theme_base
 		// floated right
 		$this->output(
 			'<ul class="qa-attribution-footer">',
-      '<li class="qa-attribution-footer-item">Snow Theme by <a class="qa-attribution-footer-link" href="http://www.q2amarket.com">Q2A Market</a></li>',
+			'<li class="qa-attribution-footer-item">Snow Theme by <a class="qa-attribution-footer-link" href="http://www.q2amarket.com">Q2A Market</a></li>',
 			'<li class="qa-attribution-footer-item">Powered by <a class="qa-attribution-footer-link" href="http://www.question2answer.org/">Question2Answer</a></li>',
-      '</ul>'
+			'</ul>'
 		);
-  }
+	}
 
-  // Remove empty div
-  public function footer_clear() {}
+	// Remove empty div
+	public function footer_clear()
+	{
+	}
 
 	/**
 	 * User account navigation item. This will return based on login information.
@@ -696,8 +696,7 @@ class qa_html_theme extends qa_html_theme_base
 			}
 
 			$avatar = strip_tags($tobar_avatar, '<img>');
-		}
-		else {
+		} else {
 			// display login icon and label
 			$handle = $this->content['navigation']['user']['login']['label'];
 			$toggleClass = 'qam-logged-out';
@@ -707,7 +706,7 @@ class qa_html_theme extends qa_html_theme_base
 			$register = $this->content['navigation']['user']['register'];
 			$this->output(
 				'<a href="' . $register['url'] . '">',
-				'<i aria-hidden="true" class="icon-user-add qam-auth-key"></i>' .$register['label'],
+				'<i aria-hidden="true" class="icon-user-add qam-auth-key"></i>' . $register['label'],
 				'</a>'
 			);
 		}
@@ -715,7 +714,7 @@ class qa_html_theme extends qa_html_theme_base
 		// finally output avatar with div tag
 		$handleBlock = !empty($avatar) && qa_is_logged_in() ? '' : qa_html($handle);
 		$this->output(
-			'<button aria-expanded="false" aria-controls="qam-account-items" title="'. $handle .'" aria-label="'. $handle .'" id="qam-account-toggle" class="' . $toggleClass . '">',
+			'<button aria-expanded="false" aria-controls="qam-account-items" title="' . $handle . '" aria-label="' . $handle . '" id="qam-account-toggle" class="' . $toggleClass . '">',
 			$avatar,
 			$handleBlock,
 			'</button>'
@@ -835,12 +834,11 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($field['id'])) {
 			if ($columns == 1) {
 				if (isset($field['type']) && $field['type'] == "select-radio") {
-					$this->output('<tbody id="' . $field['id'] . '" role="radiogroup" aria-label="'. $field['label'] .'">', '<tr>');
+					$this->output('<tbody id="' . $field['id'] . '" role="radiogroup" aria-label="' . $field['label'] . '">', '<tr>');
 				} else {
 					$this->output('<tbody id="' . $field['id'] . '" role="presentation">', '<tr>');
-				}				
-			}
-			else
+				}
+			} else
 				$this->output('<tr id="' . $field['id'] . '">');
 		} else
 			$this->output('<tr>');
@@ -863,7 +861,7 @@ class qa_html_theme extends qa_html_theme_base
 		if ($columns == 1 && isset($field['id']))
 			$this->output('</tbody>');
 	}
-	
+
 	public function form_label($field, $style, $columns, $prefixed, $suffixed, $colspan)
 	{
 		$extratags = '';
@@ -877,14 +875,12 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<td class="qa-form-' . $style . '-label"' . $extratags . '>');
 
 		// Add <label> when field with id or name is identified (except for select-radio)
-		$id = $this->extractAttributeFromTags($field, "id");
-		if (!isset($id)) {
-			$id = $this->extractAttributeFromTags($field, "name");
-		}
-		if(isset($field['type']) && $field['type'] == "select-radio") {
+		$id = $this->getIdFromField($field);
 
+		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
+			$this->output('<p>');
 		} else {
-			isset($id) ? $this->output('<label for="' . $id . '">') : '';;
+			$id !== null ? $this->output('<label for="' . $id . '">') : '';;
 		}
 
 		if ($prefixed) {
@@ -897,59 +893,100 @@ class qa_html_theme extends qa_html_theme_base
 			$this->form_field($field, $style);
 		}
 
-		if(isset($field['type']) && $field['type'] == "select-radio") {
-
+		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
+			$this->output('</p>');
 		} else {
-			isset($id) ? $this->output('</label>') : '';;
+			$id !== null ? $this->output('</label>') : '';;
 		}
 		$this->output('</td>');
 	}
 
-	// Find the field's id 
-	private function extractAttributeFromTags($field, $attribute) {
-		// Find the field's id or create it with the field's name
-		$id = null;
-		if(isset($field['tags'])) {
-			preg_match('~'.$attribute.'="(.*?)"~', $field['tags'], $output); 
-			isset($output[1]) ? $id = $output[1] : $id = null;
+	/**
+	 * Find any attribute value in tags string
+	 * Return value of attribute or null
+	 * @param $field
+	 * @param $attribute (eg: 'id', 'name', etc.)
+	 */
+	private function extractAttributeFromTags($field, $attribute)
+	{
+		$value = null;
+		if (isset($field['tags'])) {
+			preg_match('~' . $attribute . '="(.*?)"~', $field['tags'], $output);
+			isset($output[1]) ? $value = $output[1] : $value = null;
 		}
+		return $value;
+	}
+
+	/**
+	 * Find the id of field inside the tags or create it
+	 * Return id or null
+	 * @param $field
+	 */
+	private function getIdFromField($field)
+	{
+		$id = $this->extractAttributeFromTags($field, 'id');
+		if ($id == null)
+			$id = $this->extractAttributeFromTags($field, 'name');
 		return $id;
 	}
-	
+
+	/**
+	 * Return a new $tags string to add on a field element. 
+	 * $endOfId is not required and used to complete the id adding a string at the end
+	 * @param $field
+	 * @param $endOfId 
+	 */
+	private function adaptFieldTagsForAccessibility($field, $endOfId = null)
+	{
+		$id = null;
+		$ariaDescribedBy = "";
+		$tags = @$field['tags'];
+		if ($this->extractAttributeFromTags($field, "id") !== null) {
+			$id = $this->extractAttributeFromTags($field, "id");
+			if ($endOfId !== null)
+				$tags = str_replace('id="' . $id . '"', 'id="' . $id . $endOfId . '"', $tags);
+		} else {
+			if ($this->extractAttributeFromTags($field, "name") !== null) {
+				$id = $this->extractAttributeFromTags($field, "name");
+				if ($endOfId !== null)
+					$tags .= ' id="' . $id . $endOfId . '"';
+				else
+					$tags .= ' id="' . $id . '"';
+			}
+		}
+		if (isset($field['error']) && $field['error'] !== "" && $id !== null) {
+			$ariaDescribedBy .= "error_" . $id . " ";
+			$tags .= ' aria-invalid="true"';
+		}
+		if (isset($field['note']) && $id !== null)
+			$ariaDescribedBy .= "note_" . $id . " ";
+		if ($ariaDescribedBy !== "")
+			$tags .= ' aria-describedby="' . $ariaDescribedBy . '"';
+		return $tags;
+	}
+
 	public function form_checkbox($field, $style)
 	{
-		$this->output('<input ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output(@$field['tags'] . ' type="checkbox" value="1"' . (@$field['value'] ? ' checked' : '') . ' class="qa-form-' . $style . '-checkbox"/>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<input ' . $tags . ' type="checkbox" value="1"' . (@$field['value'] ? ' checked' : '') . ' class="qa-form-' . $style . '-checkbox"/>');
 	}
 
 	public function form_password($field, $style)
 	{
-		$this->output('<input ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output(@$field['tags'] . ' type="password" value="' . @$field['value'] . '" class="qa-form-' . $style . '-text"/>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<input ' . $tags . ' type="password" value="' . @$field['value'] . '" class="qa-form-' . $style . '-text"/>');
 	}
 
 	public function form_number($field, $style)
 	{
-		$this->output('<input ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output(@$field['tags'] . ' type="text" value="' . @$field['value'] . '" class="qa-form-' . $style . '-number"/>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<input ' . $tags . ' type="text" value="' . @$field['value'] . '" class="qa-form-' . $style . '-number"/>');
 	}
 
 	public function form_file($field, $style)
 	{
-		$this->output('<input ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output(@$field['tags'] . ' type="file" class="qa-form-' . $style . '-file"/>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<input ' . $tags . ' type="file" class="qa-form-' . $style . '-file"/>');
 	}
 
 	/**
@@ -963,11 +1000,8 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function form_select($field, $style)
 	{
-		$this->output('<select ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output((isset($field['tags']) ? $field['tags'] : '') . ' class="qa-form-' . $style . '-select">');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<select ' . $tags . ' class="qa-form-' . $style . '-select">');
 
 		// Only match by key if it is explicitly specified. Otherwise, for backwards compatibility, match by value
 		$matchbykey = isset($field['match_by']) && $field['match_by'] === 'key';
@@ -975,8 +1009,7 @@ class qa_html_theme extends qa_html_theme_base
 		foreach ($field['options'] as $key => $value) {
 			$selected = isset($field['value']) && (
 				($matchbykey && $key === $field['value']) ||
-				(!$matchbykey && $value === $field['value'])
-			);
+				(!$matchbykey && $value === $field['value']));
 			$this->output('<option value="' . $key . '"' . ($selected ? ' selected' : '') . '>' . $value . '</option>');
 		}
 
@@ -989,21 +1022,11 @@ class qa_html_theme extends qa_html_theme_base
 
 		$this->output('<div role="list">');
 		foreach ($field['options'] as $tag => $value) {
-			$id = null;
-			$tags = @$field['tags'];
-			
-			// Resolve issue: all radio inputs have the same id :(
-			if($this->extractAttributeFromTags($field, "id") !== null) {
-				$id = $this->extractAttributeFromTags($field, "id");
-				$tags = str_replace ('id="'.$id.'"', 'id="'.$id. $radios.'"', $tags);
-			} else {
-				if($this->extractAttributeFromTags($field, "name") !== null) {
-					$id = $this->extractAttributeFromTags($field, "name");
-					$tags .= ' id="'.$id.$radios.'"';
-				}
-			}			
+			$id = $this->getIdFromField($field);
+			$tags = $this->adaptFieldTagsForAccessibility($field, $radios);
+
 			$this->output('<div role="listitem">');
-			$this->output('<label for="'.$id.$radios.'">'); 
+			$this->output('<label for="' . $id . $radios . '">');
 			$this->output('<input ' . @$tags . ' type="radio" value="' . $tag . '"' . (($value == @$field['value']) ? ' checked' : '') . ' class="qa-form-' . $style . '-radio"/> ');
 			$this->output($value);
 			$this->output('</label>');
@@ -1016,77 +1039,39 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function form_email($field, $style)
 	{
-		$id = null;
-		$ariaDescribedBy = "";
-		$tags = @$field['tags'];
-		if($this->extractAttributeFromTags($field, "id") !== null) {
-			$id = $this->extractAttributeFromTags($field, "id");
-		} else {
-			if($this->extractAttributeFromTags($field, "name") !== null) {
-				$id = $this->extractAttributeFromTags($field, "name");
-				$tags .= ' id="'.$id.'"';
-			}
-		}
-		if(isset($field['error']) && $field['error'] !== "") {
-			$ariaDescribedBy .= "error_".$id." ";
-			$tags .= ' aria-invalid="true"';
-		}
-		if(isset($field['note']))
-			$ariaDescribedBy .= "note_".$id." ";
-		if($ariaDescribedBy !== "")
-			$tags .= ' aria-describedby="'.$ariaDescribedBy.'"';
-		$this->output('<input '. $tags . ' type="email" value="' . @$field['value'] . '" class="qa-form-' . $style . '-email"/>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<input ' . $tags . ' type="email" value="' . @$field['value'] . '" class="qa-form-' . $style . '-email"/>');
 	}
 
 	public function form_text_single_row($field, $style)
 	{
-		$this->output('<input ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output(@$field['tags'] . ' type="text" value="' . @$field['value'] . '" class="qa-form-' . $style . '-text"/>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<input ' . $tags . ' type="text" value="' . @$field['value'] . '" class="qa-form-' . $style . '-text"/>');
 	}
 
 	public function form_text_multi_row($field, $style)
 	{
-		$this->output('<textarea ');
-		if($this->extractAttributeFromTags($field, "id") == null) {
-			$this->output('id="' . $this->extractAttributeFromTags($field, "name") . '" ');
-		}
-		$this->output(@$field['tags'] . ' rows="' . (int)$field['rows'] . '" cols="40" class="qa-form-' . $style . '-text">' . @$field['value'] . '</textarea>');
+		$tags = $this->adaptFieldTagsForAccessibility($field);
+		$this->output('<textarea ' . $tags . ' rows="' . (int)$field['rows'] . '" cols="40" class="qa-form-' . $style . '-text">' . @$field['value'] . '</textarea>');
 	}
 
 	public function form_error($field, $style, $columns)
 	{
-		$id = "error_";
-		// Resolve issue: all radio inputs have the same id :(
-		if($this->extractAttributeFromTags($field, "id") !== null) {
-			$id .= $this->extractAttributeFromTags($field, "id");
-		} else {
-			if($this->extractAttributeFromTags($field, "name") !== null) {
-				$id .= $this->extractAttributeFromTags($field, "name");
-			}
-		}
-
+		$id = $this->getIdFromField($field);
 		$tag = ($columns > 1) ? 'span' : 'p';
-
-		$this->output('<' . $tag . ' id="'. $id .'" class="qa-form-' . $style . '-error">' . $field['error'] . '</' . $tag . '>');
+		$this->output('<' . $tag . ' role="alert" ');
+		if ($id !== null)
+			$this->output('id="error_' . $id . '" ');
+		$this->output('class="qa-form-' . $style . '-error">' . $field['error'] . '</' . $tag . '>');
 	}
 
 	public function form_note($field, $style, $columns)
 	{
-		$id = "note_";
-		// Resolve issue: all radio inputs have the same id :(
-		if($this->extractAttributeFromTags($field, "id") !== null) {
-			$id .= $this->extractAttributeFromTags($field, "id");
-		} else {
-			if($this->extractAttributeFromTags($field, "name") !== null) {
-				$id .= $this->extractAttributeFromTags($field, "name");
-			}
-		}
-
-		$tag = ($columns > 1) ? 'span' : 'div';
-
-		$this->output('<' . $tag . ' id="'. $id .'" class="qa-form-' . $style . '-note">' . @$field['note'] . '</' . $tag . '>');
+		$id = $this->getIdFromField($field);
+		$tag = ($columns > 1) ? 'span' : 'p';
+		$this->output('<' . $tag . ' ');
+		if ($id !== null)
+			$this->output('id="note_' . $id . '" ');
+		$this->output('class="qa-form-' . $style . '-note">' . @$field['note'] . '</' . $tag . '>');
 	}
 }
