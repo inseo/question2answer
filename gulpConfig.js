@@ -13,7 +13,7 @@ module.exports = {
     patternlab        : false,
     scripts           : false,
     standaloneScripts : false,
-    svgIcons          : false,
+    svgIcons          : true,
     svgInline         : false,
     svgSprite         : false,
     images            : false,

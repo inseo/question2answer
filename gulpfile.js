@@ -131,7 +131,7 @@ function icons(done) {
   return gulp.src(config.svg.icons.src)
     .pipe(svgSprite({ svg: config.svg.parameters, mode: config.svg.icons.mode }))
     .pipe(gulp.dest(config.svg.build))
-    .pipe(gulp.dest(config.copy.dest + '/images/'))
+    //.pipe(gulp.dest(config.copy.dest + '/images/'))
 }
 
 function inline(done) {
