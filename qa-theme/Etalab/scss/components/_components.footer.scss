@@ -57,11 +57,11 @@
   .qa-attribution-footer-link,
   .qa-nav-footer-link {
     color: theme(attribution-footer-link);
-    box-shadow: none;
+    box-shadow: 0 1px 0 0 currentColor;
 
     &:hover,
     &:active {
-      box-shadow: 0 1px 0 0 currentColor;
+      box-shadow: none;
     }
   }
 }
