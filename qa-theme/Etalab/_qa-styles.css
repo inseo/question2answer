@@ -83,8 +83,6 @@ body.body-overflow {
     position: fixed;
 }
 
-
-
 .qa-main-heading {
     position: relative;
     margin: 0 0 5px;
@@ -1087,10 +1085,8 @@ blockquote p {
 .qa-voted-down-button,
 .qa-vote-up-disabled,
 .qa-vote-down-disabled {
-    text-indent: -9999px;
-    background: transparent url("images/vote-buttons-3.png") no-repeat;
     width: 16px;
-    height: 10px;
+    min-height: 10px;
     border: none;
     margin: 0;
     padding: 0;
@@ -1121,56 +1117,16 @@ blockquote p {
 }
 
 .qa-vote-up-button {
-    background-position: 0 0;
     top: 12px;
-}
-.qa-vote-up-button:hover,
-.qa-vote-up-button:focus,
-.qa-vote-up-button:active {
-    background-position: 0 -10px;
 }
 .qa-vote-down-button {
-    background-position: -16px 0;
     bottom: 12px;
-}
-.qa-vote-down-button:hover,
-.qa-vote-down-button:focus,
-.qa-vote-down-button:active {
-    background-position: -16px -10px;
 }
 .qa-vote-up-disabled {
-    background-position: 0 -20px;
     top: 12px;
 }
-.qa-vote-up-disabled:hover,
-.qa-vote-up-disabled:focus,
-.qa-vote-up-disabled:active {
-    background-position: 0 -20px;
-}
 .qa-vote-down-disabled {
-    background-position: -16px -20px;
     bottom: 12px;
-}
-.qa-vote-down-disabled:hover,
-.qa-vote-down-disabled:focus,
-.qa-vote-down-disabled:active {
-    background-position: -16px -20px;
-}
-.qa-voted-up-button {
-    background-position: 0 -10px;
-}
-.qa-voted-up-button:hover,
-.qa-voted-up-button:focus,
-.qa-voted-up-button:active {
-    background-position: 0 0;
-}
-.qa-voted-down-button {
-    background-position: -16px -10px;
-}
-.qa-voted-down-button:hover,
-.qa-voted-down-button:focus,
-.qa-voted-down-button:active {
-    background-position: -16px 0;
 }
 
 .qa-vote-one-button {
@@ -3198,8 +3154,6 @@ button {
     float: left;
     margin-right: 8px;
 }
-
-
 
 .qa-ask-box {
     padding: 10px 20px;

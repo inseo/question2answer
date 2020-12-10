@@ -35,8 +35,9 @@ class qa_html_theme extends qa_html_theme_base
 {
 	protected $theme = 'etalab';
 
+	// UNUSED TO DELETE
 	// use local font files instead of Google Fonts
-	private $localfonts = true;
+	// private $localfonts = true;
 
 	// theme subdirectories
 	private $js_dir = 'js';
@@ -45,11 +46,13 @@ class qa_html_theme extends qa_html_theme_base
 	private $fixed_topbar = false;
 	private $welcome_widget_class = 'wet-asphalt';
 	private $ask_search_box_class = 'turquoise';
+	
 	// Size of the user avatar in the navigation bar
 	private $nav_bar_avatar_size = 52;
 
+	// UNUSED TO DELETE
 	// use new block layout in rankings
-	protected $ranking_block_layout = true;
+	// protected $ranking_block_layout = true;
 
 	/**
 	 * Adding aditional meta for responsive design
@@ -69,41 +72,43 @@ class qa_html_theme extends qa_html_theme_base
 		if ($this->isRTL)
 			$this->content['css_src'][] = $this->rooturl . 'qa-styles-rtl.css?' . QA_VERSION;
 
-		if ($this->localfonts) {
-			// add Ubuntu font locally (inlined for speed)
-			$this->output_array(array(
-				"<style>",
-				"@font-face {",
-				" font-family: 'Ubuntu'; font-weight: normal; font-style: normal;",
-				" src: local('Ubuntu'),",
-				"  url('{$this->rooturl}fonts/ubuntu-regular.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-regular.woff') format('woff');",
-				"}",
-				"@font-face {",
-				" font-family: 'Ubuntu'; font-weight: bold; font-style: normal;",
-				" src: local('Ubuntu Bold'), local('Ubuntu-Bold'),",
-				"  url('{$this->rooturl}fonts/ubuntu-bold.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-bold.woff') format('woff');",
-				"}",
-				"@font-face {",
-				" font-family: 'Ubuntu'; font-weight: normal; font-style: italic;",
-				" src: local('Ubuntu Italic'), local('Ubuntu-Italic'),",
-				"  url('{$this->rooturl}fonts/ubuntu-italic.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-italic.woff') format('woff');",
-				"}",
-				"@font-face {",
-				" font-family: 'Ubuntu'; font-weight: bold; font-style: italic;",
-				" src: local('Ubuntu Bold Italic'), local('Ubuntu-BoldItalic'),",
-				"  url('{$this->rooturl}fonts/ubuntu-bold-italic.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-bold-italic.woff') format('woff');",
-				"}",
-				"</style>",
-			));
-		} else {
-			// add Ubuntu font CSS file from Google Fonts
-			$this->content['css_src'][] = 'https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i';
-		}
+		// UNUSED TO DELETE
+		// if ($this->localfonts) {
+		// 	// add Ubuntu font locally (inlined for speed)
+		// 	$this->output_array(array(
+		// 		"<style>",
+		// 		"@font-face {",
+		// 		" font-family: 'Ubuntu'; font-weight: normal; font-style: normal;",
+		// 		" src: local('Ubuntu'),",
+		// 		"  url('{$this->rooturl}fonts/ubuntu-regular.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-regular.woff') format('woff');",
+		// 		"}",
+		// 		"@font-face {",
+		// 		" font-family: 'Ubuntu'; font-weight: bold; font-style: normal;",
+		// 		" src: local('Ubuntu Bold'), local('Ubuntu-Bold'),",
+		// 		"  url('{$this->rooturl}fonts/ubuntu-bold.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-bold.woff') format('woff');",
+		// 		"}",
+		// 		"@font-face {",
+		// 		" font-family: 'Ubuntu'; font-weight: normal; font-style: italic;",
+		// 		" src: local('Ubuntu Italic'), local('Ubuntu-Italic'),",
+		// 		"  url('{$this->rooturl}fonts/ubuntu-italic.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-italic.woff') format('woff');",
+		// 		"}",
+		// 		"@font-face {",
+		// 		" font-family: 'Ubuntu'; font-weight: bold; font-style: italic;",
+		// 		" src: local('Ubuntu Bold Italic'), local('Ubuntu-BoldItalic'),",
+		// 		"  url('{$this->rooturl}fonts/ubuntu-bold-italic.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-bold-italic.woff') format('woff');",
+		// 		"}",
+		// 		"</style>",
+		// 	));
+		// } else {
+		// 	// add Ubuntu font CSS file from Google Fonts
+		// 	$this->content['css_src'][] = 'https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i';
+		// }
 
 		parent::head_css();
-
+	
+		// UNUSED TO DELETE
 		// output some dynamic CSS inline
-		$this->head_inline_css();
+		// $this->head_inline_css();
 	}
 
 	/**
@@ -398,23 +403,144 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Add close icon
-	 * @param array $q_item
+	 * Override list item
 	 */
+	public function q_list_item($q_item)
+	{
+		$id = $this->getIdFromField($q_item);
+		$this->output('<article ');
+		if ($id !== null)
+			$this->output('aria-labelledby="heading_'. $id .'" ');
+		$this->output('class="qa-q-list-item' . rtrim(' ' . @$q_item['classes']) . '" ' . @$q_item['tags'] . '>');
+
+		$this->q_item_title($q_item);
+		$this->q_item_stats($q_item);
+		$this->q_item_main($q_item);
+		$this->q_item_clear();
+
+		$this->output('</article> <!-- END qa-q-list-item -->', '');
+	}
+
+	public function q_item_main($q_item)
+	{
+		$this->output('<div class="qa-q-item-main">');
+
+		$this->view_count($q_item);
+		$this->q_item_content($q_item);
+		$this->post_avatar_meta($q_item, 'qa-q-item');
+		$this->post_tags($q_item, 'qa-q-item');
+		$this->q_item_buttons($q_item);
+
+		$this->output('</div>');
+	}
+
 	public function q_item_title($q_item)
 	{
-		$closedText = qa_lang('main/closed');
+		$closedText = "(" . qa_lang('main/closed') . ")";
 		$imgHtml = empty($q_item['closed'])
 			? ''
 			: '<img src="' . $this->rooturl . $this->icon_url . '/closed-q-list.png" class="qam-q-list-close-icon" alt="' . $closedText . '" title="' . $closedText . '"/>';
 
-		$this->output(
-			'<div class="qa-q-item-title">',
-			// add closed note in title
-			$imgHtml,
-			'<a href="' . $q_item['url'] . '">' . $q_item['title'] . '</a>',
-			'</div>'
+		$id = $this->getIdFromField($q_item);
+		$this->output('<h2 class="qa-q-item-title" ');
+		if ($id !== null)
+			$this->output('id="heading_'. $id .'" ');
+		$this->output('>');
+		$this->output(	'<a href="' . $q_item['url'] . '">',
+		$q_item['title'],
+		$imgHtml,			
+		'</a>',
+		'</h2>'
 		);
+	}
+
+	public function vote_buttons($post)
+	{
+		$this->output('<div class="qa-vote-buttons ' . (($post['vote_view'] == 'updown') ? 'qa-vote-buttons-updown' : 'qa-vote-buttons-net') . '">');
+
+		switch (@$post['vote_state']) {
+			case 'voted_up':
+				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-one-button qa-voted-up');
+				break;
+
+			case 'voted_up_disabled':
+				$this->post_disabled_button($post, 'vote_up_tags', '+', 'qa-vote-one-button qa-vote-up');
+				break;
+
+			case 'voted_down':
+				$this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-one-button qa-voted-down');
+				break;
+
+			case 'voted_down_disabled':
+				$this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-one-button qa-vote-down');
+				break;
+
+			case 'up_only':
+				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
+				$this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
+				break;
+
+			case 'enabled':
+				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
+				$this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
+				break;
+
+			default:
+				$this->post_disabled_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
+				$this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
+				break;
+		}
+
+		$this->output('</div>');
+	}
+
+	public function vote_count($post)
+	{
+		// Hide vote when 0
+		if ($post['raw']['basetype'] === 'C' && $post['raw']['netvotes'] == 0) {
+			$post['netvotes_view']['data'] = '';
+		}
+
+		// You can also use $post['upvotes_raw'], $post['downvotes_raw'], $post['netvotes_raw'] to get
+		// raw integer vote counts, for graphing or showing in other non-textual ways
+
+		$this->output('<p aria-live="polite" class="qa-vote-count ' . (($post['vote_view'] == 'updown') ? 'qa-vote-count-updown' : 'qa-vote-count-net') . '"' . @$post['vote_count_tags'] . '>');
+
+		if ($post['vote_view'] == 'updown') {
+			$this->output_split($post['upvotes_view'], 'qa-upvote-count');
+			$this->output_split($post['downvotes_view'], 'qa-downvote-count');
+		} else {
+			$this->output_split($post['netvotes_view'], 'qa-netvote-count');
+		}
+
+		$this->output('</p>');
+	}
+
+	public function a_count($post)
+	{
+		// You can also use $post['answers_raw'] to get a raw integer count of answers
+		$this->output_split(@$post['answers'], 'qa-a-count', 'p', 'span',
+			@$post['answer_selected'] ? 'qa-a-count-selected' : (@$post['answers_raw'] ? null : 'qa-a-count-zero'));
+	}
+
+	public function post_hover_button($post, $element, $value, $class)
+	{
+		if (isset($post[$element]))
+			$this->output('<input ' . $post[$element] . ' type="submit" value="' . $value . '" class="' . $class . '-button"/> ');
+	}
+
+	public function post_disabled_button($post, $element, $value, $class)
+	{
+		if (isset($post[$element]))
+			$this->output('<input ' . $post[$element] . ' type="submit" value="' . $value . '" class="' . $class . '-disabled" disabled="disabled"/> ');
+	}
+
+	public function post_avatar_meta($post, $class, $avatarprefix = null, $metaprefix = null, $metaseparator = '<br/>')
+	{
+		$this->output('<p class="' . $class . '-avatar-meta">');
+		$this->avatar($post, $class, $avatarprefix);
+		$this->post_meta($post, $class, $metaprefix, $metaseparator);
+		$this->output('</p>');
 	}
 
 	/**
@@ -533,19 +659,6 @@ class qa_html_theme extends qa_html_theme_base
 		$this->c_form(isset($q_view['c_form']) ? $q_view['c_form'] : null);
 
 		$this->output('</div> <!-- END qa-q-view-main -->');
-	}
-
-	/**
-	 * Hide votes when zero
-	 * @param  array $post
-	 */
-	public function vote_count($post)
-	{
-		if ($post['raw']['basetype'] === 'C' && $post['raw']['netvotes'] == 0) {
-			$post['netvotes_view']['data'] = '';
-		}
-
-		parent::vote_count($post);
 	}
 
 	/**
@@ -735,31 +848,32 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div>');
 	}
 
-	/**
-	 * Dynamic CSS based on options and other interaction with Q2A.
-	 * @return string The CSS code
-	 */
-	private function head_inline_css()
-	{
-		$css = array('<style>');
+	// UNUSED TO DELETE
+	// /**
+	//  * Dynamic CSS based on options and other interaction with Q2A.
+	//  * @return string The CSS code
+	//  */
+	// private function head_inline_css()
+	// {
+	// 	$css = array('<style>');
 
-		if (!qa_is_logged_in())
-			$css[] = '.qa-nav-user { margin: 0 !important; }';
+	// 	if (!qa_is_logged_in())
+	// 		$css[] = '.qa-nav-user { margin: 0 !important; }';
 
-		if (qa_request_part(1) !== qa_get_logged_in_handle()) {
-			$css[] = '@media (max-width: 979px) {';
-			$css[] = ' body.qa-template-user.fixed, body[class*="qa-template-user-"].fixed { padding-top: 118px !important; }';
-			$css[] = ' body.qa-template-users.fixed { padding-top: 95px !important; }';
-			$css[] = '}';
-			$css[] = '@media (min-width: 980px) {';
-			$css[] = ' body.qa-template-users.fixed { padding-top: 105px !important;}';
-			$css[] = '}';
-		}
+	// 	if (qa_request_part(1) !== qa_get_logged_in_handle()) {
+	// 		$css[] = '@media (max-width: 979px) {';
+	// 		$css[] = ' body.qa-template-user.fixed, body[class*="qa-template-user-"].fixed { padding-top: 118px !important; }';
+	// 		$css[] = ' body.qa-template-users.fixed { padding-top: 95px !important; }';
+	// 		$css[] = '}';
+	// 		$css[] = '@media (min-width: 980px) {';
+	// 		$css[] = ' body.qa-template-users.fixed { padding-top: 105px !important;}';
+	// 		$css[] = '}';
+	// 	}
 
-		$css[] = '</style>';
+	// 	$css[] = '</style>';
 
-		$this->output_array($css);
-	}
+	// 	$this->output_array($css);
+	// }
 
 	/**
 	 * Custom ask button for medium and small screen
