@@ -1,0 +1,76 @@
+@if $toc {
+  /* - Navigation_____________Navigation principale du site */
+} @else {
+  /* Navigation principale du site [component]
+  ========================================================================== */
+
+  // Menu
+  .qa-nav-main {
+    font-size: rem(14); // 14px
+
+    @include mq($until: MD) {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      z-index: 1090;
+      display: none;
+      padding: rem(20); // 20px
+      background-color: theme(default-bgc);
+      border-top: 1px solid theme(default-bdc);
+      box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
+    }
+  }
+
+
+  // Elements de liste
+  .qa-nav-main-item {
+    @include mq($from: MD) {
+      display: inline;
+      position: relative;
+      margin-left: rem(4); // 4px
+
+      &:not(:first-child)::before {
+        content: "";
+        display: inline-block;
+        height: rem(16); // 16px
+        width: 1px;
+        margin-right: rem(4); // 4px
+        vertical-align: sub;
+        background-color: theme(default-bdc);
+      }
+    }
+  }
+
+  // Elements de liste (à l'exception du dernier)
+  .qa-nav-main-item:not(:last-child) {
+    margin-bottom: rem(8); // 8px
+  }
+
+
+  // Liens
+  .qa-nav-main-link {
+    color: theme(nav-main-link-txt);
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 1px 0 0 currentColor;
+    }
+
+    // Page courante
+    &[aria-current="true"] {
+      color: theme(nav-main-link-current-txt);
+      box-shadow: 0 1px 0 0 currentColor;
+
+      &:hover {
+        cursor: default;
+      }
+
+      &:focus,
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}

@@ -192,7 +192,6 @@ class qa_html_theme extends qa_html_theme_base
 				);
 				// remove regular navigation link to log in page
 				unset($this->content['navigation']['user']['login']);
-				unset($this->content['navigation']['user']['register']);
 			}
 		}
 
@@ -206,14 +205,26 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function nav_main_sub()
 	{
-		$this->output('<div class="qam-main-nav-wrapper clearfix">');
-		$this->logo();
-		$this->output('<nav role="navigation">');
-		$this->output('<button class="sb-toggle-left qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><i aria-hidden="true" class="icon-th-list"></i></button>');
+    $this->output('<div class="qam-topbar-wrapper">');
+    $this->output('<div class="qam-topbar-body">');
+    $this->output('<div class="qam-topbar-logo">');
+    $this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République Française, liberté, égalité, fraternité">');
+    $this->output('<span class="qam-topbar-logo-title">République<br />française</span>');
+    $this->output('</a>');
+    $this->output('</div> <!-- .qam-topbar-logo -->');
+    $this->output('<div class="qam-topbar-service">');
+    /* @TODO : intégrer le nom du service à la traduction */
+    $this->output('<a class="qam-topbar-service-link" href="/" aria-label="[nom du service], retour à l\'accueil">Ici le nom du service à modifier</a>');
+    $this->output('<p class="qam-topbar-service-tagline">baseline - précisions sur l\'organisation</p>');
+    $this->output('</div> <!-- .qam-topbar-service -->');
+    $this->output('<nav class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
+    /* @TODO : intégrer la valeur de l'attribut alt à la traduction */
+    $this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="Menu" /></button>');
 		$this->nav('main');
-		$this->output('</nav>');
+    $this->output('</nav>');
 		$this->nav_user_search();
-		$this->output('</div> <!-- END qam-main-nav-wrapper -->');
+    $this->output('</div> <!-- .qam-topbar-body -->');
+    $this->output('</div> <!-- .qam-topbar-wrapper -->');
 		$this->nav('sub');
 	}
 
@@ -271,7 +282,6 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($navlink['url'])) {
 			$this->output(
 				'<a href="' . $navlink['url'] . '" class="qa-' . $class . '-link' .
-					(@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
 					(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') .
 					'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
 					(@$navlink['selected'] ? (' aria-current="true"') : '') .
@@ -329,10 +339,10 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		$class = $this->fixed_topbar ? ' fixed' : '';
 
-		$this->output('<header role="banner" id="qam-topbar" class="clearfix' . $class . '">');
+		$this->output('<header role="banner" class="qam-topbar' . $class . '">');
 
 		$this->nav_main_sub();
-		$this->output('</header> <!-- END qam-topbar -->');
+		$this->output('</header> <!-- END .qam-topbar -->');
 
 		$this->output('<div class="qam-ask-search-box">');
 		$this->output($this->ask_button());
@@ -816,12 +826,12 @@ class qa_html_theme extends qa_html_theme_base
 			$avatar = '<i aria-hidden="true" class="icon-key qam-auth-key"></i>';
 
 			// display register link
-			$register = $this->content['navigation']['user']['register'];
+			/*$register = $this->content['navigation']['user']['register'];
 			$this->output(
 				'<a href="' . $register['url'] . '">',
 				'<i aria-hidden="true" class="icon-user-add qam-auth-key"></i>' . $register['label'],
 				'</a>'
-			);
+			);*/
 		}
 
 		// finally output avatar with div tag
