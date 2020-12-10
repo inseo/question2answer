@@ -10,6 +10,10 @@
   * @see [Getting the most out of Sass placeholders](https://hugogiraudel.com/2014/03/31/getting-the-most-out-of-sass-placeholders/)
   */
 
+  %o-unstyled-button {
+    @include unstyled-button($extend: false);
+  }
+
   %o-visually-hidden {
     @include visually-hidden($extend: false);
   }
