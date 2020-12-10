@@ -430,8 +430,8 @@ class qa_html_theme extends qa_html_theme_base
 			$label = isset($feed['label']) ? $feed['label'] : '';
 			$this->output(
 				'<a href="' . $feed['url'] . '">',
-				'<i class="icon-rss qam-title-rss" aria-hidden="true" title="' . $label . '"></i>',
-				'<span class="u-visually-hidden">' . $label . '</span>',
+				'<i class="icon-rss qam-title-rss" aria-hidden="true" title="' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '"></i>',
+				'<span class="u-visually-hidden">' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '</span>',
 				'</a>'
 			);
 		}
@@ -657,7 +657,7 @@ class qa_html_theme extends qa_html_theme_base
 		// floated right
 		$this->output(
 			'<ul class="qa-attribution-footer">',
-			'<li class="qa-attribution-footer-item">Snow Theme by <a class="qa-attribution-footer-link" href="http://www.q2amarket.com">Q2A Market</a></li>',
+			'<li class="qa-attribution-footer-item">Etalab Theme by <a class="qa-attribution-footer-link" href="https://www.etalab.gouv.fr/">Etalab</a></li>',
 			'<li class="qa-attribution-footer-item">Powered by <a class="qa-attribution-footer-link" href="http://www.question2answer.org/">Question2Answer</a></li>',
 			'</ul>'
 		);
@@ -922,6 +922,7 @@ class qa_html_theme extends qa_html_theme_base
 	 * Return id or null
 	 * @param $field
 	 */
+
 	private function getIdFromField($field)
 	{
 		$id = $this->extractAttributeFromTags($field, 'id');
