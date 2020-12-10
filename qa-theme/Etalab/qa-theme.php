@@ -808,7 +808,7 @@ class qa_html_theme extends qa_html_theme_base
 			$this->output(
 				'<td colspan="' . $columns . '" class="qa-form-' . $form['style'] . '-ok">',
 				$form['ok'],
-				'</td>',
+				'</td>'
 			);
 		}
 		$this->output('</tr>');
@@ -932,10 +932,10 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Return a new $tags string to add on a field element. 
+	 * Return a new $tags string to add on a field element.
 	 * $endOfId is not required and used to complete the id adding a string at the end
 	 * @param $field
-	 * @param $endOfId 
+	 * @param $endOfId
 	 */
 	private function adaptFieldTagsForAccessibility($field, $endOfId = null)
 	{
