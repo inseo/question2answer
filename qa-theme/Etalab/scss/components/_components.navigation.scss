@@ -15,7 +15,6 @@
       left: 0;
       z-index: 1090;
       display: none;
-      padding: rem(20); // 20px
       background-color: theme(default-bgc);
       border-top: 1px solid theme(default-bdc);
       box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
@@ -30,6 +29,11 @@
 
   // Elements de liste
   [class^="qa-nav-main-item"] {
+    @include mq($until: MD) {
+      padding: rem(10) rem(20); // 10px 20px
+      line-height: lh(28, 14); // 28px
+    }
+
     @include mq($from: MD) {
       display: inline;
       position: relative;
@@ -52,18 +56,33 @@
 
   // Elements de liste (à l'exception du dernier)
   [class^="qa-nav-main-item"]:not(:last-child) {
-    margin-bottom: rem(8); // 8px
+    @include mq($until: MD) {
+      border-bottom: 1px solid theme(default-bdc);
+    }
   }
 
 
   // Liens
   .qa-nav-main-link {
-    color: theme(nav-main-link-txt);
     box-shadow: none;
 
-    &:hover,
-    &:active {
-      box-shadow: 0 1px 0 0 currentColor;
+    @include mq($until: MD) {
+      color: theme(nav-main-link-sm-txt);
+      font-weight: 700;
+
+      &:hover,
+      &:active {
+        opacity: 0.75;
+      }
+    }
+
+    @include mq($from: MD) {
+      color: theme(nav-main-link-txt);
+
+      &:hover,
+      &:active {
+        box-shadow: 0 1px 0 0 currentColor;
+      }
     }
 
     // Page courante
@@ -73,6 +92,7 @@
 
       &:hover {
         cursor: default;
+        opacity: 1;
       }
 
       &:focus,

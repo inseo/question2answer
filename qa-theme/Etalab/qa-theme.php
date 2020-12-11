@@ -103,31 +103,12 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function nav_user_search()
 	{
-<<<<<<< HEAD
-		if (qa_is_logged_in()) {
-			$handle = qa_lang_html_sub_split('main/logged_in_x', 0)['prefix'];
-		} else {
-			$handle = $this->content['navigation']['user']['login']['label'] . "/" . $this->content['navigation']['user']['register']['label'];
-		}
-		$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="'. $handle .'">');
-||||||| parent of 140c221... feat(Skip link): Add styles
-    // outputs login form if user not logged in
-
-
-		if (qa_is_logged_in()) {
-			$handle = qa_lang_html_sub_split('main/logged_in_x', 0)['prefix'];
-		} else {
-			$handle = $this->content['navigation']['user']['login']['label'] . "/" . $this->content['navigation']['user']['register']['label'];
-		}
-		$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="'. $handle .'">');
-=======
     // outputs login form if user not logged in
 
 		if (!qa_is_logged_in())
 			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Connexion/Inscription">');
 		else
 			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Mon profil">');
->>>>>>> 140c221... feat(Skip link): Add styles
 
 		$this->qam_user_account();
 
