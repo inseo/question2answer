@@ -36,16 +36,6 @@
   }
 
 
-  // Saut de ligne avant le lien de connexion / identification
-  .qam-topbar-body::before {
-    @include mq($from: MD) {
-      content: "";
-      order: 1;
-      width: 100%;
-    }
-  }
-
-
   // Conteneur du logo
   .qam-topbar-logo {
     @include mq($until: SM) {
@@ -160,6 +150,69 @@
     }
   }
 
+  // Bouton de connexion / identification
+  [id="qam-account-toggle"] {
+    @include unstyled-button($extend: true, $important: false);
+    font-size: rem(14); // 14px
+    color: theme(nav-main-link-txt);
+    box-shadow: none;
+
+    @include mq($until: MD) {
+      margin-left: rem(16); // 16px
+
+      @include mq($from: MD) {
+        &:hover,
+        &:active {
+          box-shadow: 0 1px 0 0 currentColor;
+        }
+      }
+    }
+  }
+
+  // Icône
+  [id="qam-account-toggle"]::before {
+    content: "";
+    display: inline-block;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include mq($until: MD) {
+      width: rem(22); // 22px
+      height: rem(22);
+      vertical-align: text-bottom;
+    }
+
+    @include mq($from: MD) {
+      width: rem(16); // 16px
+      height: rem(16);
+      margin-right: rem(4); // 4px
+      vertical-align: sub;
+    }
+  }
+
+  // Etat non connecté - Icône
+  .qam-logged-out::before {
+    @include mq($until: MD) {
+      background-image: url('images/icon.svg#logged-out-sm');
+    }
+
+    @include mq($from: MD) {
+      background-image: url('images/icon.svg#logged-out');
+    }
+  }
+
+  // Etat connecté - Icône
+  .qam-logged-in::before {
+    @include mq($until: MD) {
+      background-image: url('images/icon.svg#logged-in-sm');
+    }
+
+    @include mq($from: MD) {
+      background-image: url('images/icon.svg#logged-in');
+    }
+  }
+
 
   // Conteneur du menu de navigation
   .qam-topbar-nav {
@@ -176,57 +229,11 @@
     position: relative;
 
     @include mq($from: SM) {
-      order: 1;
       margin-right: rem(20); // 20px
     }
-  }
-
-  // Bouton de connexion / identification
-  [id="qam-account-toggle"] {
-    @include unstyled-button($extend: true, $important: false);
-
-    @include mq($until: MD) {
-      margin-left: rem(16); // 16px
-    }
-  }
-
-  // Etat non connecté
-  .qam-logged-out {
-    font-size: rem(14); // 14px
-    color: theme(nav-main-link-txt);
-    box-shadow: none;
 
     @include mq($from: MD) {
-      &:hover,
-      &:active {
-        box-shadow: 0 1px 0 0 currentColor;
-      }
-    }
-  }
-
-  // Icône
-  .qam-logged-out::before {
-    content: "";
-    display: inline-block;
-
-    background-position: 50% 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    @include mq($until: MD) {
-      width: rem(22); // 22px
-      height: rem(22);
-      margin-top: rem(4); // 4px
-      vertical-align: text-bottom;
-      background-image: url('images/icon.svg#logged-out-sm');
-    }
-
-    @include mq($from: MD) {
-      width: rem(16); // 16px
-      height: rem(16);
-      margin-right: rem(4); // 4px
-      vertical-align: sub;
-      background-image: url('images/icon.svg#logged-out');
+      margin-top: rem(8); // 8px
     }
   }
 }
