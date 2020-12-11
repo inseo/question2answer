@@ -20,6 +20,11 @@
       border-top: 1px solid theme(default-bdc);
       box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
     }
+
+    @include mq($from: MD) {
+      margin-right: rem(20); // 20px
+      text-align: right;
+    }
   }
 
 
@@ -46,7 +51,7 @@
   }
 
   // Elements de liste (à l'exception du dernier)
-  .qa-nav-main-item:not(:last-child) {
+  [class^="qa-nav-main-item"]:not(:last-child) {
     margin-bottom: rem(8); // 8px
   }
 
