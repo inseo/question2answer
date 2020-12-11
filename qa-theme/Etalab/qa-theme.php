@@ -120,11 +120,15 @@ class qa_html_theme extends qa_html_theme_base
 	{
     // outputs login form if user not logged in
 
-		if (!qa_is_logged_in())
-			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Connexion/Inscription">');
-		else 
-			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Mon profil">');
-		
+
+		if (qa_is_logged_in()) {
+			$handle = qa_lang_html_sub_split('main/logged_in_x', 0)['prefix'];
+		} else {
+			$handle = $this->content['navigation']['user']['login']['label'] . "/" . $this->content['navigation']['user']['register']['label'];
+			
+		}
+		$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="'. $handle .'">');
+
 		$this->qam_user_account();
 
 		$this->output('<div id="qam-account-items" class="qam-account-items">');
@@ -755,13 +759,7 @@ class qa_html_theme extends qa_html_theme_base
 	private function qam_user_account()
 	{
 		if (qa_is_logged_in()) {
-			$handle = qa_lang_html('main/logged_in_x');
-
-		// 	qa_lang_html_sub_split('main/logged_in_x', QA_FINAL_EXTERNAL_USERS
-		// 	? qa_get_logged_in_user_html(qa_get_logged_in_user_cache(), qa_path_to_root(), false)
-		// 	: qa_get_one_user_html(qa_get_logged_in_handle(), false)
-		// );
-
+			$handle = qa_lang_html_sub_split('main/logged_in_x', 0)['prefix'];
 			$toggleClass = 'qam-logged-in';
 		} else {
 			$handle = $this->content['navigation']['user']['login']['label'] . "/" . $this->content['navigation']['user']['register']['label'];
