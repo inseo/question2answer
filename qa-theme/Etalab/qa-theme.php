@@ -207,7 +207,8 @@ class qa_html_theme extends qa_html_theme_base
 	public function nav_main_sub()
 	{
     $this->output('<div class="qam-topbar-wrapper">');
-    $this->output('<div class="qam-topbar-body">');
+	$this->output('<a href="#main" class="qam-skip-link">Aller au contenu</a>');
+	$this->output('<div class="qam-topbar-body">');
     $this->output('<div class="qam-topbar-logo">');
     $this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République Française, liberté, égalité, fraternité">');
     $this->output('<span class="qam-topbar-logo-title">République<br />française</span>');
@@ -318,6 +319,7 @@ class qa_html_theme extends qa_html_theme_base
 
 		$extratags = isset($this->content['wrapper_tags']) ? $this->content['wrapper_tags'] : '';
 		$this->output('<main role="main" class="qa-body-wrapper"' . $extratags . '>', '');
+		$this->output('<a id="main"></a> <!-- skiplink destination --> ');
 		$this->widgets('full', 'high');
 
 		$this->output('<div class="qa-main-wrapper">', '');
