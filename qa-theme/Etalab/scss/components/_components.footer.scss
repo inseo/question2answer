@@ -23,6 +23,7 @@
     @include mq($until: XS) {
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
   }
 
@@ -35,11 +36,29 @@
   }
 
 
-  // Copyright
-  .qa-attribution-footer-item {
+  // Liste de copyright
+  .qa-attribution-footer {
+    text-align: right;
+
+    @include mq($until: XS) {
+      margin-top: rem(16); // 16px
+    }
+
+    @include mq($from: XS) {
+      margin-left: rem(32); // 32px
+    }
+  }
+
+
+  // Elements de liste
+  .qa-attribution-footer-item,
+  .qa-nav-footer-item {
     display: inline;
     position: relative;
-    margin-left: rem(4); // 4px
+
+    &:not(:first-child) {
+      margin-left: rem(4); // 4px
+    }
 
     &:not(:first-child)::before {
       content: "";
