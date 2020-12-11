@@ -163,27 +163,29 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function nav_main_sub()
 	{
-    $this->output('<div class="qam-topbar-wrapper">');
-	$this->output('<p class="qam-skip-link-wrapper"><a href="#main" class="qam-skip-link">Aller au contenu</a></p>');
-	$this->output('<div class="qam-topbar-body">');
-    $this->output('<div class="qam-topbar-logo">');
-    $this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République Française, liberté, égalité, fraternité">');
-    $this->output('<span class="qam-topbar-logo-title">République<br />française</span>');
-    $this->output('</a>');
-    $this->output('</div> <!-- .qam-topbar-logo -->');
-    $this->output('<div class="qam-topbar-service">');
-    /* @TODO : intégrer le nom du service à la traduction */
-    $this->output('<a class="qam-topbar-service-link" href="/" aria-label="[nom du service], retour à l\'accueil">Entraide.etalab.gouv.fr</a>');
-    $this->output('<p class="qam-topbar-service-tagline">baseline - précisions sur l\'organisation</p>');
-    $this->output('</div> <!-- .qam-topbar-service -->');
-    $this->output('<nav class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
-    /* @TODO : intégrer la valeur de l'attribut alt à la traduction */
-    $this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="Menu" /></button>');
+		$this->output('<div class="qam-topbar-wrapper">');
+		/* @TODO : intégrer aller au contenu */
+		$this->output('<p class="qam-skip-link-wrapper"><a href="#main" class="qam-skip-link">Aller au contenu</a></p>');
+		$this->output('<div class="qam-topbar-body">');
+		$this->output('<div class="qam-topbar-logo">');
+		$this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République française, liberté, égalité, fraternité">');
+		$this->output('<span class="qam-topbar-logo-title">République<br /> française</span>');
+		$this->output('</a>');
+		$this->output('</div> <!-- .qam-topbar-logo -->');
+		$this->output('<div class="qam-topbar-service">');
+		/* @TODO : intégrer le nom du service à la traduction */
+		$this->output('<a class="qam-topbar-service-link" href="' . qa_path_html('') . '" aria-label="'. qa_html(qa_opt('site_title')) .', retour à l\'accueil">'. qa_html(qa_opt('site_title')) .'</a>');
+		$this->output('<p class="qam-topbar-service-tagline">baseline - précisions sur l\'organisation</p>');
+		$this->output('</div> <!-- .qam-topbar-service -->');
+		$this->output('<nav class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
+		/* @TODO : intégrer la valeur de l'attribut alt à la traduction */
+		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="Menu" /></button>');
 		$this->nav('main');
-    $this->output('</nav>');
+		$this->output('</nav>');
+		$this->logo();
 		$this->nav_user_search();
-    $this->output('</div> <!-- .qam-topbar-body -->');
-    $this->output('</div> <!-- .qam-topbar-wrapper -->');
+    	$this->output('</div> <!-- .qam-topbar-body -->');
+    	$this->output('</div> <!-- .qam-topbar-wrapper -->');
 		$this->nav('sub');
 	}
 
