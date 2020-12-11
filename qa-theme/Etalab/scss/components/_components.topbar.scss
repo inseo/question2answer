@@ -142,6 +142,16 @@
 
 
   // Bouton d'affichage / masquage du menu principal
+  // Bouton de connexion / identification
+  .qam-menu-toggle,
+  [id="qam-account-toggle"] {
+    &:focus {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  // Bouton d'affichage / masquage du menu principal
   .qam-menu-toggle {
     @include unstyled-button($extend: true, $important: false);
 
@@ -174,6 +184,10 @@
   // Bouton de connexion / identification
   [id="qam-account-toggle"] {
     @include unstyled-button($extend: true, $important: false);
+
+    @include mq($until: MD) {
+      margin-left: rem(16); // 16px
+    }
   }
 
   // Etat non connecté
@@ -203,7 +217,6 @@
       width: rem(22); // 22px
       height: rem(22);
       margin-top: rem(4); // 4px
-      margin-left: rem(16); // 16px
       vertical-align: text-bottom;
       background-image: url('images/icon.svg#logged-out-sm');
     }
