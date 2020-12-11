@@ -154,9 +154,9 @@ class qa_html_theme extends qa_html_theme_base
 		if(qa_opt('logo_show')) {
 			$this->logo();
 		} else {
-			$this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République française, liberté, égalité, fraternité">');
+			$this->output('<span class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République française, liberté, égalité, fraternité">');
 			$this->output('<span class="qam-topbar-logo-title">République<br /> française</span>');
-			$this->output('</a>');
+			$this->output('</span>');
 		}
 		$this->output('</div> <!-- .qam-topbar-logo -->');
 		$this->output('<div class="qam-topbar-service">');
