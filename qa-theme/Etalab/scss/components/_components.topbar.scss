@@ -181,12 +181,10 @@
     color: theme(nav-main-link-txt);
     box-shadow: none;
 
-    &:hover,
-    &:active {
-      box-shadow: 0 1px 0 0 currentColor;
-
-      &::before {
-        box-shadow: none;
+    @include mq($from: MD) {
+      &:hover,
+      &:active {
+        box-shadow: 0 1px 0 0 currentColor;
       }
     }
   }
@@ -195,10 +193,26 @@
   .qam-logged-out::before {
     content: "";
     display: inline-block;
-    width: rem(16); // 16px
-    height: rem(16);
-    margin-right: rem(4); // 4px
-    vertical-align: sub;
-    background: url('images/icon.svg#logged-out') 50% 50% /contain no-repeat;
+
+    background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include mq($until: MD) {
+      width: rem(22); // 22px
+      height: rem(22);
+      margin-top: rem(4); // 4px
+      margin-left: rem(16); // 16px
+      vertical-align: text-bottom;
+      background-image: url('images/icon.svg#logged-out-sm');
+    }
+
+    @include mq($from: MD) {
+      width: rem(16); // 16px
+      height: rem(16);
+      margin-right: rem(4); // 4px
+      vertical-align: sub;
+      background-image: url('images/icon.svg#logged-out');
+    }
   }
 }
