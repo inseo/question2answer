@@ -219,12 +219,14 @@ class qa_html_theme extends qa_html_theme_base
 		$index = 0;
 		if($class == 'nav-user') {
 			if (qa_is_logged_in()) {
-				$this->output_split(@$this->content['loggedin'], 'qa-logged-in', 'li');
 				$userpoints = qa_get_logged_in_points();
 				$pointshtml = $userpoints == 1
 					? qa_lang_html_sub('main/1_point', '1', '1')
 					: qa_html(qa_format_number($userpoints));
-				$this->output('<li class="qam-logged-in-points">' . $pointshtml . ' '. qa_lang_html_sub_split('main/x_points', 0)['suffix'] .'</li>');
+				$this->output('<li class="qam-logged-in-points">');
+				$this->output(@$this->content['loggedin']['prefix'] . ' ' . @$this->content['loggedin']['data']);
+				$this->output('('. $pointshtml . ' '. qa_lang_html_sub_split('main/x_points', 0)['suffix'] .')');
+				$this->output('</li>');
 			}
 		}
 		foreach ($navigation as $key => $navlink) {
