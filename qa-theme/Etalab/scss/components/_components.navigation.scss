@@ -28,7 +28,10 @@
     @include mq($from: MD) {
       display: inline;
       position: relative;
-      margin-left: rem(4); // 4px
+
+      &:not(:first-child) {
+        margin-left: rem(4); // 4px
+      }
 
       &:not(:first-child)::before {
         content: "";

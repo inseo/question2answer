@@ -153,7 +153,10 @@
 
   // Conteneur du menu de navigation
   .qam-topbar-nav {
+    margin-top: rem(8); // 8px
     margin-left: auto;
+    max-width: 60%;
+    line-height: lh(24, 16); // 24px
   }
 
 
