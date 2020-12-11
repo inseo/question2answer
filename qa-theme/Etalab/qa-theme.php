@@ -46,7 +46,7 @@ class qa_html_theme extends qa_html_theme_base
 	private $fixed_topbar = false;
 	private $welcome_widget_class = 'wet-asphalt';
 	private $ask_search_box_class = 'turquoise';
-	
+
 	// Size of the user avatar in the navigation bar
 	private $nav_bar_avatar_size = 52;
 
@@ -105,7 +105,7 @@ class qa_html_theme extends qa_html_theme_base
 		// }
 
 		parent::head_css();
-	
+
 		// UNUSED TO DELETE
 		// output some dynamic CSS inline
 		// $this->head_inline_css();
@@ -214,7 +214,7 @@ class qa_html_theme extends qa_html_theme_base
     $this->output('</div> <!-- .qam-topbar-logo -->');
     $this->output('<div class="qam-topbar-service">');
     /* @TODO : intégrer le nom du service à la traduction */
-    $this->output('<a class="qam-topbar-service-link" href="/" aria-label="[nom du service], retour à l\'accueil">Ici le nom du service à modifier</a>');
+    $this->output('<a class="qam-topbar-service-link" href="/" aria-label="[nom du service], retour à l\'accueil">Entraide.etalab.gouv.fr</a>');
     $this->output('<p class="qam-topbar-service-tagline">baseline - précisions sur l\'organisation</p>');
     $this->output('</div> <!-- .qam-topbar-service -->');
     $this->output('<nav class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
@@ -458,7 +458,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('>');
 		$this->output(	'<a href="' . $q_item['url'] . '">',
 		$q_item['title'],
-		$imgHtml,			
+		$imgHtml,
 		'</a>',
 		'</h2>'
 		);
