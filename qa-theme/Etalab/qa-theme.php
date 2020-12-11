@@ -105,11 +105,6 @@ class qa_html_theme extends qa_html_theme_base
 	{
     // outputs login form if user not logged in
 
-		if (!qa_is_logged_in())
-			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Connexion/Inscription">');
-		else
-			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Mon profil">');
-
 		$this->qam_user_account();
 
 		$this->output('<div id="qam-account-items" class="qam-account-items">');
@@ -136,7 +131,6 @@ class qa_html_theme extends qa_html_theme_base
 		}
 		$this->nav('user');
 		$this->output('</div> <!-- END qam-account-items -->');
-		$this->output('</nav> <!-- END qam-account-items-wrapper -->');
 	}
 
 	/**
@@ -163,13 +157,15 @@ class qa_html_theme extends qa_html_theme_base
 		/* @TODO : intégrer le nom du service à la traduction */
 		$this->output('<a class="qam-topbar-service-link" href="' . qa_path_html('') . '" aria-label="'. qa_html(qa_opt('site_title')) .', retour à l\'accueil">'. qa_html(qa_opt('site_title')) .'</a>');
 		$this->output('<p class="qam-topbar-service-tagline">baseline - précisions sur l\'organisation</p>');
-		$this->output('</div> <!-- .qam-topbar-service -->');
+    $this->output('</div> <!-- .qam-topbar-service -->');
+    /* @TODO : intégrer la valeur de l'attribut aria-label à la traduction */
 		$this->output('<nav class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
 		/* @TODO : intégrer la valeur de l'attribut alt à la traduction */
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="Menu" /></button>');
 		$this->nav('main');
 		$this->output('</ul>');
-		$this->nav_user_search();
+    $this->nav_user_search();
+    $this->output('</nav>');
     	$this->output('</div> <!-- .qam-topbar-body -->');
     	$this->output('</div> <!-- .qam-topbar-wrapper -->');
 		$this->nav('sub');

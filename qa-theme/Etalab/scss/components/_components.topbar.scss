@@ -158,13 +158,16 @@
     box-shadow: none;
 
     @include mq($until: MD) {
+      float: right;
       margin-left: rem(16); // 16px
+    }
 
-      @include mq($from: MD) {
-        &:hover,
-        &:active {
-          box-shadow: 0 1px 0 0 currentColor;
-        }
+    @include mq($from: MD) {
+      margin-top: rem(8); // 8px
+
+      &:hover,
+      &:active {
+        box-shadow: 0 1px 0 0 currentColor;
       }
     }
   }
@@ -180,7 +183,7 @@
     @include mq($until: MD) {
       width: rem(22); // 22px
       height: rem(22);
-      vertical-align: text-bottom;
+      vertical-align: middle;
     }
 
     @include mq($from: MD) {
@@ -214,25 +217,19 @@
   }
 
 
-  // Conteneur du menu de navigation
+  // Conteneur des éléments de navigation
   .qam-topbar-nav {
     margin-top: rem(8); // 8px
     margin-left: auto;
     max-width: 60%;
     line-height: lh(24, 16); // 24px
-  }
-
-
-  // Conteneur du bouton de connexion / identification
-  .qam-account-wrapper {
-    float: right;
 
     @include mq($from: SM) {
-      margin-right: rem(20); // 20px
+      padding-right: rem(20); // 20px
     }
 
     @include mq($from: MD) {
-      margin-top: rem(8); // 8px
+      text-align: right;
     }
   }
 

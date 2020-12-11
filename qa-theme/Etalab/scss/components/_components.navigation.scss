@@ -19,11 +19,6 @@
       border-top: 1px solid theme(default-bdc);
       box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
     }
-
-    @include mq($from: MD) {
-      margin-right: rem(20); // 20px
-      text-align: right;
-    }
   }
 
 
