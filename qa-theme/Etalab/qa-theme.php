@@ -223,7 +223,7 @@ class qa_html_theme extends qa_html_theme_base
 				$pointshtml = $userpoints == 1
 					? qa_lang_html_sub('main/1_point', '1', '1')
 					: qa_html(qa_format_number($userpoints));
-				$this->output('<li class="qam-logged-in-points">');
+				$this->output('<li class="qa-nav-user-item qa-nav-logged-in-points">');
 				$this->output(@$this->content['loggedin']['prefix'] . ' ' . @$this->content['loggedin']['data']);
 				$this->output('('. $pointshtml . ' '. qa_lang_html_sub_split('main/x_points', 0)['suffix'] .')');
 				$this->output('</li>');

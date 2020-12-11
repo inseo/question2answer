@@ -444,11 +444,6 @@ blockquote p {
     width: 100%;
 }
 
-.qa-nav-user {
-    white-space: nowrap;
-    margin: -10px;
-}
-
 .qa-nav-user-facebook-login,
 .qa-nav-user-register {
     padding: 0 !important;
@@ -499,84 +494,6 @@ blockquote p {
     text-align: center;
     line-height: normal;
     border-radius: 1em;
-}
-
-.qam-logged-in-points {
-    padding: 10px 20px;
-    border-bottom: 1px solid #2c3e50;
-}
-.qam-logged-in-points:before {
-    content: "\e810";
-    font-family: "fontello";
-    display: inline-block;
-    width: 1em;
-    background-color: #2c3e50;
-    padding: 5px;
-    margin: 0 10px 0 0;
-    text-align: center;
-    line-height: normal;
-    border-radius: 1em;
-}
-
-.qa-nav-user-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.qa-nav-user-item {
-    padding: 0 20px;
-    border-bottom: 1px solid #2c3e50;
-}
-.qa-nav-user-item:last-child {
-    border-bottom: none;
-}
-
-.qa-nav-user-link {
-    padding: 10px 0;
-    display: inline-block;
-}
-
-.qa-nav-user-updates:before {
-    content: "\e812";
-    font-family: "fontello";
-    display: inline-block;
-    width: 1em;
-    background-color: #2c3e50;
-    padding: 5px;
-    margin: 0 10px 0 0;
-    text-align: center;
-    line-height: normal;
-    border-radius: 1em;
-}
-
-.qa-nav-user-logout:before {
-    content: "\e824";
-    font-family: "fontello";
-    display: inline-block;
-    width: 1em;
-    background-color: #2c3e50;
-    padding: 5px;
-    margin: 0 10px 0 0;
-    text-align: center;
-    line-height: normal;
-    border-radius: 1em;
-}
-
-.qa-logged-in:hover,
-.qa-logged-in:focus,
-.qam-logged-in-points:hover,
-.qam-logged-in-points:focus,
-.qa-nav-user-item:hover,
-.qa-nav-user-item:focus {
-    background-color: #2c3e50;
-}
-
-.qa-nav-user-facebook-login:hover,
-.qa-nav-user-facebook-login:focus,
-.qa-nav-user-register:hover,
-.qa-nav-user-register:focus {
-    background-color: transparent;
 }
 
 /*------[ qa content parts ]------*/
