@@ -433,21 +433,6 @@ blockquote p {
 }
 
 
-.qam-account-items {
-    background-color: #34495e;
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    width: 230px;
-    padding: 10px;
-    z-index: 1100;
-}
-.qam-account-items input[type="text"],
-.qam-account-items input[type="password"] {
-    width: 100%;
-}
-
 .qam-account-handle {
     font-size: 12px;
     line-height: 1.8;
