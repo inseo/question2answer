@@ -167,6 +167,7 @@
 
     @include mq($from: SM) {
       order: 1;
+      margin-right: rem(20); // 20px
     }
   }
 
