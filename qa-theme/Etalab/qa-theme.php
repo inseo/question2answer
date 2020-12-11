@@ -182,7 +182,6 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="Menu" /></button>');
 		$this->nav('main');
 		$this->output('</nav>');
-		$this->logo();
 		$this->nav_user_search();
     	$this->output('</div> <!-- .qam-topbar-body -->');
     	$this->output('</div> <!-- .qam-topbar-wrapper -->');
