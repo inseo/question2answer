@@ -35,10 +35,6 @@ class qa_html_theme extends qa_html_theme_base
 {
 	protected $theme = 'etalab';
 
-	// UNUSED TO DELETE
-	// use local font files instead of Google Fonts
-	// private $localfonts = true;
-
 	// theme subdirectories
 	private $js_dir = 'js';
 	private $icon_url = 'images/icons';
@@ -46,13 +42,6 @@ class qa_html_theme extends qa_html_theme_base
 	private $fixed_topbar = false;
 	private $welcome_widget_class = 'wet-asphalt';
 	private $ask_search_box_class = 'turquoise';
-
-	// Size of the user avatar in the navigation bar
-	private $nav_bar_avatar_size = 52;
-
-	// UNUSED TO DELETE
-	// use new block layout in rankings
-	// protected $ranking_block_layout = true;
 
 	/**
 	 * Adding aditional meta for responsive design
@@ -64,52 +53,15 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Adding theme stylesheets
+	 * Adding theme stylesheets USELESS TO DELETE
 	 */
-	public function head_css()
-	{
-		// add RTL CSS file
-		if ($this->isRTL)
-			$this->content['css_src'][] = $this->rooturl . 'qa-styles-rtl.css?' . QA_VERSION;
-
-		// UNUSED TO DELETE
-		// if ($this->localfonts) {
-		// 	// add Ubuntu font locally (inlined for speed)
-		// 	$this->output_array(array(
-		// 		"<style>",
-		// 		"@font-face {",
-		// 		" font-family: 'Ubuntu'; font-weight: normal; font-style: normal;",
-		// 		" src: local('Ubuntu'),",
-		// 		"  url('{$this->rooturl}fonts/ubuntu-regular.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-regular.woff') format('woff');",
-		// 		"}",
-		// 		"@font-face {",
-		// 		" font-family: 'Ubuntu'; font-weight: bold; font-style: normal;",
-		// 		" src: local('Ubuntu Bold'), local('Ubuntu-Bold'),",
-		// 		"  url('{$this->rooturl}fonts/ubuntu-bold.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-bold.woff') format('woff');",
-		// 		"}",
-		// 		"@font-face {",
-		// 		" font-family: 'Ubuntu'; font-weight: normal; font-style: italic;",
-		// 		" src: local('Ubuntu Italic'), local('Ubuntu-Italic'),",
-		// 		"  url('{$this->rooturl}fonts/ubuntu-italic.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-italic.woff') format('woff');",
-		// 		"}",
-		// 		"@font-face {",
-		// 		" font-family: 'Ubuntu'; font-weight: bold; font-style: italic;",
-		// 		" src: local('Ubuntu Bold Italic'), local('Ubuntu-BoldItalic'),",
-		// 		"  url('{$this->rooturl}fonts/ubuntu-bold-italic.woff2') format('woff2'), url('{$this->rooturl}fonts/ubuntu-bold-italic.woff') format('woff');",
-		// 		"}",
-		// 		"</style>",
-		// 	));
-		// } else {
-		// 	// add Ubuntu font CSS file from Google Fonts
-		// 	$this->content['css_src'][] = 'https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i';
-		// }
-
-		parent::head_css();
-
-		// UNUSED TO DELETE
-		// output some dynamic CSS inline
-		// $this->head_inline_css();
-	}
+	// public function head_css()
+	// {
+	// 	// UNUSED TO DELETE
+	// 	if ($this->isRTL)
+	// 		$this->content['css_src'][] = $this->rooturl . 'qa-styles-rtl.css?' . QA_VERSION;
+	// 	parent::head_css();
+	// }
 
 	/**
 	 * Adding theme javascripts
@@ -167,13 +119,15 @@ class qa_html_theme extends qa_html_theme_base
 	public function nav_user_search()
 	{
     // outputs login form if user not logged in
-    /* @TODO : intégrer le valeur de aria-label à la traduction */
-		$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Connexion/Inscription">');
 
+		if (!qa_is_logged_in())
+			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Connexion/Inscription">');
+		else 
+			$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Mon profil">');
+		
 		$this->qam_user_account();
 
 		$this->output('<div id="qam-account-items" class="qam-account-items">');
-
 		if (!qa_is_logged_in()) {
 			if (isset($this->content['navigation']['user']['login']) && !QA_FINAL_EXTERNAL_USERS) {
 				$login = $this->content['navigation']['user']['login'];
@@ -195,7 +149,6 @@ class qa_html_theme extends qa_html_theme_base
 				unset($this->content['navigation']['user']['login']);
 			}
 		}
-
 		$this->nav('user');
 		$this->output('</div> <!-- END qam-account-items -->');
 		$this->output('</nav> <!-- END qam-account-items-wrapper -->');
@@ -207,7 +160,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function nav_main_sub()
 	{
     $this->output('<div class="qam-topbar-wrapper">');
-	$this->output('<a href="#main" class="qam-skip-link">Aller au contenu</a>');
+	$this->output('<p class="qam-skip-link-wrapper"><a href="#main" class="qam-skip-link">Aller au contenu</a></p>');
 	$this->output('<div class="qam-topbar-body">');
     $this->output('<div class="qam-topbar-logo">');
     $this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République Française, liberté, égalité, fraternité">');
@@ -796,53 +749,30 @@ class qa_html_theme extends qa_html_theme_base
 
 	/**
 	 * User account navigation item. This will return based on login information.
-	 * If user is logged in, it will populate user avatar and account links.
+	 * If user is logged in, it will populate and account links.
 	 * If user is guest, it will populate login form and registration link.
 	 */
 	private function qam_user_account()
 	{
 		if (qa_is_logged_in()) {
-			// get logged-in user avatar
-			$handle = qa_get_logged_in_user_field('handle');
+			$handle = qa_lang_html('main/logged_in_x');
+
+		// 	qa_lang_html_sub_split('main/logged_in_x', QA_FINAL_EXTERNAL_USERS
+		// 	? qa_get_logged_in_user_html(qa_get_logged_in_user_cache(), qa_path_to_root(), false)
+		// 	: qa_get_one_user_html(qa_get_logged_in_handle(), false)
+		// );
+
 			$toggleClass = 'qam-logged-in';
-
-			if (QA_FINAL_EXTERNAL_USERS)
-				$tobar_avatar = qa_get_external_avatar_html(qa_get_logged_in_user_field('userid'), $this->nav_bar_avatar_size, true);
-			else {
-				$tobar_avatar = qa_get_user_avatar_html(
-					qa_get_logged_in_user_field('flags'),
-					qa_get_logged_in_user_field('email'),
-					$handle,
-					qa_get_logged_in_user_field('avatarblobid'),
-					qa_get_logged_in_user_field('avatarwidth'),
-					qa_get_logged_in_user_field('avatarheight'),
-					$this->nav_bar_avatar_size,
-					false
-				);
-			}
-
-			$avatar = strip_tags($tobar_avatar, '<img>');
 		} else {
-			// display login icon and label
-			$handle = $this->content['navigation']['user']['login']['label'];
+			$handle = $this->content['navigation']['user']['login']['label'] . "/" . $this->content['navigation']['user']['register']['label'];
 			$toggleClass = 'qam-logged-out';
-			$avatar = '';
-
-			// display register link
-			/*$register = $this->content['navigation']['user']['register'];
-			$this->output(
-				'<a href="' . $register['url'] . '">',
-				'<i aria-hidden="true" class="icon-user-add qam-auth-key"></i>' . $register['label'],
-				'</a>'
-			);*/
 		}
 
-		// finally output avatar with div tag
-		$handleBlock = !empty($avatar) && qa_is_logged_in() ? '' : qa_html($handle);
 		$this->output(
-			'<button aria-expanded="false" aria-controls="qam-account-items" title="' . $handle . '" aria-label="' . $handle . '" id="qam-account-toggle" class="' . $toggleClass . '">',
-			$avatar,
-			$handleBlock,
+			'<button aria-expanded="false" aria-controls="qam-account-items" id="qam-account-toggle" class="' . $toggleClass . '">',
+			'<span class="u-visually-hidden@umd">',
+			$handle,
+			'<span>',
 			'</button>'
 		);
 	}
