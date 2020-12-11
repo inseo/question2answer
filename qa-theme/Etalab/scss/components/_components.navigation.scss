@@ -24,7 +24,7 @@
 
 
   // Elements de liste
-  .qa-nav-main-item {
+  [class^="qa-nav-main-item"] {
     @include mq($from: MD) {
       display: inline;
       position: relative;
