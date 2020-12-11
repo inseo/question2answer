@@ -125,7 +125,6 @@ class qa_html_theme extends qa_html_theme_base
 			$handle = qa_lang_html_sub_split('main/logged_in_x', 0)['prefix'];
 		} else {
 			$handle = $this->content['navigation']['user']['login']['label'] . "/" . $this->content['navigation']['user']['register']['label'];
-			
 		}
 		$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="'. $handle .'">');
 
@@ -168,9 +167,13 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<p class="qam-skip-link-wrapper"><a href="#main" class="qam-skip-link">Aller au contenu</a></p>');
 		$this->output('<div class="qam-topbar-body">');
 		$this->output('<div class="qam-topbar-logo">');
-		$this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République française, liberté, égalité, fraternité">');
-		$this->output('<span class="qam-topbar-logo-title">République<br /> française</span>');
-		$this->output('</a>');
+		if(qa_opt('logo_show')) {
+			$this->logo();
+		} else {
+			$this->output('<a class="qam-topbar-logo-link" href="https://www.etalab.gouv.fr/" aria-label="Etalab - République française, liberté, égalité, fraternité">');
+			$this->output('<span class="qam-topbar-logo-title">République<br /> française</span>');
+			$this->output('</a>');
+		}
 		$this->output('</div> <!-- .qam-topbar-logo -->');
 		$this->output('<div class="qam-topbar-service">');
 		/* @TODO : intégrer le nom du service à la traduction */
@@ -789,33 +792,6 @@ class qa_html_theme extends qa_html_theme_base
 		$this->search();
 		$this->output('</div>');
 	}
-
-	// UNUSED TO DELETE
-	// /**
-	//  * Dynamic CSS based on options and other interaction with Q2A.
-	//  * @return string The CSS code
-	//  */
-	// private function head_inline_css()
-	// {
-	// 	$css = array('<style>');
-
-	// 	if (!qa_is_logged_in())
-	// 		$css[] = '.qa-nav-user { margin: 0 !important; }';
-
-	// 	if (qa_request_part(1) !== qa_get_logged_in_handle()) {
-	// 		$css[] = '@media (max-width: 979px) {';
-	// 		$css[] = ' body.qa-template-user.fixed, body[class*="qa-template-user-"].fixed { padding-top: 118px !important; }';
-	// 		$css[] = ' body.qa-template-users.fixed { padding-top: 95px !important; }';
-	// 		$css[] = '}';
-	// 		$css[] = '@media (min-width: 980px) {';
-	// 		$css[] = ' body.qa-template-users.fixed { padding-top: 105px !important;}';
-	// 		$css[] = '}';
-	// 	}
-
-	// 	$css[] = '</style>';
-
-	// 	$this->output_array($css);
-	// }
 
 	/**
 	 * Custom ask button for medium and small screen
