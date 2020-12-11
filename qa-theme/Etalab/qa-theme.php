@@ -75,21 +75,6 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Adding point count for logged in user
-	 */
-	public function logged_in()
-	{
-		parent::logged_in();
-		if (qa_is_logged_in()) {
-			$userpoints = qa_get_logged_in_points();
-			$pointshtml = $userpoints == 1
-				? qa_lang_html_sub('main/1_point', '1', '1')
-				: qa_html(qa_format_number($userpoints));
-			$this->output('<div class="qam-logged-in-points">' . $pointshtml . '</div>');
-		}
-	}
-
-	/**
 	 * Adding body class dynamically. Override needed to add class on admin/approve-users page
 	 */
 	public function body_tags()
@@ -118,9 +103,6 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function nav_user_search()
 	{
-    // outputs login form if user not logged in
-
-
 		if (qa_is_logged_in()) {
 			$handle = qa_lang_html_sub_split('main/logged_in_x', 0)['prefix'];
 		} else {
@@ -180,11 +162,11 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<a class="qam-topbar-service-link" href="' . qa_path_html('') . '" aria-label="'. qa_html(qa_opt('site_title')) .', retour à l\'accueil">'. qa_html(qa_opt('site_title')) .'</a>');
 		$this->output('<p class="qam-topbar-service-tagline">baseline - précisions sur l\'organisation</p>');
 		$this->output('</div> <!-- .qam-topbar-service -->');
-		$this->output('<nav class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
+		$this->output('<ul class="qam-topbar-nav" aria-label="Navigation principale" role="navigation">');
 		/* @TODO : intégrer la valeur de l'attribut alt à la traduction */
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="Menu" /></button>');
 		$this->nav('main');
-		$this->output('</nav>');
+		$this->output('</ul>');
 		$this->nav_user_search();
     	$this->output('</div> <!-- .qam-topbar-body -->');
     	$this->output('</div> <!-- .qam-topbar-wrapper -->');
@@ -204,11 +186,9 @@ class qa_html_theme extends qa_html_theme_base
 					}
 				}
 				$this->output('<nav role="navigation" aria-label="' . $label . '" class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
-			} else
+			} else {
 				$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
-
-			if ($navtype == 'user')
-				$this->logged_in();
+			}
 
 			// reverse order of 'opposite' items since they float right
 			foreach (array_reverse($navigation, true) as $key => $navlink) {
@@ -223,11 +203,38 @@ class qa_html_theme extends qa_html_theme_base
 			$this->nav_clear($navtype);
 			$this->clear_context('nav_type');
 
-			if ($navtype == 'sub')
+			if ($navtype == 'sub') 
 				$this->output('</nav>');
 			else
 				$this->output('</div>');
 		}
+	}
+
+	public function nav_list($navigation, $class, $level = null)
+	{
+		$this->output('<ul class="qa-' . $class . '-list' . (isset($level) ? (' qa-' . $class . '-list-' . $level) : '') . '">');
+
+		$index = 0;
+		if($class == 'nav-user') {
+			if (qa_is_logged_in()) {
+				$this->output_split(@$this->content['loggedin'], 'qa-logged-in', 'li');
+				$userpoints = qa_get_logged_in_points();
+				$pointshtml = $userpoints == 1
+					? qa_lang_html_sub('main/1_point', '1', '1')
+					: qa_html(qa_format_number($userpoints));
+				$this->output('<li class="qam-logged-in-points">' . $pointshtml . ' '. qa_lang_html_sub_split('main/x_points', 0)['suffix'] .'</li>');
+			}
+		}
+		foreach ($navigation as $key => $navlink) {
+			$this->set_context('nav_key', $key);
+			$this->set_context('nav_index', $index++);
+			$this->nav_item($key, $navlink, $class, $level);
+		}
+
+		$this->clear_context('nav_key');
+		$this->clear_context('nav_index');
+
+		$this->output('</ul>');
 	}
 
 	/**
