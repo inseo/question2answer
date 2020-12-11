@@ -166,12 +166,13 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function nav_user_search()
 	{
-		// outputs login form if user not logged in
-		$this->output('<nav role="navigation" class="qam-account-items-wrapper">');
+    // outputs login form if user not logged in
+    /* @TODO : intégrer le valeur de aria-label à la traduction */
+		$this->output('<nav class="qam-account-wrapper" role="navigation" aria-label="Connexion/Inscription">');
 
 		$this->qam_user_account();
 
-		$this->output('<div id="qam-account-items" class="qam-account-items clearfix">');
+		$this->output('<div id="qam-account-items" class="qam-account-items">');
 
 		if (!qa_is_logged_in()) {
 			if (isset($this->content['navigation']['user']['login']) && !QA_FINAL_EXTERNAL_USERS) {
@@ -823,7 +824,7 @@ class qa_html_theme extends qa_html_theme_base
 			// display login icon and label
 			$handle = $this->content['navigation']['user']['login']['label'];
 			$toggleClass = 'qam-logged-out';
-			$avatar = '<i aria-hidden="true" class="icon-key qam-auth-key"></i>';
+			$avatar = '';
 
 			// display register link
 			/*$register = $this->content['navigation']['user']['register'];

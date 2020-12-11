@@ -161,9 +161,44 @@
 
 
   // Conteneur du bouton de connexion / identification
-  .qam-account-items-wrapper {
+  .qam-account-wrapper {
+    float: right;
+    position: relative;
+
     @include mq($from: SM) {
       order: 1;
     }
+  }
+
+  // Bouton de connexion / identification
+  [id="qam-account-toggle"] {
+    @include unstyled-button($extend: true, $important: false);
+  }
+
+  // Etat non connecté
+  .qam-logged-out {
+    font-size: rem(14); // 14px
+    color: theme(nav-main-link-txt);
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 1px 0 0 currentColor;
+
+      &::before {
+        box-shadow: none;
+      }
+    }
+  }
+
+  // Icône
+  .qam-logged-out::before {
+    content: "";
+    display: inline-block;
+    width: rem(16); // 16px
+    height: rem(16);
+    margin-right: rem(4); // 4px
+    vertical-align: sub;
+    background: url('images/icon.svg#logged-out') 50% 50% /contain no-repeat;
   }
 }

@@ -432,33 +432,6 @@ blockquote p {
     color: #fff;
 }
 
-.qam-account-items-wrapper {
-    float: right;
-    position: relative;
-}
-
-#qam-account-toggle {
-    border: 0;
-    color: #fff;
-    display: block;
-    cursor: pointer;
-    min-width: 60px;
-    min-height: 55px;
-    max-width: 80px;
-    padding: 2px;
-    background-color: #34495e;
-    text-align: center;
-}
-#qam-account-toggle:hover,
-#qam-account-toggle:focus {
-    background: #445f7a;
-}
-#qam-account-toggle .qam-auth-key {
-    font-size: 28px;
-}
-#qam-account-toggle .qam-auth-key:before {
-    display: inline-block;
-}
 
 .qam-account-items {
     background-color: #34495e;
