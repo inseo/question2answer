@@ -107,8 +107,6 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function nav_user_search()
 	{
-    // outputs login form if user not logged in
-
 		$this->qam_user_account();
 
 		$this->output('<div id="qam-account-items" class="qam-account-items">');
@@ -119,6 +117,7 @@ class qa_html_theme extends qa_html_theme_base
 				$inputType = $emailOnly ? 'email' : 'text';
 				$this->output(
 					'<form action="' . $login['url'] . '" method="post">',
+					'<p>' . qa_lang_html('etalab/all_fields_are_required') . '</p>',
 					'<label for="qam-emailhandle">' . trim(qa_lang_html($emailOnly ? 'users/email_label' : 'users/email_handle_label'), ':') . '</label>',
 					'<input type="' . $inputType . '" autocomplete="username" name="emailhandle" id="qam-emailhandle" aria-required="true" dir="auto" />',
 					'<label for="qam-password">' . trim(qa_lang_html('users/password_label'), ':') . '</label>',
@@ -925,7 +924,7 @@ class qa_html_theme extends qa_html_theme_base
 		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
 			$this->output('<p>');
 		} else {
-			$id !== null ? $this->output('<label for="' . $id . '">') : '';;
+			$id !== null ? $this->output('<label for="' . $id . '">') : '';
 		}
 
 		if ($prefixed) {
@@ -941,7 +940,10 @@ class qa_html_theme extends qa_html_theme_base
 		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
 			$this->output('</p>');
 		} else {
-			$id !== null ? $this->output('</label>') : '';;
+			if($this->isItARequiredField($field)) {
+				$this->output(' <span class="required" aria-hidden="true">('. qa_lang_html('etalab/required') .')</span>');
+			}
+			$id !== null ? $this->output('</label>') : '';
 		}
 		$this->output('</td>');
 	}
@@ -967,13 +969,36 @@ class qa_html_theme extends qa_html_theme_base
 	 * Return id or null
 	 * @param $field
 	 */
-
 	private function getIdFromField($field)
 	{
 		$id = $this->extractAttributeFromTags($field, 'id');
 		if ($id == null)
 			$id = $this->extractAttributeFromTags($field, 'name');
 		return $id;
+	}
+
+	/**
+	 * Find if it is a required field (based on id's)
+	 * Return true/false
+	 * @param $field
+	 */
+	private function isItARequiredField($field)
+	{
+		$isIt = false;
+		$id = $this->getIdFromField($field);
+		switch($id) {
+			case "emailhandle":
+			case "password":
+			case "handle":
+			case "email":
+			case "terms":
+			case "q_title":
+				$isIt = true;
+				break;
+			default: 
+			break;
+		}
+		return $isIt;
 	}
 
 	/**
@@ -1008,6 +1033,8 @@ class qa_html_theme extends qa_html_theme_base
 			$ariaDescribedBy .= "note_" . $id . " ";
 		if ($ariaDescribedBy !== "")
 			$tags .= ' aria-describedby="' . $ariaDescribedBy . '"';
+		if ($this->isItARequiredField($field))
+			$tags .= ' aria-required="true"';
 		return $tags;
 	}
 
