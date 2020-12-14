@@ -148,7 +148,7 @@ class qa_html_theme extends qa_html_theme_base
 		if(qa_opt('logo_show')) {
 			$this->logo();
 		} else {
-			$this->output('<span class="qam-topbar-logo-link"');
+			$this->output('<span class="qam-topbar-logo-link">');
 			$this->output('<span class="qam-topbar-logo-title">République<br /> française</span>');
 			$this->output('</span>');
 		}
