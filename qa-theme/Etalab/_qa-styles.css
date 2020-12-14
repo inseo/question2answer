@@ -10,7 +10,6 @@
 
 .clearfix,
 .qa-q-item-clear,
-.qa-nav-sub,
 .qa-page-links,
 .qa-page-links-list,
 .qa-template-admin .qa-message-buttons,
@@ -36,7 +35,6 @@
 .qa-sidepanel:after,
 .clearfix:after,
 .qa-q-item-clear:after,
-.qa-nav-sub:after,
 .qa-page-links:after,
 .qa-page-links-list:after,
 .qa-template-admin .qa-message-buttons:after,
@@ -367,66 +365,6 @@ blockquote p {
     bottom: auto;
     z-index: 99990;
 }
-
-.qa-nav-sub {
-    background-color: #e0e4e5;
-    text-align: center;
-    font-size: 12px;
-}
-.qa-nav-sub-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-@media (max-width: 979px) {
-    .qa-nav-sub-list {
-        *zoom: 1;
-    }
-    .qa-nav-sub-list:before,
-    .qa-nav-sub-list:after {
-        content: "";
-        display: table;
-    }
-    .qa-nav-sub-list:after {
-        clear: both;
-    }
-
-    .qa-nav-sub-item {
-        width: 33.33%;
-        float: left;
-        box-shadow: -1px -1px 0 0 #cfd9db inset;
-    }
-    .qa-nav-sub-item:nth-child(3) {
-        box-shadow: 0 -1px 0 0 #cfd9db inset;
-    }
-}
-@media (min-width: 980px) {
-    .qa-nav-sub {
-        font-size: 13px;
-        padding: 0 6px;
-    }
-    .qa-nav-sub-item {
-        display: inline-block;
-    }
-}
-
-.qa-nav-sub-link,
-.qa-nav-sub-link:visited,
-.qa-nav-sub-link:hover,
-.qa-nav-sub-link:focus {
-    display: block;
-    padding: 2px 10px 4px;
-    color: #000;
-}
-.qa-nav-sub-link.qa-nav-sub-selected,
-.qa-nav-sub-link:visited.qa-nav-sub-selected,
-.qa-nav-sub-link:hover.qa-nav-sub-selected,
-.qa-nav-sub-link:focus.qa-nav-sub-selected {
-    background-color: #3498db;
-    color: #fff;
-}
-
 
 .qam-account-handle {
     font-size: 12px;

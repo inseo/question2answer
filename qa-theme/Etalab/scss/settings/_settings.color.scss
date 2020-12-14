@@ -42,6 +42,7 @@ $sea-pink: #efaca6;
 // - bdc => border-color
 // - txt => text (color)
 // - plh => placeholder (color)
+// - sdw => shadow
 
 // prettier-ignore
 $theme-colors: (
@@ -72,6 +73,9 @@ $theme-colors: (
   nav-main-link-txt: $endeavou,
   nav-main-link-sm-txt: $cod-gray,
   nav-main-link-current-txt: $navy-blue,
+  nav-sub-link--hover-bgc: $gallery,
+  nav-sub-link-current-bgc: $gallery,
+  nav-sub-link-current-sdw: $navy-blue,
   skip-bgc: $mystic,
   skip-link-txt: $congress-blue,
   topbar-service-link-txt: $cod-gray,
