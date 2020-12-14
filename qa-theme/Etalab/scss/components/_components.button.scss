@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Button_____________Boutons d'action */
+  /* - Button___________________Boutons d'action */
 } @else {
   /* Boutons d'action [component]
   ========================================================================== */
@@ -12,9 +12,9 @@
     align-items: center;
     min-height: rem(40); // 40px
     padding: rem(8) rem(24); // 8px 24px
+    color: theme(button-txt);
     font-size: rem(16); // 16px
     line-height: lh(20, 16); // 20px
-    color: theme(button-txt);
     background-color: theme(button-bgc);
 
     // État tabulé

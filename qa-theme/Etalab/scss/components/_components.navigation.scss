@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Navigation_____________Navigation principale du site */
+  /* - Navigation_______________Navigation principale du site */
 } @else {
   /* Navigation principale du site [component]
   ========================================================================== */
@@ -16,7 +16,7 @@
       z-index: 1090;
       background-color: theme(default-bgc);
       border-top: 1px solid theme(default-bdc);
-      box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
+      box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), .15);
     }
 
     @include mq($from: MD) {
@@ -33,8 +33,8 @@
     }
 
     @include mq($from: MD) {
-      display: inline;
       position: relative;
+      display: inline;
 
       &:not(:first-child) {
         margin-left: rem(4); // 4px
@@ -43,8 +43,8 @@
       &:not(:first-child)::before {
         content: "";
         display: inline-block;
-        height: rem(16); // 16px
         width: 1px;
+        height: rem(16); // 16px
         margin-right: rem(4); // 4px
         vertical-align: sub;
         background-color: theme(default-bdc);
@@ -70,7 +70,7 @@
 
       &:hover,
       &:active {
-        opacity: 0.75;
+        opacity: .75;
       }
     }
 

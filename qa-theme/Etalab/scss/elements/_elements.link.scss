@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Links_____________________Styles par défaut des liens */
+  /* - Links____________________Styles par défaut des liens */
 } @else {
   /* Styles par défaut des liens [element]
    ========================================================================== */
@@ -12,8 +12,8 @@
   }
 
   a:focus {
+    z-index: 25000;
     outline: 2px solid theme(default-focus);
     outline-offset: 2px;
-    z-index: 25000;
   }
 }

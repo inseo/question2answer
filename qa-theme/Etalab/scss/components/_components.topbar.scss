@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Topbar_____________En-tête page du site */
+  /* - Topbar___________________En-tête page du site */
 } @else {
   /* En-tête page du site [component]
   ========================================================================== */
@@ -7,8 +7,8 @@
   // En-tête
   .qam-topbar {
     width: 100%;
-    box-shadow: 0 1rem 1rem 0 rgba(theme(default-box-shadow), 0.1), 0 .5rem 1rem -1rem rgba(theme(default-box-shadow), 0.32);
     background-color: theme(default-bgc);
+    box-shadow: 0 rem(16) rem(16) 0 rgba(theme(default-box-shadow), .1), 0 .5rem 1rem -1rem rgba(theme(default-box-shadow), .32);
   }
 
 
@@ -20,11 +20,11 @@
 
   // Contenu
   .qam-topbar-body {
+    position: relative; // Nécessaire au positionnement du menu déroulant en mobile
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    position: relative; // Nécessaire au positionnement du menu déroulant en mobile
     margin: 0; // -12px
     padding: rem(12) 0; // 12px
 
@@ -39,8 +39,8 @@
   // Conteneur du logo
   .qam-topbar-logo {
     @include mq($until: SM) {
-      padding-bottom: rem(16); // 16px
       width: 100%;
+      padding-bottom: rem(16); // 16px
       border-bottom: 1px solid theme(default-bdc);
     }
 
@@ -63,11 +63,11 @@
     &::before,
     &::after {
       display: block;
-      content: '';
+      content: "";
       width: em(33, 12); // 33px
       background-repeat: no-repeat;
-      background-size: contain;
       background-position: 50% 50%;
+      background-size: contain;
     }
 
     // Drapeau
@@ -88,10 +88,10 @@
   // Titre du logo
   .qam-topbar-logo-title {
     display: inline-block;
-    font-size: rem(13); // 13px
     font-weight: 700;
+    font-size: rem(13); // 13px
     line-height: lh(13, 13); // 13px
-    letter-spacing: em(-0.13, 13); // -0.13px
+    letter-spacing: em(-.13, 13); // -0.13px
     text-transform: uppercase;
     vertical-align: middle;
   }
@@ -112,10 +112,10 @@
   .qam-topbar-service-link {
     position: static;
     margin: 0;
+    color: theme(topbar-service-link-txt);
+    font-weight: 700;
     font-size: rem(14); // 14px
     line-height: 1.5; // 21px
-    font-weight: 700;
-    color: theme(topbar-service-link-txt);
     box-shadow: none;
 
     @include mq($from: SM) {
@@ -153,8 +153,8 @@
   // Bouton de connexion / identification
   [id="qam-account-toggle"] {
     @include unstyled-button($extend: true, $important: false);
-    font-size: rem(14); // 14px
     color: theme(nav-main-link-txt);
+    font-size: rem(14); // 14px
     box-shadow: none;
 
     @include mq($until: MD) {
@@ -176,9 +176,9 @@
   [id="qam-account-toggle"]::before {
     content: "";
     display: inline-block;
+    background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
-    background-repeat: no-repeat;
 
     @include mq($until: MD) {
       width: rem(22); // 22px
@@ -197,31 +197,31 @@
   // Etat non connecté - Icône
   .qam-logged-out::before {
     @include mq($until: MD) {
-      background-image: url('images/icon.svg#logged-out-sm');
+      background-image: url("images/icon.svg#logged-out-sm");
     }
 
     @include mq($from: MD) {
-      background-image: url('images/icon.svg#logged-out');
+      background-image: url("images/icon.svg#logged-out");
     }
   }
 
   // Etat connecté - Icône
   .qam-logged-in::before {
     @include mq($until: MD) {
-      background-image: url('images/icon.svg#logged-in-sm');
+      background-image: url("images/icon.svg#logged-in-sm");
     }
 
     @include mq($from: MD) {
-      background-image: url('images/icon.svg#logged-in');
+      background-image: url("images/icon.svg#logged-in");
     }
   }
 
 
   // Conteneur des éléments de navigation
   .qam-topbar-nav {
+    max-width: 60%;
     margin-top: rem(8); // 8px
     margin-left: auto;
-    max-width: 60%;
     line-height: lh(24, 16); // 24px
 
     @include mq($from: SM) {
@@ -242,10 +242,10 @@
     right: 0;
     z-index: 1090;
     display: none;
+    text-align: left;
     background-color: theme(default-bgc);
     border-top: 1px solid theme(default-bdc);
-    box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
-    text-align: left;
+    box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), .15);
 
     @include mq($until: MD) {
       left: 0;

@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Footer_____________Pied de page du site */
+  /* - Footer___________________Pied de page du site */
 } @else {
   /* Pied de page du site [component]
   ========================================================================== */
@@ -53,8 +53,8 @@
   // Elements de liste
   .qa-attribution-footer-item,
   .qa-nav-footer-item {
-    display: inline;
     position: relative;
+    display: inline;
 
     &:not(:first-child) {
       margin-left: rem(4); // 4px
@@ -63,8 +63,8 @@
     &:not(:first-child)::before {
       content: "";
       display: inline-block;
-      height: rem(16); // 16px
       width: 1px;
+      height: rem(16); // 16px
       margin-right: rem(4); // 4px
       vertical-align: middle;
       background-color: theme(default-bdc);
