@@ -321,10 +321,10 @@ class qa_html_theme extends qa_html_theme_base
 		$this->nav_main_sub();
 		$this->output('</header> <!-- END .qam-topbar -->');
 
-		$this->output('<div class="qam-ask-search-box">');
+		$this->output('<aside class="qam-ask-search-box">');
 		$this->output($this->ask_button());
 		$this->qam_search('the-top', 'the-top-search');
-		$this->output('</div>');
+		$this->output('</aside>');
 	}
 
 	/**
@@ -332,14 +332,14 @@ class qa_html_theme extends qa_html_theme_base
 	 */
 	public function footer()
 	{
-		$this->output('<div class="qam-footer-box">');
+		$this->output('<footer class="qam-footer-box" role="contentinfo">');
 
 		$this->output('<div class="qam-footer-row">');
 		$this->widgets('full', 'bottom');
 		$this->output('</div> <!-- END qam-footer-row -->');
 
 		parent::footer();
-		$this->output('</div> <!-- END qam-footer-box -->');
+		$this->output('</footer> <!-- END qam-footer-box -->');
 	}
 
 	public function search_field($search)
