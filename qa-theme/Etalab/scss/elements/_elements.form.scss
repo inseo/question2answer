@@ -1,0 +1,114 @@
+@if $toc {
+  /* - Form_____________________Styles par défaut des éléments de formulaire */
+} @else {
+  /* Styles par défaut des éléments de formulaire [element]
+   ========================================================================== */
+
+  // Labels
+  label {
+    display: block;
+    font-size: rem(14); // 14px
+    line-height: lh(21, 14); // 21px
+    color: theme(label-txt);
+    text-align: left;
+
+    // Précédé d'une case à cocher
+    input[type="checkbox"] + & {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      padding: rem(12) 0; // 12px
+
+      // Case à cocher
+      &::before {
+        content: '';
+        flex-shrink: 0;
+        display: inline-block;
+        width: rem(24); // 24px
+        height: rem(24); // 24px
+        margin-right: rem(8); // 8px
+        border-radius: rem(4); // 4px
+        border: 1px solid currentColor;
+        transition: background-color 0.1s;
+      }
+
+      // Coche
+      &::after {
+        content: '';
+        position: absolute;
+        left: rem(4);
+        width: rem(16); // 16px
+        height: rem(16);
+        opacity: 0;
+        transition: opacity 0.1s;
+        background: url('images/icon.svg#checkbox') 50% 50% / contain no-repeat;
+      }
+    }
+
+    // Précédé d'une case à cocher cochée
+    input[type="checkbox"]:checked + & {
+      // Case à cocher
+      &::before {
+        background-color: theme(checkbox--before-bgc);
+      }
+
+      // Coche
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  // Champs texte
+  // Champs password
+  // Champs mail
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    display: block;
+    width: 100%;
+    max-height: rem(40); // 40px
+    padding: rem(8) rem(16); // 8px 16px
+    font-size: rem(14); // 14px
+    line-height: lh(21, 14); // 21px
+    font-family: inherit;
+    appearance: none;
+    color: theme(input-txt);
+    background-color: theme(input-bgc);
+    border: 0;
+    border-radius: rem(4) rem(4) 0 0; // 4px 4px 0 0
+    box-shadow: inset 0 -2px 0 0 currentColor;
+
+    // Précédé d'un label
+    label + & {
+      margin-top: rem(8); // 8px
+    }
+
+    // À l'exception du dernier élément de ce type-là
+    &:not(:last-of-type) {
+      margin-bottom: rem(24); // 24px
+    }
+
+    // État tabulé
+    &:focus {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+
+  // Case à cocher
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+
+    // État tabulé
+    &:focus + label::before {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+      z-index: 25000;
+    }
+  }
+}

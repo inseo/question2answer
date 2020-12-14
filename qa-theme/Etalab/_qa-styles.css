@@ -146,11 +146,6 @@ img {
     height: auto !important;
 }
 
-input,
-textarea,
-select {
-    font-size: 0.875em;
-}
 
 b,
 strong {
@@ -440,31 +435,8 @@ blockquote p {
     text-overflow: ellipsis;
 }
 
-.qam-account-items .qa-form-tall-button-login {
-    width: 100%;
-}
-
-.qa-nav-user-facebook-login,
-.qa-nav-user-register {
+.qa-nav-user-facebook-login, {
     padding: 0 !important;
-}
-
-.qa-nav-user-register .qa-nav-user-link {
-    background-color: #27ae60;
-    width: 100%;
-    display: block;
-    color: #fff;
-    margin: 2px 0 0;
-    padding: 5px !important;
-    text-align: center;
-    line-height: 20px;
-    border: 1px solid #27ae60;
-}
-.qa-nav-user-register .qa-nav-user-link:hover,
-.qa-nav-user-register .qa-nav-user-link:focus {
-    background-color: #2ecc71;
-    border-color: #2ecc71;
-    text-decoration: none;
 }
 
 .qa-nav-user-facebook-login {
@@ -1464,29 +1436,6 @@ blockquote p {
 }
 
 /*------[ forms ]------*/
-input,
-textarea,
-select {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-    border: 1px solid #bdc3c7;
-    background-color: #fff;
-    font-family: "Ubuntu", "Helvetica", "Arial", "FreeSans", sans-serif;
-}
-input:focus,
-textarea:focus,
-select:focus {
-    background-color: #fff;
-    border-color: #3498db;
-}
-input::-moz-focus-inner,
-textarea::-moz-focus-inner,
-select::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
 select:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
