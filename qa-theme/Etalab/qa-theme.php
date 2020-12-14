@@ -163,6 +163,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" role="img" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
+		//hidden=""
 		$this->output('</ul>');
 		$this->nav_user_search();
 		$this->output('</nav>');
@@ -185,7 +186,12 @@ class qa_html_theme extends qa_html_theme_base
 				}
 				$this->output('<nav role="navigation" aria-label="' . $label . '" class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
 			} else {
-				$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
+				if ($navtype == 'main') {
+					$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '" hidden="hidden">');
+				} 
+				else {
+					$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
+				}
 			}
 
 			// reverse order of 'opposite' items since they float right
