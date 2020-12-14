@@ -27,4 +27,4 @@ node_modules
 # Ignore generated content
 /qa-theme/Etalab/qa-styles.css
 # Ignore icon.svg
-qa-theme/Etalab/images/icon.svg
+/qa-theme/Etalab/images/icon.svg
