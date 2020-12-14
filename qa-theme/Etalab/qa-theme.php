@@ -38,7 +38,7 @@ qa_register_phrases(Q_THEME_DIR . '/language/cs-lang-*.php', 'etalab');
 class qa_html_theme extends qa_html_theme_base
 {
 	protected $theme = 'etalab';
-	
+
 	// theme subdirectories
 	private $js_dir = 'js';
 	private $icon_url = 'images/icons';
@@ -188,7 +188,7 @@ class qa_html_theme extends qa_html_theme_base
 			} else {
 				if ($navtype == 'main') {
 					$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '" hidden="hidden">');
-				} 
+				}
 				else {
 					$this->output('<div class="qa-nav-' . $navtype . '" id="qa-nav-' . $navtype . '">');
 				}
@@ -1071,9 +1071,9 @@ class qa_html_theme extends qa_html_theme_base
 			$id = $this->getIdFromField($field);
 			$tags = $this->adaptFieldTagsForAccessibility($field, $radios);
 
-			$this->output('<div role="listitem">');
+      $this->output('<div role="listitem" class="qam-radio">');
+      $this->output('<input ' . @$tags . ' type="radio" value="' . $tag . '"' . (($value == @$field['value']) ? ' checked' : '') . ' class="qa-form-' . $style . '-radio"/> ');
 			$this->output('<label for="' . $id . $radios . '">');
-			$this->output('<input ' . @$tags . ' type="radio" value="' . $tag . '"' . (($value == @$field['value']) ? ' checked' : '') . ' class="qa-form-' . $style . '-radio"/> ');
 			$this->output($value);
 			$this->output('</label>');
 			$this->output('</div>');
