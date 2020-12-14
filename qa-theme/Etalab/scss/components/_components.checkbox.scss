@@ -1,0 +1,16 @@
+@if $toc {
+  /* - Checkbox_____________Conteneur des cases à cocher */
+} @else {
+  /* Conteneur des cases à cocher [component]
+  ========================================================================== */
+
+  // Style par défaut (bouton primaire)
+  .qam-checkbox {
+    text-align: left;
+
+    // À l'exception du dernier élément
+    &:not(:last-child) {
+      margin-bottom: rem(24); // 24px
+    }
+  }
+}
