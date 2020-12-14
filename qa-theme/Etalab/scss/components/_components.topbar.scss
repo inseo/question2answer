@@ -235,7 +235,8 @@
 
 
   // Conteneur du bloc de connexion / identification / profil
-  .qam-account-items {
+  .qam-account-items,
+  .qam-account-logged-out {
     position: absolute;
     top: 100%;
     right: 0;
@@ -244,13 +245,14 @@
     background-color: theme(default-bgc);
     border-top: 1px solid theme(default-bdc);
     box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), 0.15);
+    text-align: left;
 
     @include mq($until: MD) {
       left: 0;
     }
 
     @include mq($from: MD) {
-      width: rem(320); // 320px
+      width: rem(352); // 352px
     }
   }
 }
