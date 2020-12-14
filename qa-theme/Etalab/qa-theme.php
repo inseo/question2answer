@@ -751,8 +751,8 @@ class qa_html_theme extends qa_html_theme_base
 		// floated right
 		$this->output(
 			'<ul class="qa-attribution-footer">',
-			'<li class="qa-attribution-footer-item">Etalab Theme by <a class="qa-attribution-footer-link" href="https://www.etalab.gouv.fr/">Etalab</a></li>',
-			'<li class="qa-attribution-footer-item">Powered by <a class="qa-attribution-footer-link" href="http://www.question2answer.org/">Question2Answer</a></li>',
+			'<li class="qa-attribution-footer-item">'. qa_lang_html('etalab/powered_by') .' <a class="qa-attribution-footer-link" href="http://www.question2answer.org/">Question2Answer</a></li>',
+			'<li class="qa-attribution-footer-item">'. qa_lang_html('etalab/theme_by') .' <a class="qa-attribution-footer-link" href="https://www.etalab.gouv.fr/">Etalab</a></li>',
 			'</ul>'
 		);
 	}
