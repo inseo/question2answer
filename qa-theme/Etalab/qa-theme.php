@@ -45,7 +45,6 @@ class qa_html_theme extends qa_html_theme_base
 
 	private $fixed_topbar = false;
 	private $welcome_widget_class = 'wet-asphalt';
-	private $ask_search_box_class = 'turquoise';
 
 	/**
 	 * Adding aditional meta for responsive design
@@ -162,10 +161,10 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" role="img" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
-		//hidden=""
 		$this->output('</ul>');
 		$this->nav_user_search();
 		$this->output('</nav>');
+		$this->qam_search();
     	$this->output('</div> <!-- .qam-topbar-body -->');
     	$this->output('</div> <!-- .qam-topbar-wrapper -->');
 		$this->nav('sub');
@@ -316,13 +315,11 @@ class qa_html_theme extends qa_html_theme_base
 		$class = $this->fixed_topbar ? ' fixed' : '';
 
 		$this->output('<header role="banner" class="qam-topbar' . $class . '">');
-
-		$this->nav_main_sub();
+		$this->nav_main_sub();		
 		$this->output('</header> <!-- END .qam-topbar -->');
 
 		$this->output('<aside class="qam-ask-search-box">');
 		$this->output($this->ask_button());
-		$this->qam_search('the-top', 'the-top-search');
 		$this->output('</aside>');
 	}
 
@@ -361,7 +358,6 @@ class qa_html_theme extends qa_html_theme_base
 			return;
 
 		$this->output('<div class="qa-sidepanel" id="qam-sidepanel-mobile">');
-		$this->qam_search();
 		$this->widgets('side', 'top');
 		$this->sidebar();
 		$this->widgets('side', 'high');
@@ -792,15 +788,11 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Add search-box wrapper with extra class for color scheme
-	 * @param string $addon_class
-	 * @param string $ids
+	 * Add role="search" on search container
 	 */
-	private function qam_search($addon_class = null, $ids = null)
+	private function qam_search()
 	{
-		$id = isset($ids) ? ' id="' . $ids . '"' : '';
-
-		$this->output('<div role="search" class="qam-search ' . $this->ask_search_box_class . ' ' . $addon_class . '"' . $id . '>');
+		$this->output('<div role="search" class="qam-search">');
 		$this->search();
 		$this->output('</div>');
 	}
@@ -813,7 +805,7 @@ class qa_html_theme extends qa_html_theme_base
 	{
 		return
 			'<div class="qam-ask-mobile">' .
-			'<a href="' . qa_path('ask', null, qa_path_to_root()) . '" class="' . $this->ask_search_box_class . '">' .
+			'<a href="' . qa_path('ask', null, qa_path_to_root()) . '">' .
 			qa_lang_html('main/nav_ask') .
 			'</a>' .
 			'</div>';

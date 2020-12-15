@@ -134,7 +134,6 @@ img {
     height: auto !important;
 }
 
-
 b,
 strong {
     font-weight: bold;
@@ -206,26 +205,6 @@ blockquote p {
 }
 .qa-search-field:focus {
     border-color: #e6e6e6;
-}
-
-@media (max-width: 979px) {
-    #qam-sidepanel-mobile .qam-search {
-        display: none;
-    }
-}
-
-.qam-search.turquoise .qa-search {
-    background: #1abc9c;
-}
-.qam-search.turquoise .qa-search-field:focus {
-    border-color: #117964;
-}
-.qam-search.turquoise .qa-search-button {
-    background-color: #117964;
-}
-
-.qam-search.the-top {
-    margin: 0 10px 10px;
 }
 
 .qa-error,
@@ -363,7 +342,7 @@ blockquote p {
     text-overflow: ellipsis;
 }
 
-.qa-nav-user-facebook-login, {
+.qa-nav-user-facebook-login {
     padding: 0 !important;
 }
 
