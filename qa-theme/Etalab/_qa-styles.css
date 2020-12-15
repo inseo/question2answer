@@ -31,7 +31,6 @@
 
 .qa-main:after,
 .qa-main-wrapper:after,
-.qa-body-wrapper:after,
 .qa-sidepanel:after,
 .clearfix:after,
 .qa-q-item-clear:after,
@@ -61,7 +60,6 @@
 /*------[ base css ]------*/
 
 body {
-    background: #ecf0f1 !important;
     position: relative;
 }
 body.body-overflow {
@@ -364,11 +362,6 @@ blockquote p {
     *zoom: 1;
 }
 
-.qa-body-wrapper {
-    margin: 10px auto;
-    padding: 0 10px;
-    *zoom: 1;
-}
 
 @media (min-width: 980px) {
     .qa-main {
@@ -378,11 +371,6 @@ blockquote p {
     .qam-topbar,
     .qa-main-wrapper {
         width: 100%;
-    }
-}
-@media (min-width: 1044px) {
-    .qa-body-wrapper {
-        width: 1024px;
     }
 }
 

@@ -284,7 +284,7 @@ class qa_html_theme extends qa_html_theme_base
 	/**
 	 * Rearranges the layout:
 	 * - Swaps the <tt>main()</tt> and <tt>sidepanel()</tt> functions
-	 * - Moves the header and footer functions outside qa-body-wrapper
+	 * - Moves the header and footer functions outside qam-body
 	 * - Keeps top/high and low/bottom widgets separated
 	 */
 	public function body_content()
@@ -296,7 +296,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->header();
 
 		$extratags = isset($this->content['wrapper_tags']) ? $this->content['wrapper_tags'] : '';
-		$this->output('<main role="main" class="qa-body-wrapper"' . $extratags . '>', '');
+		$this->output('<main role="main" class="qam-body"' . $extratags . '>', '');
 		$this->output('<a id="main"></a> <!-- skiplink destination --> ');
 		$this->widgets('full', 'high');
 

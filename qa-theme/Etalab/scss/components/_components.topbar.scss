@@ -10,6 +10,14 @@
     width: 100%;
     background-color: theme(default-bgc);
     box-shadow: 0 rem(16) rem(16) 0 rgba(theme(default-box-shadow), .1), 0 .5rem 1rem -1rem rgba(theme(default-box-shadow), .32);
+
+    @include mq($until: MD) {
+      margin-bottom: rem(32); // 32px
+    }
+
+    @include mq($from: MD) {
+      margin-bottom: rem(64); // 64px
+    }
   }
 
 
