@@ -116,7 +116,7 @@ class qa_html_theme extends qa_html_theme_base
 				$inputType = $emailOnly ? 'email' : 'text';
 				$this->output(
 					'<form class="qam-account-login" action="' . $login['url'] . '" method="post">',
-					'<p>' . qa_lang_html('etalab/all_fields_are_required') . '</p>',
+					'<p class="qam-info">' . qa_lang_html('etalab/all_fields_are_required') . '</p>',
 					'<label for="qam-emailhandle">' . trim(qa_lang_html($emailOnly ? 'users/email_label' : 'users/email_handle_label'), ':') . '</label>',
 					'<input type="' . $inputType . '" autocomplete="username" name="emailhandle" id="qam-emailhandle" aria-required="true" dir="auto" />',
 					'<label for="qam-password">' . trim(qa_lang_html('users/password_label'), ':') . '</label>',
