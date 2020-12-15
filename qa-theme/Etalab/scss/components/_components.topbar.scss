@@ -6,6 +6,7 @@
 
   // En-tête
   .qam-topbar {
+    position: relative; // Utile au bloc de recherche
     width: 100%;
     background-color: theme(default-bgc);
     box-shadow: 0 rem(16) rem(16) 0 rgba(theme(default-box-shadow), .1), 0 .5rem 1rem -1rem rgba(theme(default-box-shadow), .32);
@@ -26,12 +27,17 @@
     justify-content: flex-start;
     align-items: center;
     margin: 0; // -12px
-    padding: rem(12) 0; // 12px
+    padding: rem(12) 0; // 12px 0
 
     @include mq($from: SM) {
+      flex-wrap: nowrap;
       justify-content: flex-end;
       margin: 0 rem(-20); // -20px
-      padding: rem(24) 0; // 24px
+      padding: rem(24) 0; // 24px 0
+    }
+
+    @include mq($from: MD) {
+      min-height: rem(172); // 172px
     }
   }
 
@@ -104,6 +110,7 @@
     padding: rem(12); // 12px
 
     @include mq($from: SM) {
+      flex-shrink: 0;
       margin: rem(-12); // -12px
     }
   }
@@ -219,16 +226,19 @@
 
   // Conteneur des éléments de navigation
   .qam-topbar-nav {
-    max-width: 60%;
-    margin-top: rem(8); // 8px
     margin-left: auto;
     line-height: lh(24, 16); // 24px
+
+    @include mq($until: SM) {
+      margin-top: rem(8); // 8px
+    }
 
     @include mq($from: SM) {
       padding-right: rem(20); // 20px
     }
 
     @include mq($from: MD) {
+      align-self: flex-start;
       text-align: right;
     }
   }
@@ -253,6 +263,18 @@
 
     @include mq($from: MD) {
       width: rem(352); // 352px
+    }
+  }
+
+
+  // Conteneur de la recherche
+  .qam-search {
+    @include mq($from: MD) {
+      position: absolute;
+      right: 0;
+      bottom: rem(24); // 24px
+      width: rem(288); // 288px
+      padding-right: rem(20); // 20px
     }
   }
 }

@@ -189,24 +189,6 @@ blockquote p {
     color: #7f8c8d;
 }
 
-.qa-search {
-    padding: 8px;
-    margin-bottom: 5px;
-    background: #bdc3c7;
-}
-
-.qa-search-field {
-    margin: 0 -40px 0 0;
-    padding: 0 40px 0 5px;
-    vertical-align: bottom;
-    width: 100%;
-    height: 36px;
-    border: 1px solid #117964;
-}
-.qa-search-field:focus {
-    border-color: #e6e6e6;
-}
-
 .qa-error,
 .qa-warning,
 .qa-success,

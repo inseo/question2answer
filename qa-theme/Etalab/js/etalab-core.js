@@ -38,10 +38,27 @@ $(document).ready(function () {
 		$(this).toggleClass('current');
 		if ($(this).attr("aria-expanded") == "false") {
 			$('.qa-nav-main').removeAttr('hidden');
-			$(this).attr("aria-expanded", "true");		
+			$(this).attr("aria-expanded", "true");
 		}
 		else {
 			$('.qa-nav-main').attr('hidden', 'hidden');
+			$(this).attr("aria-expanded", "false");
+		}
+  });
+
+  /**
+	 * Search box toggle script
+	 */
+	$('.qam-search-toggle').click(function (e) {
+		e.stopPropagation();
+		closeAccountToggle();
+		$(this).toggleClass('current');
+		if ($(this).attr("aria-expanded") == "false") {
+			$('#qam-search').removeAttr('hidden');
+			$(this).attr("aria-expanded", "true");
+		}
+		else {
+			$('#qam-search').attr('hidden', 'hidden');
 			$(this).attr("aria-expanded", "false");
 		}
 	});

@@ -134,7 +134,7 @@ class qa_html_theme extends qa_html_theme_base
 
 				// remove regular navigation link to signup/signin page
 				unset($this->content['navigation']['user']['login']);
-				unset($this->content['navigation']['user']['register']);				
+				unset($this->content['navigation']['user']['register']);
 			}
 		}
 		$this->nav('user');
@@ -164,8 +164,8 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<a class="qam-topbar-service-link" href="' . qa_path_html('') . '" aria-label="'. qa_html(qa_opt('site_title')) .', retour à l\'accueil">'. qa_html(qa_opt('site_title')) .'</a>');
 		$this->output('<p class="qam-topbar-service-tagline">'. qa_lang_html('etalab/baseline') .'</p>');
    		$this->output('</div> <!-- .qam-topbar-service -->');
-		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
-		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" role="img" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+    $this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
+    $this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
 		$this->output('</ul>');
 		$this->nav_user_search();
@@ -321,7 +321,7 @@ class qa_html_theme extends qa_html_theme_base
 		$class = $this->fixed_topbar ? ' fixed' : '';
 
 		$this->output('<header role="banner" class="qam-topbar' . $class . '">');
-		$this->nav_main_sub();		
+		$this->nav_main_sub();
 		$this->output('</header> <!-- END .qam-topbar -->');
 
 		$this->output('<aside class="qam-ask-search-box">');
@@ -346,12 +346,12 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function search_field($search)
 	{
-		$this->output('<input type="text" placeholder="' . $search['button_label'] . '…" aria-label="' . $search['button_label'] . '…" ' . $search['field_tags'] . ' value="' . @$search['value'] . '" class="qa-search-field"/>');
+		$this->output('<input type="text" placeholder="' . $search['button_label'] . '" aria-label="' . $search['button_label'] . '" ' . $search['field_tags'] . ' value="' . @$search['value'] . '" class="qa-search-field"/>');
 	}
 
 	public function search_button($search)
 	{
-		$this->output('<input type="submit" class="qa-search-button" value="' . $search['button_label'] . '" />');
+		$this->output('<button type="submit" class="qa-search-button"><span class="u-visually-hidden">' . $search['button_label'] .'</span></button>');
 	}
 
 	/**
@@ -796,10 +796,14 @@ class qa_html_theme extends qa_html_theme_base
 	/**
 	 * Add role="search" on search container
 	 */
+  // @TODO Voir s'il n'y a pas moyen d'avoir plus simple en sortie…
 	private function qam_search()
 	{
-		$this->output('<div role="search" class="qam-search">');
-		$this->search();
+    $this->output('<div role="search" class="qam-search">');
+    $this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qa-search"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+    $this->output('<div id="qam-search" hidden="hidden">');
+    $this->search();
+    $this->output('</div> <!-- #qam-search -->');
 		$this->output('</div>');
 	}
 
@@ -993,7 +997,7 @@ class qa_html_theme extends qa_html_theme_base
 			case "q_title":
 				$isIt = true;
 				break;
-			default: 
+			default:
 			break;
 		}
 		return $isIt;
