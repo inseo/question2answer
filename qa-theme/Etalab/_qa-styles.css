@@ -60,16 +60,6 @@
 
 /*------[ base css ]------*/
 
-:-moz-placeholder {
-    color: #bdc3c7;
-    font-style: italic;
-}
-
-::-webkit-input-placeholder {
-    color: #bdc3c7;
-    font-style: italic;
-}
-
 body {
     background: #ecf0f1 !important;
     position: relative;
@@ -1374,16 +1364,6 @@ blockquote p {
 }
 
 /*------[ forms ]------*/
-select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
-}
-
-input[type="submit"],
-button {
-    cursor: pointer;
-    text-align: center;
-}
 @media (max-width: 479px) {
     input[type="file"] {
         max-width: 220px;
