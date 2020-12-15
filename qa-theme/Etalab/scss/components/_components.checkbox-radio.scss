@@ -14,4 +14,20 @@
       margin-bottom: rem(24); // 24px
     }
   }
+
+
+  // Case à cocher
+  // Bouton radio
+  .qam-checkbox input[type="checkbox"],
+  .qam-radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+
+    // État tabulé
+    &:focus + label::before {
+      z-index: 25000;
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
 }

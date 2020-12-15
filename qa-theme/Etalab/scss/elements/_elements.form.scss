@@ -150,22 +150,6 @@
   }
 
 
-  // Case à cocher
-  // Bouton radio
-  input[type="checkbox"],
-  input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-
-    // État tabulé
-    &:focus + label::before {
-      z-index: 25000;
-      outline: 2px solid theme(default-focus);
-      outline-offset: 2px;
-    }
-  }
-
-
   // Liste déroulante
   select {
     padding: rem(8) rem(32) rem(8) rem(16); // 8px 32px 8p 16px
