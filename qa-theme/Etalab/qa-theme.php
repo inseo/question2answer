@@ -127,8 +127,14 @@ class qa_html_theme extends qa_html_theme_base
 					'<input type="submit" value="' . $login['label'] . '" class="qam-button" name="dologin"/>',
 					'</form>'
 				);
-				// remove regular navigation link to log in page
+				$register = $this->content['navigation']['user']['register'];
+				$this->output('<div class="qa-nav-user-register">');
+				$this->output('<a class="qa-nav-user-link" href="'. $register['url'] .'">'. $register['label'] .'</a>');
+				$this->output('</div>');
+
+				// remove regular navigation link to signup/signin page
 				unset($this->content['navigation']['user']['login']);
+				unset($this->content['navigation']['user']['register']);				
 			}
 		}
 		$this->nav('user');
