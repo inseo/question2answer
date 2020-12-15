@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Nav user_____________Bloc de profil */
+  /* - Nav user_________________Bloc de profil */
 } @else {
   /* Bloc de profil [component]
   ========================================================================== */
@@ -24,16 +24,17 @@
     height: rem(16);
     margin-right: rem(4); // 4px
     vertical-align: sub;
+    background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
-    background-repeat: no-repeat;
   }
 
   // Arrières-plan
-  $icons: 'nav-logged-in-points', 'nav-user-updates', 'nav-user-logout';
+  $icons: "nav-logged-in-points", "nav-user-updates", "nav-user-logout"; // stylelint-disable order/order
+
   @each $icon in $icons {
     .qa-#{$icon}::before {
-      background-image: url('images/icon.svg##{$icon}');
+      background-image: url("images/icon.svg##{$icon}");
     }
   }
 
@@ -47,7 +48,7 @@
 
     &:hover,
     &:active {
-      opacity: 0.75;
+      opacity: .75;
     }
   }
 

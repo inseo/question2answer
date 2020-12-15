@@ -10,13 +10,18 @@
 
 // Definition
 $sail: #b4e1fa;
+$blue: #0000f6;
+$dodger-blue: #5b5bff;
 $blue-ribbon: #006be6;
-$endeavou: #0053B3;
+$endeavou: #0053b3;
 $congress-blue: #003b80;
 $navy-blue: #000091;
 $prussian-blue: #00234d;
-$white: #ffffff;
+$white: #fff;
+$gallery: #f0f0f0;
+$alabaster: #f8f8f8;
 $mystic: #ebeff3;
+$alto: #e0e0e0;
 $geyser: #c9d3df;
 $cadet-blue: #adb9c9;
 $regent-gray: #8393a7;
@@ -37,6 +42,7 @@ $sea-pink: #efaca6;
 // - bdc => border-color
 // - txt => text (color)
 // - plh => placeholder (color)
+// - sdw => shadow
 
 // prettier-ignore
 $theme-colors: (
@@ -47,11 +53,30 @@ $theme-colors: (
   default-box-shadow: $cod-gray,
   default-focus: $blue-ribbon,
 
+
+  // Assignation [elements]
+  checkbox--before-bgc: $navy-blue,
+  input-txt: $cod-gray,
+  input-bgc: $gallery,
+  label-txt: $cod-gray,
+  radio--after-bgc: $navy-blue,
+
   // Assignation [components]
   attribution-footer-link-txt: $blue-bayoux,
+  button-bgc: $navy-blue,
+  button-txt: $white,
+  button--hover-bgc: rgba($blue, .5),
+  button--active-bgc: rgba($dodger-blue, .5),
+  button-secondary-bgc: transparent,
+  button-secondary-txt: $navy-blue,
+  button-secondary--hover-bgc: $gallery,
+  button-secondary--active-bgc: $alto,
   nav-main-link-txt: $endeavou,
   nav-main-link-sm-txt: $cod-gray,
   nav-main-link-current-txt: $navy-blue,
+  nav-sub-link--hover-bgc: $gallery,
+  nav-sub-link-current-bgc: $gallery,
+  nav-sub-link-current-sdw: $navy-blue,
   skip-bgc: $mystic,
   skip-link-txt: $congress-blue,
   topbar-service-link-txt: $cod-gray,

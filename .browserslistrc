@@ -1,0 +1,6 @@
+# Browsers that we support
+
+last 1 version
+not ie 11
+not ExplorerMobile 11
+not OperaMini all

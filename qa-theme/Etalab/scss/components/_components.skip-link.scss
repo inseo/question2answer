@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Skip link_____________Liens d'évitement */
+  /* - Skip link________________Liens d'évitement */
 } @else {
   /* Liens d'évitement [component]
   ========================================================================== */
@@ -26,7 +26,7 @@
 
   // Lien d'évitement
   .qam-skip-link {
-    box-shadow: none;
     color: theme(skip-link-txt);
+    box-shadow: none;
   }
 }

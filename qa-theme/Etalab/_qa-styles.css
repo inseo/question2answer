@@ -10,7 +10,6 @@
 
 .clearfix,
 .qa-q-item-clear,
-.qa-nav-sub,
 .qa-page-links,
 .qa-page-links-list,
 .qa-template-admin .qa-message-buttons,
@@ -36,7 +35,6 @@
 .qa-sidepanel:after,
 .clearfix:after,
 .qa-q-item-clear:after,
-.qa-nav-sub:after,
 .qa-page-links:after,
 .qa-page-links-list:after,
 .qa-template-admin .qa-message-buttons:after,
@@ -146,11 +144,6 @@ img {
     height: auto !important;
 }
 
-input,
-textarea,
-select {
-    font-size: 0.875em;
-}
 
 b,
 strong {
@@ -373,66 +366,6 @@ blockquote p {
     z-index: 99990;
 }
 
-.qa-nav-sub {
-    background-color: #e0e4e5;
-    text-align: center;
-    font-size: 12px;
-}
-.qa-nav-sub-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-@media (max-width: 979px) {
-    .qa-nav-sub-list {
-        *zoom: 1;
-    }
-    .qa-nav-sub-list:before,
-    .qa-nav-sub-list:after {
-        content: "";
-        display: table;
-    }
-    .qa-nav-sub-list:after {
-        clear: both;
-    }
-
-    .qa-nav-sub-item {
-        width: 33.33%;
-        float: left;
-        box-shadow: -1px -1px 0 0 #cfd9db inset;
-    }
-    .qa-nav-sub-item:nth-child(3) {
-        box-shadow: 0 -1px 0 0 #cfd9db inset;
-    }
-}
-@media (min-width: 980px) {
-    .qa-nav-sub {
-        font-size: 13px;
-        padding: 0 6px;
-    }
-    .qa-nav-sub-item {
-        display: inline-block;
-    }
-}
-
-.qa-nav-sub-link,
-.qa-nav-sub-link:visited,
-.qa-nav-sub-link:hover,
-.qa-nav-sub-link:focus {
-    display: block;
-    padding: 2px 10px 4px;
-    color: #000;
-}
-.qa-nav-sub-link.qa-nav-sub-selected,
-.qa-nav-sub-link:visited.qa-nav-sub-selected,
-.qa-nav-sub-link:hover.qa-nav-sub-selected,
-.qa-nav-sub-link:focus.qa-nav-sub-selected {
-    background-color: #3498db;
-    color: #fff;
-}
-
-
 .qam-account-handle {
     font-size: 12px;
     line-height: 1.8;
@@ -440,31 +373,8 @@ blockquote p {
     text-overflow: ellipsis;
 }
 
-.qam-account-items .qa-form-tall-button-login {
-    width: 100%;
-}
-
-.qa-nav-user-facebook-login,
-.qa-nav-user-register {
+.qa-nav-user-facebook-login, {
     padding: 0 !important;
-}
-
-.qa-nav-user-register .qa-nav-user-link {
-    background-color: #27ae60;
-    width: 100%;
-    display: block;
-    color: #fff;
-    margin: 2px 0 0;
-    padding: 5px !important;
-    text-align: center;
-    line-height: 20px;
-    border: 1px solid #27ae60;
-}
-.qa-nav-user-register .qa-nav-user-link:hover,
-.qa-nav-user-register .qa-nav-user-link:focus {
-    background-color: #2ecc71;
-    border-color: #2ecc71;
-    text-decoration: none;
 }
 
 .qa-nav-user-facebook-login {
@@ -1464,29 +1374,6 @@ blockquote p {
 }
 
 /*------[ forms ]------*/
-input,
-textarea,
-select {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-    border: 1px solid #bdc3c7;
-    background-color: #fff;
-    font-family: "Ubuntu", "Helvetica", "Arial", "FreeSans", sans-serif;
-}
-input:focus,
-textarea:focus,
-select:focus {
-    background-color: #fff;
-    border-color: #3498db;
-}
-input::-moz-focus-inner,
-textarea::-moz-focus-inner,
-select::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
 select:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
