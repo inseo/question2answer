@@ -22,6 +22,7 @@ $gallery: #f0f0f0;
 $alabaster: #f8f8f8;
 $mystic: #ebeff3;
 $alto: #e0e0e0;
+$snuff: #e5e5f4;
 $geyser: #c9d3df;
 $cadet-blue: #adb9c9;
 $regent-gray: #8393a7;
@@ -83,5 +84,7 @@ $theme-colors: (
   search-button-bgc: $navy-blue,
   skip-bgc: $mystic,
   skip-link-txt: $congress-blue,
+  tag-link-txt: $navy-blue,
+  tag-link-bgc: $snuff,
   topbar-service-link-txt: $cod-gray,
 );

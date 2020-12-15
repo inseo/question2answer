@@ -1,0 +1,52 @@
+@if $toc {
+  /* - Tag______________________Liste de tags */
+} @else {
+  /* Liste de tags [component]
+  ========================================================================== */
+
+  // Liste de tags
+  .qa-q-item-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+  // Éléments de liste
+  .qa-q-item-tag-item {
+    display: inline-flex;
+    margin-right: rem(12); // 12px
+    margin-bottom: rem(12);
+  }
+
+
+  // Tag
+  .qa-tag-link {
+    padding: rem(6) rem(16); // 6px 16px
+    color: theme(tag-link-txt);
+    font-size: rem(14); // 14px
+    line-height: rem(20); // 20px
+    background-color: theme(tag-link-bgc);
+    border-radius: rem(16); // 16px
+    box-shadow: none;
+  }
+
+
+  // Favoris
+  .qa-tag-link.qa-tag-favorited,
+  .qa-widget-side .qa-q-view-tag-item.qa-tag-favorited {
+    position: relative;
+    padding-left: 25px;
+  }
+
+  .qa-tag-link.qa-tag-favorited::before,
+  .qa-widget-side .qa-q-view-tag-item.qa-tag-favorited::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 17px;
+    height: 100%;
+    content: url("images/star14.png");
+    background-color: #b94a00;
+  }
+}

@@ -799,44 +799,7 @@ blockquote p {
     font-weight: 700;
 }
 
-.qa-q-item-tags {
-    display: block;
-    margin-top: 5px;
-}
 
-.qa-q-item-tag-list,
-.qa-q-view-tag-list {
-    line-height: 11px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.qa-q-item-tag-item,
-.qa-q-view-tag-item {
-    display: inline;
-}
-
-.qa-tag-link,
-.qa-widget-side .qa-q-view-tag-item {
-    background: #e67e22;
-    color: #fff !important;
-    display: inline-block;
-    font-family: "Ubuntu", "Helvetica", "Arial", "FreeSans", sans-serif;
-    font-size: 11px;
-    line-height: 1.5em;
-    padding: 2px 8px;
-    margin-bottom: 2px;
-    text-decoration: none !important;
-    transition: background 0.25s ease-in-out;
-}
-.qa-tag-link:hover,
-.qa-tag-link:focus,
-.qa-widget-side .qa-q-view-tag-item:hover,
-.qa-widget-side .qa-q-view-tag-item:focus {
-    background: #f39c12;
-    color: #fff !important;
-}
 .qa-tag-link.qa-tag-favorited,
 .qa-widget-side .qa-q-view-tag-item.qa-tag-favorited {
     position: relative;
