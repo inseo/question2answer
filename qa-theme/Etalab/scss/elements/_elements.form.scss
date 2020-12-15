@@ -111,9 +111,13 @@
   // Champs texte
   // Champs password
   // Champs mail
+  // Champs multiligne
+  // Liste déroulante
   input[type="text"],
   input[type="password"],
-  input[type="email"] {
+  input[type="email"],
+  textarea,
+  select {
     display: block;
     width: 100%;
     max-height: rem(40); // 40px
@@ -159,5 +163,16 @@
       outline: 2px solid theme(default-focus);
       outline-offset: 2px;
     }
+  }
+
+
+  // Liste déroulante
+  select {
+    padding: rem(8) rem(32) rem(8) rem(16); // 8px 32px 8p 16px
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%231e1e1e' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - #{rem(8)}) 50%;
+    background-size: rem(24) rem(24); // 24px 24px
+    cursor: pointer;
   }
 }
