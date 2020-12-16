@@ -67,57 +67,6 @@ body.body-overflow {
     position: fixed;
 }
 
-.qa-main-heading {
-    position: relative;
-    margin: 0 0 5px;
-    padding: 8px 52px 8px 20px;
-    background: #3498db;
-    color: #fff;
-}
-h1 {
-    margin: 0;
-    font-size: 1.4em;
-    line-height: 1.35em;
-    word-wrap: break-word;
-}
-h1 a {
-    color: #fff;
-    line-height: inherit;
-    border: 0;
-    text-decoration: none;
-    opacity: 0.85;
-}
-h1 a:hover {
-    border-bottom: 0;
-}
-h1 a:hover,
-h1 a:focus,
-h1 a:visited {
-    color: #fff;
-    line-height: inherit !important;
-    opacity: 1;
-}
-
-h2 {
-    font-size: 1.25em;
-}
-h3 {
-    font-size: 1em;
-}
-h4 {
-    font-size: 0.875em;
-}
-h5 {
-    font-size: 0.75em;
-}
-h6 {
-    font-size: 0.625em;
-}
-
-p {
-    margin: 0 0 1em 0;
-}
-
 hr {
     background-color: #bdc3c7;
     display: block;
@@ -708,28 +657,6 @@ blockquote p {
     }
 }
 
-.qa-q-item-title {
-    font-weight: bold;
-    font-size: 1.125em;
-    line-height: 1.35em;
-    display: block;
-    word-wrap: break-word;
-}
-.qa-q-item-title a {
-    color: #1a6a9b;
-}
-.qa-q-item-title a:hover,
-.qa-q-item-title a:active,
-.qa-q-item-title a:focus,
-.qa-q-item-title a:visited {
-    color: #3498db;
-}
-.qa-q-item-title:hover .qam-q-list-close-icon,
-.qa-q-item-title:focus .qam-q-list-close-icon {
-    background-color: #c0392b;
-    cursor: help;
-}
-
 .qam-q-list-close-icon {
     background-color: #34495e;
     padding: 3px;
@@ -878,9 +805,7 @@ blockquote p {
     width: auto;
     float: none;
 }
-.qa-template-admin .qa-q-item-title {
-    margin-bottom: 5px;
-}
+
 .qa-template-admin .qa-q-item-content {
     padding: 10px 0;
     max-height: 150px;
@@ -1597,21 +1522,6 @@ blockquote p {
 }
 
 /*------[ favorites ]------*/
-.qa-template-favorites h2 {
-    padding: 10px;
-    margin-bottom: 5px;
-    background: #34495e;
-    color: #fff;
-}
-.qa-template-favorites h2 a {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-}
-.qa-template-favorites h2 a:hover,
-.qa-template-favorites h2 a:focus {
-    color: #fff;
-    border-bottom: 0;
-}
 
 .qa-link-next {
     margin-bottom: 0;
