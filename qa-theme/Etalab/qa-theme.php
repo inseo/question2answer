@@ -150,7 +150,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<p class="qam-skip-wrapper"><a href="#main" class="qam-skip-link">'. qa_lang_html('etalab/go_to_content') .'</a></p>');
 		$this->output('</div> <!-- .qam-skip -->');
 		$this->output('<div class="qam-topbar-wrapper">');
-	  	$this->output('<div class="qam-topbar-body">');
+		$this->output('<div class="qam-topbar-body">');
 		$this->output('<div class="qam-topbar-logo">');
 		if(qa_opt('logo_show')) {
 			$this->logo();
@@ -163,16 +163,16 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<div class="qam-topbar-service">');
 		$this->output('<a class="qam-topbar-service-link" href="' . qa_path_html('') . '" aria-label="'. qa_html(qa_opt('site_title')) .', retour à l\'accueil">'. qa_html(qa_opt('site_title')) .'</a>');
 		$this->output('<p class="qam-topbar-service-tagline">'. qa_lang_html('etalab/baseline') .'</p>');
-   		$this->output('</div> <!-- .qam-topbar-service -->');
-    $this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
-    $this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+		$this->output('</div> <!-- .qam-topbar-service -->');
+		$this->qam_search();
+		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
+		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
 		$this->output('</ul>');
 		$this->nav_user_search();
 		$this->output('</nav>');
-		$this->qam_search();
-    	$this->output('</div> <!-- .qam-topbar-body -->');
-    	$this->output('</div> <!-- .qam-topbar-wrapper -->');
+		$this->output('</div> <!-- .qam-topbar-body -->');
+		$this->output('</div> <!-- .qam-topbar-wrapper -->');
 		$this->nav('sub');
 	}
 

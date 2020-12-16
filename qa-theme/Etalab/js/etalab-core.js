@@ -21,10 +21,11 @@ $(document).ready(function () {
 	$('#qam-account-toggle').click(function (e) {
 		e.stopPropagation();
 		closeMenuToggle();
+		closeSearchToggle();
 		if ($(this).attr("aria-expanded") == "false")
 			$(this).attr("aria-expanded", "true");
 		else
-			$(this).attr("aria-expanded", "false");
+			closeAccountToggle();
 		$(this).toggleClass('account-active');
 		$('.qam-account-items').slideToggle(100);
 	});
@@ -35,31 +36,31 @@ $(document).ready(function () {
 	$('.qam-menu-toggle').click(function (e) {
 		e.stopPropagation();
 		closeAccountToggle();
+		closeSearchToggle();
 		$(this).toggleClass('current');
 		if ($(this).attr("aria-expanded") == "false") {
 			$('.qa-nav-main').removeAttr('hidden');
 			$(this).attr("aria-expanded", "true");
 		}
 		else {
-			$('.qa-nav-main').attr('hidden', 'hidden');
-			$(this).attr("aria-expanded", "false");
+			closeMenuToggle();
 		}
   });
 
-  /**
+  	/**
 	 * Search box toggle script
 	 */
 	$('.qam-search-toggle').click(function (e) {
 		e.stopPropagation();
 		closeAccountToggle();
+		closeMenuToggle();
 		$(this).toggleClass('current');
 		if ($(this).attr("aria-expanded") == "false") {
 			$('#qam-search').removeAttr('hidden');
 			$(this).attr("aria-expanded", "true");
 		}
 		else {
-			$('#qam-search').attr('hidden', 'hidden');
-			$(this).attr("aria-expanded", "false");
+			closeSearchToggle();
 		}
 	});
 
@@ -82,6 +83,13 @@ $(document).ready(function () {
 			$('.qam-menu-toggle.current').attr("aria-expanded", "false");
 			$('.qam-menu-toggle.current').removeClass('current');
 			$('#qa-nav-main').attr('hidden', 'hidden');
+		}
+	}
+
+	function closeSearchToggle() {
+		if($('.qam-search-toggle').is(':visible')) {
+			$('#qam-search').attr('hidden', 'hidden');
+			$('.qam-search-toggle').attr("aria-expanded", "false");
 		}
 	}
 
