@@ -543,9 +543,8 @@ class qa_html_theme extends qa_html_theme_base
 			$feed = $this->content['feed'];
 			$label = isset($feed['label']) ? $feed['label'] : '';
 			$this->output(
-				'<a href="' . $feed['url'] . '">',
-				'<i class="icon-rss qam-title-rss" aria-hidden="true" title="' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '"></i>',
-				'<span class="u-visually-hidden">' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '</span>',
+				'<a class="qam-rss" href="' . $feed['url'] . '">',
+        '<img src="qa-theme/Etalab/images/icon.svg#title-rss" alt="' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '" width="24" height="24" />',
 				'</a>'
 			);
 		}
