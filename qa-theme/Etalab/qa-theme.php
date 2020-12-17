@@ -1215,9 +1215,7 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function ranking_cell($content, $class)
 	{
-		//$tag = $this->ranking_block_layout ? 'span' : 'td';
-		$tag = 'span';
-		$this->output('<' . $tag . ' class="' . $class . '">' . $content . '</' . $tag . '>');
+		$this->output('<span class="' . $class . '">' . $content . '</span>');
 	}
 
 }
