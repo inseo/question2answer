@@ -40,8 +40,8 @@
 
 
   // Liens
-  .qa-user-link,
-  .qa-nav-user-link {
+  .qa-nav-user-list .qa-user-link,
+  .qa-nav-user-list .qa-nav-user-link {
     color: theme(nav-main-link-sm-txt);
     font-weight: 700;
     box-shadow: none;
@@ -53,7 +53,7 @@
   }
 
   // Lien de profil
-  .qa-user-link {
+  .qa-nav-user-list .qa-user-link {
     margin-right: rem(8); // 8px
   }
 }
