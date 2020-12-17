@@ -94,6 +94,7 @@
 
       // Coche
       &::after {
+        z-index: 25001; // Pousse la coche devant le label
         opacity: 1;
       }
     }
