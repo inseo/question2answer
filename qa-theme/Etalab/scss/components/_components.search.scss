@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Search____________Formulaire de recherche du header */
+  /* - Search___________________Formulaire de recherche du header */
 } @else {
   /* Formulaire de recherche du header [component]
   ========================================================================== */
@@ -92,6 +92,22 @@
       margin-right: rem(4); // 4px
       vertical-align: sub;
       background: url("images/icon.svg#search-button") 50% 50% / contain no-repeat;
+    }
+
+    // État tabulé
+    &:focus {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+
+    // État survolé
+    &:hover {
+      background-image: linear-gradient(0deg, theme(button--hover-bgc), theme(button--hover-bgc));
+    }
+
+    // État actif
+    &:active {
+      background-image: linear-gradient(0deg, theme(button--active-bgc), theme(button--active-bgc));
     }
   }
 }
