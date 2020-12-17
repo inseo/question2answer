@@ -45,7 +45,7 @@
     }
 
     @include mq($from: MD) {
-      min-height: rem(172); // 172px
+      min-height: rem(200); // 200px
     }
   }
 
@@ -242,11 +242,11 @@
     }
 
     @include mq($from: SM) {
-      padding-right: rem(20); // 20px
+      padding: 0 rem(20); // 0 20px
     }
 
     @include mq($from: MD) {
-      align-self: flex-start;
+      align-self: flex-end;
       text-align: right;
     }
   }
@@ -279,8 +279,8 @@
   .qam-search {
     @include mq($from: MD) {
       position: absolute;
+      top: rem(24); // 24px
       right: 0;
-      bottom: rem(24); // 24px
       width: rem(288); // 288px
       padding-right: rem(20); // 20px
     }
