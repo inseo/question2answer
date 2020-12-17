@@ -8,6 +8,7 @@
 		'required' => 'required',
 		'all_fields_are_required' => 'All fields are required',
 		'favorited' => 'favorited',
+		'open_profil' => 'open profil',
 		'powered_by' => 'Powered by',
 		'theme_by' => 'Theme by'
 	);

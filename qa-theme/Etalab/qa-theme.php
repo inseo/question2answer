@@ -541,6 +541,21 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<li class="' . $class . '-tag-item">' . $taghtml . '</li>');
 	}
 
+	public function avatar($item, $class, $prefix = null)
+	{
+		if (isset($item['avatar'])) {
+			if (isset($prefix))
+				$this->output($prefix);
+			$item['avatar'] = str_replace('alt=""', 'alt="'. $item['raw']['handle'] .' ('. qa_lang_html('etalab/open_profil') .')"', $item['avatar']);
+
+			$this->output(
+				'<span class="' . $class . '-avatar">',
+				$item['avatar'],
+				'</span>'
+			);
+		}
+	}
+
 	/**
 	 * Add RSS feeds icon
 	 */
