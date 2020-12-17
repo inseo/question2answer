@@ -9,7 +9,6 @@
 		'all_fields_are_required' => 'Tous les champs sont obligatoires',
 		'favorited' => 'favori',
 		'open_profil' => 'voir le profil',
-		'pagination' => 'Pagination',
 		'1_best_answer_chosen' => '1 meilleure réponse choisie',
 		'powered_by' => 'Construit avec',
 		'theme_by' => 'Thème réalisé par'

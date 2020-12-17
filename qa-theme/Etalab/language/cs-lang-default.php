@@ -9,7 +9,6 @@
 		'all_fields_are_required' => 'All fields are required',
 		'favorited' => 'favorited',
 		'open_profil' => 'open profil',
-		'pagination' => 'Pagination',
 		'1_best_answer_chosen' => '1 best answer chosen',
 		'powered_by' => 'Powered by',
 		'theme_by' => 'Theme by'
