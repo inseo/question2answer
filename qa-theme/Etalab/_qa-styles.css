@@ -9,11 +9,9 @@
 */
 
 .clearfix,
-.qa-q-item-clear,
 .qa-page-links,
 .qa-page-links-list,
 .qa-template-admin .qa-message-buttons,
-.qa-q-item-avatar-meta,
 .qa-message-item,
 .qa-q-view,
 .qa-part-q-view,
@@ -33,11 +31,9 @@
 .qa-main-wrapper:after,
 .qa-sidepanel:after,
 .clearfix:after,
-.qa-q-item-clear:after,
 .qa-page-links:after,
 .qa-page-links-list:after,
 .qa-template-admin .qa-message-buttons:after,
-.qa-q-item-avatar-meta:after,
 .qa-message-item:after,
 .qa-q-view:after,
 .qa-part-q-view:after,
@@ -391,24 +387,12 @@ blockquote p {
 }
 
 /*------[ q-list ]------*/
-.qa-q-list-item {
-    padding: 10px;
-    margin-bottom: 5px;
-    background: #fff;
-}
+
 .qa-q-list-item.qa-q-favorited {
     border-left: 1px solid #8e44ad;
 }
 
-.qa-q-item-stats {
-    float: left;
-}
-@media (max-width: 240px) {
-    .qa-q-item-stats {
-        float: none;
-        display: none;
-    }
-}
+
 .qa-template-user-activity .qa-q-item-stats {
     width: 65px;
 }
@@ -424,68 +408,12 @@ blockquote p {
     }
 }
 
-.qa-voting {
-    background-color: #ecf0f1;
-    color: #445f7a;
-}
-
-.qa-a-count {
-    background-color: #3498db;
-    color: #fff;
-    text-align: center;
-}
-
-.qa-a-count-zero {
-    background-color: #e74c3c;
-}
 
 .qa-a-count-selected {
     background-color: #27ae60;
 }
 
-@media (max-width: 799px) {
-    .qa-voting,
-    .qa-a-count {
-        width: 60px;
-        height: 60px;
-        line-height: 0.5;
-        display: block;
-    }
-}
 
-@media (min-width: 800px) {
-    .qa-voting {
-        width: 68px;
-        height: 60px;
-        line-height: 0.5;
-        float: left;
-    }
-
-    .qa-a-count {
-        width: 65px;
-        height: 60px;
-        line-height: 0.5;
-        float: left;
-    }
-}
-
-.qa-netvote-count-data,
-.qa-a-count-data {
-    font-size: 24px;
-    line-height: 40px;
-    display: block;
-    white-space: nowrap;
-}
-
-.qa-netvote-count-pad,
-.qa-a-count-pad {
-    font-size: 12px;
-}
-
-.qa-netvote-count {
-    display: block;
-    text-align: center;
-}
 
 /* separate vote buttons counter */
 .qa-vote-count-updown {
@@ -511,140 +439,13 @@ blockquote p {
     display: none;
 }
 
-.qa-vote-buttons {
-    float: left;
-    height: 60px;
-    width: 20px;
-    position: relative;
-}
 
-.qa-vote-up-button,
-.qa-vote-down-button,
-.qa-voted-up-button,
-.qa-voted-down-button,
-.qa-vote-up-disabled,
-.qa-vote-down-disabled {
-    width: 16px;
-    min-height: 10px;
-    border: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    left: 4px;
-}
-.qa-vote-up-button:hover,
-.qa-vote-up-button:focus,
-.qa-vote-up-button:active,
-.qa-vote-down-button:hover,
-.qa-vote-down-button:focus,
-.qa-vote-down-button:active,
-.qa-voted-up-button:hover,
-.qa-voted-up-button:focus,
-.qa-voted-up-button:active,
-.qa-voted-down-button:hover,
-.qa-voted-down-button:focus,
-.qa-voted-down-button:active,
-.qa-vote-up-disabled:hover,
-.qa-vote-up-disabled:focus,
-.qa-vote-up-disabled:active,
-.qa-vote-down-disabled:hover,
-.qa-vote-down-disabled:focus,
-.qa-vote-down-disabled:active {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
 
-.qa-vote-up-button {
-    top: 12px;
-}
-.qa-vote-down-button {
-    bottom: 12px;
-}
-.qa-vote-up-disabled {
-    top: 12px;
-}
-.qa-vote-down-disabled {
-    bottom: 12px;
-}
-
-.qa-vote-one-button {
-    top: 25px;
-}
-
-.qa-q-item-main {
-    float: left;
-    padding-left: 10px;
-}
-@media (max-width: 240px) {
-    .qa-q-item-main {
-        width: 100%;
-        float: none;
-        padding-left: 0;
-    }
-}
-@media (min-width: 320px) {
-    .qa-q-item-main {
-        width: 210px;
-    }
-}
-@media (min-width: 360px) {
-    .qa-q-item-main {
-        width: 250px;
-    }
-}
-@media (min-width: 480px) {
-    .qa-q-item-main {
-        width: 364px;
-    }
-}
-@media (min-width: 568px) {
-    .qa-q-item-main {
-        width: 452px;
-    }
-}
-@media (min-width: 600px) {
-    .qa-q-item-main {
-        width: 484px;
-    }
-}
-@media (min-width: 768px) {
-    .qa-q-item-main {
-        width: 652px;
-    }
-}
-@media (min-width: 800px) {
-    .qa-q-item-main {
-        width: 611px;
-    }
-}
-@media (min-width: 980px) {
-    .qa-q-item-main {
-        width: 550px;
-    }
-}
-@media (min-width: 1044px) {
-    .qa-q-item-main {
-        width: 592px;
-    }
-}
-
-.qam-q-list-close-icon {
-    background-color: #34495e;
-    padding: 3px;
-    border-radius: 18px;
-    float: left;
-    margin: 5px 5px 0 0;
-}
 
 .qam-qa-list-meta-box {
     display: block;
 }
 
-.qa-q-item-avatar-meta {
-    display: block;
-    margin-top: 5px;
-}
 
 .qa-q-item-avatar {
     margin: 0 2px 0 0;
@@ -662,11 +463,7 @@ blockquote p {
     }
 }
 
-.qa-q-item-meta {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 12px;
-}
+
 .qa-q-item-meta .qa-category-link.qa-cat-favorited {
     position: relative;
     padding-left: 14px;
@@ -692,10 +489,6 @@ blockquote p {
     height: 100%;
     display: block;
     content: url("images/favorite-light-icon-15x15.png");
-}
-
-.qa-q-item-when-data {
-    font-weight: 700;
 }
 
 .qa-tag-link.qa-tag-favorited,
@@ -1651,8 +1444,7 @@ blockquote p {
     float: left;
 }
 @media (max-width: 979px) {
-    .qa-q-view-stats,
-    .qa-voting {
+    .qa-q-view-stats {
         margin-bottom: 5px;
     }
 }

@@ -419,7 +419,8 @@ class qa_html_theme extends qa_html_theme_base
 		$this->post_tags($q_item, 'qa-q-item');
 		$this->q_item_buttons($q_item);
 
-		$this->output('</div>');
+    $this->output('</div>');
+    $this->a_count($q_item);
 	}
 
 	public function q_item_title($q_item)
@@ -427,7 +428,7 @@ class qa_html_theme extends qa_html_theme_base
 		$closedText = "(" . qa_lang('main/closed') . ")";
 		$imgHtml = empty($q_item['closed'])
 			? ''
-			: '<img src="' . $this->rooturl . $this->icon_url . '/closed-q-list.png" class="qam-q-list-close-icon" alt="' . $closedText . '" title="' . $closedText . '"/>';
+      : '<img src="qa-theme/Etalab/images/icon.svg#q-list-close-icon" class="qam-q-list-close-icon" alt="' . $closedText . '" width="20" height="20" />';
 
 		$id = $this->getIdFromField($q_item);
 		$this->output('<h2 class="qa-q-item-title" ');
@@ -444,42 +445,58 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function vote_buttons($post)
 	{
-		$this->output('<div class="qa-vote-buttons ' . (($post['vote_view'] == 'updown') ? 'qa-vote-buttons-updown' : 'qa-vote-buttons-net') . '">');
-
 		switch (@$post['vote_state']) {
-			case 'voted_up':
-				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-one-button qa-voted-up');
+      case 'voted_up':
+        $this->output('<span class="qam-vote-first-button qam-voted">');
+        $this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote');
+        $this->output('</span>');
 				break;
 
-			case 'voted_up_disabled':
-				$this->post_disabled_button($post, 'vote_up_tags', '+', 'qa-vote-one-button qa-vote-up');
+      case 'voted_up_disabled':
+        $this->output('<span class="qam-vote-first-button qam-vote-up-disabled">');
+        $this->post_disabled_button($post, 'vote_up_tags', '+', 'qa-vote-button');
+        $this->output('</span>');
 				break;
 
-			case 'voted_down':
-				$this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-one-button qa-voted-down');
+      case 'voted_down':
+        $this->output('<span class="qam-vote-first-button qam-voted">');
+        $this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote');
+        $this->output('</span>');
 				break;
 
-			case 'voted_down_disabled':
-				$this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-one-button qa-vote-down');
+      case 'voted_down_disabled':
+        $this->output('<span class="qam-vote-first-button qam-vote-down-disabled">');
+        $this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-button');
+        $this->output('</span>');
+        break;
+
+      case 'up_only':
+        $this->output('<span class="qam-vote-first-button qam-vote-up">');
+        $this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote');
+        $this->output('</span>');
+        $this->output('<span class="qam-vote-second-button qam-vote-down-disabled">');
+        $this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-button');
+        $this->output('</span>');
 				break;
 
-			case 'up_only':
-				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
-				$this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
+      case 'enabled':
+        $this->output('<span class="qam-vote-first-button qam-vote-up">');
+        $this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote');
+        $this->output('</span>');
+        $this->output('<span class="qam-vote-second-button qam-vote-down">');
+        $this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote');
+        $this->output('</span>');
 				break;
 
-			case 'enabled':
-				$this->post_hover_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
-				$this->post_hover_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
-				break;
-
-			default:
-				$this->post_disabled_button($post, 'vote_up_tags', '+', 'qa-vote-first-button qa-vote-up');
-				$this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-second-button qa-vote-down');
+      default:
+        $this->output('<span class="qam-vote-first-button qam-vote-up-disabled">');
+        $this->post_disabled_button($post, 'vote_up_tags', '+', 'qa-vote-button');
+        $this->output('</span>');
+        $this->output('<span class="qam-vote-second-button qam-vote-down-disabled">');
+        $this->post_disabled_button($post, 'vote_down_tags', '&ndash;', 'qa-vote-button');
+        $this->output('</span>');
 				break;
 		}
-
-		$this->output('</div>');
 	}
 
 	public function vote_count($post)
@@ -641,7 +658,6 @@ class qa_html_theme extends qa_html_theme_base
 		//	}
 		//} 
 		$this->voting($q_item);
-		$this->a_count($q_item);
 		parent::view_count($q_item);
 
 		$this->output('</div>');
