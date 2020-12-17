@@ -392,7 +392,6 @@ blockquote p {
     border-left: 1px solid #8e44ad;
 }
 
-
 .qa-template-user-activity .qa-q-item-stats {
     width: 65px;
 }
@@ -407,13 +406,6 @@ blockquote p {
         width: 60px;
     }
 }
-
-
-.qa-a-count-selected {
-    background-color: #27ae60;
-}
-
-
 
 /* separate vote buttons counter */
 .qa-vote-count-updown {
@@ -439,13 +431,9 @@ blockquote p {
     display: none;
 }
 
-
-
-
 .qam-qa-list-meta-box {
     display: block;
 }
-
 
 .qa-q-item-avatar {
     margin: 0 2px 0 0;
@@ -462,7 +450,6 @@ blockquote p {
         line-height: 1;
     }
 }
-
 
 .qa-q-item-meta .qa-category-link.qa-cat-favorited {
     position: relative;
