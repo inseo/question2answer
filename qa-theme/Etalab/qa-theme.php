@@ -1182,4 +1182,42 @@ class qa_html_theme extends qa_html_theme_base
 			$this->output('id="note_' . $id . '" ');
 		$this->output('class="qa-form-' . $style . '-note">' . @$field['note'] . '</' . $tag . '>');
 	}
+
+	public function ranking_table($ranking, $class)
+	{
+		$rows = min($ranking['rows'], count($ranking['items']));
+
+		if ($rows > 0) {
+			$this->output('<ul class="' . $class . '-table">');
+			$columns = ceil(count($ranking['items']) / $rows);
+
+			for ($row = 0; $row < $rows; $row++) {
+				$this->set_context('ranking_row', $row);
+				$this->output('<li>');
+
+				for ($column = 0; $column < $columns; $column++) {
+					$this->set_context('ranking_column', $column);
+					$this->ranking_table_item(@$ranking['items'][$column * $rows + $row], $class, $column > 0);
+				}
+
+				$this->clear_context('ranking_column');
+				$this->output('</li>');
+			}
+			$this->clear_context('ranking_row');
+			$this->output('</ul>');
+		}
+	}
+
+	public function ranking_spacer($class)
+	{
+		$this->output('<span class="' . $class . '-spacer">&nbsp;</span>');
+	}
+
+	public function ranking_cell($content, $class)
+	{
+		//$tag = $this->ranking_block_layout ? 'span' : 'td';
+		$tag = 'span';
+		$this->output('<' . $tag . ' class="' . $class . '">' . $content . '</' . $tag . '>');
+	}
+
 }
