@@ -7,6 +7,7 @@
 		'main_navigation' => 'Navigation principale', // accessibility value to describe main navigation
 		'required' => 'obligatoire',
 		'all_fields_are_required' => 'Tous les champs sont obligatoires',
+		'favorited' => 'favori',
 		'powered_by' => 'Construit avec',
 		'theme_by' => 'Thème réalisé par'
 	);

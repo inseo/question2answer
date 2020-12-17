@@ -531,6 +531,16 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</p>');
 	}
 
+	public function post_tag_item($taghtml, $class)
+	{
+		if(stristr($taghtml, 'qa-tag-favorited')) {
+			$favhtml = ' <span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
+			$taghtml = str_replace ('</a>', $favhtml.'</a>', $taghtml);
+		}
+
+		$this->output('<li class="' . $class . '-tag-item">' . $taghtml . '</li>');
+	}
+
 	/**
 	 * Add RSS feeds icon
 	 */
