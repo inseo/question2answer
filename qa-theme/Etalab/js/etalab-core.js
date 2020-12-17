@@ -22,12 +22,13 @@ $(document).ready(function () {
 		e.stopPropagation();
 		closeMenuToggle();
 		closeSearchToggle();
-		if ($(this).attr("aria-expanded") == "false")
+		if ($(this).attr("aria-expanded") == "false") {
+			$('.qam-account-items').slideToggle(100);
 			$(this).attr("aria-expanded", "true");
+			$(this).toggleClass('current');
+		}
 		else
 			closeAccountToggle();
-		$(this).toggleClass('account-active');
-		$('.qam-account-items').slideToggle(100);
 	});
 
 	/**
@@ -37,14 +38,13 @@ $(document).ready(function () {
 		e.stopPropagation();
 		closeAccountToggle();
 		closeSearchToggle();
-		$(this).toggleClass('current');
 		if ($(this).attr("aria-expanded") == "false") {
 			$('.qa-nav-main').removeAttr('hidden');
 			$(this).attr("aria-expanded", "true");
+			$(this).toggleClass('current');
 		}
-		else {
+		else
 			closeMenuToggle();
-		}
   });
 
   	/**
@@ -54,43 +54,40 @@ $(document).ready(function () {
 		e.stopPropagation();
 		closeAccountToggle();
 		closeMenuToggle();
-		$(this).toggleClass('current');
 		if ($(this).attr("aria-expanded") == "false") {
 			$('#qam-search').removeAttr('hidden');
 			$(this).attr("aria-expanded", "true");
+			$(this).toggleClass('current');
 		}
-		else {
+		else
 			closeSearchToggle();
-		}
 	});
 
 	/**
 	 * Close menu(s) when user click anywhere else
 	 */
 	$(document).click(function () {
-		closeMenuToggle();
 		closeAccountToggle();
+		closeMenuToggle();
+		closeSearchToggle();
 	});
 
 	function closeAccountToggle() {
-		$('#qam-account-toggle.account-active').attr("aria-expanded", "false");
-		$('#qam-account-toggle.account-active').removeClass('account-active');
 		$('.qam-account-items:visible').slideUp(100);
+		$('#qam-account-toggle').attr("aria-expanded", "false");
+		$('#qam-account-toggle.current').removeClass('current');
 	}
 
 	function closeMenuToggle() {
-		if($('.qam-menu-toggle').is(':visible')) {
-			$('.qam-menu-toggle.current').attr("aria-expanded", "false");
-			$('.qam-menu-toggle.current').removeClass('current');
-			$('#qa-nav-main').attr('hidden', 'hidden');
-		}
+		$('#qa-nav-main').attr('hidden', 'hidden');
+		$('.qam-menu-toggle').attr("aria-expanded", "false");
+		$('.qam-menu-toggle.current').removeClass('current');
 	}
 
 	function closeSearchToggle() {
-		if($('.qam-search-toggle').is(':visible')) {
-			$('#qam-search').attr('hidden', 'hidden');
-			$('.qam-search-toggle').attr("aria-expanded", "false");
-		}
+		$('#qam-search').attr('hidden', 'hidden');
+		$('.qam-search-toggle').attr("aria-expanded", "false");
+		$('.qam-search-toggle.current').removeClass('current');
 	}
 
 	$('.qam-account-items').click(function (event) {

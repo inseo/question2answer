@@ -156,7 +156,7 @@ class qa_html_theme extends qa_html_theme_base
 			$this->logo();
 		} else {
 			$this->output('<span class="qam-topbar-logo-link">');
-			$this->output('<span class="qam-topbar-logo-title">République<br /> française</span>');
+			$this->output('<span class="qam-topbar-logo-title">République <br />française</span>');
 			$this->output('</span>');
 		}
 		$this->output('</div> <!-- .qam-topbar-logo -->');
@@ -166,7 +166,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- .qam-topbar-service -->');
 		$this->qam_search();
 		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
-		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
 		$this->output('</ul>');
 		$this->nav_user_search();
@@ -544,7 +544,7 @@ class qa_html_theme extends qa_html_theme_base
 			$label = isset($feed['label']) ? $feed['label'] : '';
 			$this->output(
 				'<a class="qam-rss" href="' . $feed['url'] . '">',
-        '<img src="qa-theme/Etalab/images/icon.svg#title-rss" alt="' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '" width="24" height="24" />',
+        		'<img role="img" src="qa-theme/Etalab/images/icon.svg#title-rss" alt="' . qa_lang_html('admin/feeds_title') . '&nbsp;: ' . $label . '" width="24" height="24" />',
 				'</a>'
 			);
 		}
@@ -799,7 +799,7 @@ class qa_html_theme extends qa_html_theme_base
 	private function qam_search()
 	{
     $this->output('<div role="search" class="qam-search">');
-    $this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qa-search"><img width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+    $this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qa-search"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
     $this->output('<div id="qam-search" hidden="hidden">');
     $this->search();
     $this->output('</div> <!-- #qam-search -->');
