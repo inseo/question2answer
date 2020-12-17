@@ -511,6 +511,23 @@ class qa_html_theme extends qa_html_theme_base
 			@$post['answer_selected'] ? 'qa-a-count-selected' : (@$post['answers_raw'] ? null : 'qa-a-count-zero'));
 	}
 
+	public function a_selection($post)
+	{
+		$this->output('<div class="qa-a-selection">');
+
+		if (isset($post['select_text']))
+			$this->output('<p class="qa-a-selected-text">' . @$post['select_text'] . '</p>');
+	
+		if (isset($post['select_tags']))
+			$this->post_hover_button($post, 'select_tags', qa_lang('question/select_popup'), 'qa-a-select');
+		elseif (isset($post['unselect_tags']))
+			$this->post_hover_button($post, 'unselect_tags', qa_lang('question/unselect_popup'), 'qa-a-unselect');
+		elseif ($post['selected'])
+			$this->output('<div class="qa-a-selected">&nbsp;</div>');
+
+		$this->output('</div>');
+	}
+
 	public function post_hover_button($post, $element, $value, $class)
 	{
 		if (isset($post[$element]))
@@ -617,7 +634,12 @@ class qa_html_theme extends qa_html_theme_base
 	public function q_item_stats($q_item)
 	{
 		$this->output('<div class="qa-q-item-stats">');
-
+		// TODO
+		//if($q_item['netvotes_view']['data'] == 0) {
+		//	if(substr($q_item['netvotes_view']['suffix'], -1) == "s") {
+		//		$q_item['netvotes_view']['suffix'] = substr($q_item['netvotes_view']['suffix'],0,-1);
+		//	}
+		//} 
 		$this->voting($q_item);
 		$this->a_count($q_item);
 		parent::view_count($q_item);
@@ -634,19 +656,47 @@ class qa_html_theme extends qa_html_theme_base
 		// do nothing
 	}
 
-	/**
-	 * Add view counter to question view
-	 * @param array $q_view
-	 */
 	public function q_view_stats($q_view)
 	{
 		$this->output('<div class="qa-q-view-stats">');
-
+		// TODO
+		// if($q_view['netvotes_view']['data'] == 0) {
+		// 	if(substr(strip_tags($q_view['netvotes_view']['suffix']), -1) == "s") {
+		// 		// TODO
+		// 		$q_view['netvotes_view']['suffix'] = substr($q_view['netvotes_view']['suffix'],0,-1);
+		// 	}
+		// } 
 		$this->voting($q_view);
 		$this->a_count($q_view);
 		parent::view_count($q_view);
-
 		$this->output('</div>');
+	}
+
+	public function q_view_closed($q_view)
+	{
+		if (!empty($q_view['closed'])) {
+			$haslink = isset($q_view['closed']['url']);
+
+			$this->output(
+				'<p class="qa-q-view-closed">',
+				$q_view['closed']['label'],
+				($haslink ? ('<a href="' . $q_view['closed']['url'] . '"') : '<span') . ' class="qa-q-view-closed-content">',
+				$q_view['closed']['content'],
+				$haslink ? '</a>' : '</span>',
+				'</p>'
+			);
+		}
+	}
+
+	public function q_view_follows($q_view)
+	{
+		if (!empty($q_view['follows']))
+			$this->output(
+				'<p class="qa-q-view-follows">',
+				$q_view['follows']['label'],
+				'<a href="' . $q_view['follows']['url'] . '" class="qa-q-view-follows-link">' . $q_view['follows']['title'] . '</a>',
+				'</p>'
+			);
 	}
 
 	/**

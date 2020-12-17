@@ -1942,55 +1942,6 @@ blockquote p {
     margin: -7px 0 0 -7px;
 }
 
-.qa-a-select-button,
-.qa-a-unselect-button,
-.qa-a-selected {
-    width: 60px;
-    height: 60px;
-    border: none;
-    outline: none;
-    display: block;
-    margin: 0;
-    position: relative;
-    background: url("images/answer-select.png") no-repeat center;
-    transition: background-color 0.5s;
-}
-
-.qa-a-select-button {
-    background-color: #bdc3c7;
-}
-.qa-a-select-button:hover,
-.qa-a-select-button:focus {
-    background-color: #27ae60;
-}
-
-.qa-a-unselect-button {
-    background-color: #27ae60;
-}
-.qa-a-unselect-button:hover,
-.qa-a-unselect-button:focus {
-    background-color: #bdc3c7;
-}
-
-.qa-a-selected {
-    background-color: #27ae60;
-}
-
-@media (max-width: 979px) {
-    .qa-a-selected-text {
-        display: none;
-    }
-}
-@media (min-width: 980px) {
-    .qa-a-selected-text {
-        font-size: 10px;
-        color: #27ae60;
-        display: block;
-        line-height: normal;
-        text-align: center;
-    }
-}
-
 .answer-selected,
 .qa-a-list-item-selected {
     border: 1px solid #27ae60;
