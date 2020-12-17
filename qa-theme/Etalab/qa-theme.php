@@ -1284,4 +1284,29 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<span class="' . $class . '">' . $content . '</span>');
 	}
 
+	public function page_links()
+	{
+		$page_links = @$this->content['page_links'];
+
+		if (!empty($page_links)) {
+			$this->output('<nav role="navigation" aria-label="'. qa_lang_html('etalab/pagination') .'" class="qa-page-links">');
+
+			$this->page_links_label(@$page_links['label']);
+			$this->page_links_list(@$page_links['items']);
+			$this->page_links_clear();
+
+			$this->output('</nav>');
+		}
+	}
+
+	public function page_links_item($page_link)
+	{
+		if($page_link['type'] == "this") {
+			$this->output('<li aria-current="true" class="qa-page-links-item">');
+		} else {
+			$this->output('<li class="qa-page-links-item">');
+		}
+		$this->page_link_content($page_link);
+		$this->output('</li>');
+	}
 }

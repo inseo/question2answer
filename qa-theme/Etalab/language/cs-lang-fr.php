@@ -9,6 +9,7 @@
 		'all_fields_are_required' => 'Tous les champs sont obligatoires',
 		'favorited' => 'favori',
 		'open_profil' => 'voir le profil',
+		'pagination' => 'Pagination',
 		'powered_by' => 'Construit avec',
 		'theme_by' => 'Thème réalisé par'
 	);
