@@ -428,7 +428,7 @@ class qa_html_theme extends qa_html_theme_base
 		$closedText = "(" . qa_lang('main/closed') . ")";
 		$imgHtml = empty($q_item['closed'])
 			? ''
-      : '<img src="qa-theme/Etalab/images/icon.svg#q-list-close-icon" class="qam-q-list-close-icon" alt="' . $closedText . '" width="20" height="20" />';
+      : '<img src="qa-theme/Etalab/images/icon.svg#q-list-close-icon" class="qam-q-list-close-icon" title="' . $closedText . '" alt="' . $closedText . '" width="20" height="20" />';
 
 		$id = $this->getIdFromField($q_item);
 		$this->output('<h2 class="qa-q-item-title" ');
@@ -523,7 +523,9 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function a_count($post)
 	{
-		// You can also use $post['answers_raw'] to get a raw integer count of answers
+		if(@$post['answer_selected']) {
+			$post['answers']['suffix'] .= ' ('. qa_lang('etalab/1_best_answer_chosen') .')';
+		}
 		$this->output_split(@$post['answers'], 'qa-a-count', 'p', 'span',
 			@$post['answer_selected'] ? 'qa-a-count-selected' : (@$post['answers_raw'] ? null : 'qa-a-count-zero'));
 	}
