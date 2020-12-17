@@ -27,9 +27,6 @@
     *zoom: 1;
 }
 
-.qa-main:after,
-.qa-main-wrapper:after,
-.qa-sidepanel:after,
 .clearfix:after,
 .qa-page-links:after,
 .qa-page-links-list:after,
@@ -301,22 +298,6 @@ blockquote p {
 }
 
 /*------[ qa content parts ]------*/
-
-.qa-main,
-.qa-main-wrapper {
-    *zoom: 1;
-}
-
-@media (min-width: 980px) {
-    .qa-main {
-        width: 74.5%;
-        float: left;
-    }
-    .qam-topbar,
-    .qa-main-wrapper {
-        width: 100%;
-    }
-}
 
 .qam-title-rss {
     float: right;
@@ -1164,9 +1145,6 @@ blockquote p {
 }
 
 /*------[ users ]------*/
-.qa-template-user .qa-main {
-    width: 100%;
-}
 .qa-part-message-list {
     padding: 20px;
     margin-bottom: 5px;
@@ -1988,23 +1966,12 @@ blockquote p {
     display: none;
 }
 
-@media (min-width: 980px) {
-    .qa-sidepanel {
-        width: 25%;
-        padding: 0;
-        float: right;
-        *zoom: 1;
-    }
-}
 
 .stick {
     top: 10px !important;
     transition: all 0.15s ease;
 }
 
-.qa-sidepanel {
-    word-wrap: break-word;
-}
 .qa-sidepanel h1,
 .qa-sidepanel h2,
 .qa-sidepanel h3,
