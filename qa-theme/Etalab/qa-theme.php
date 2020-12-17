@@ -363,16 +363,15 @@ class qa_html_theme extends qa_html_theme_base
 		if ($this->template == 'user')
 			return;
 
-		$this->output('<div class="qa-sidepanel" id="qam-sidepanel-mobile">');
-		$this->widgets('side', 'top');
-		$this->sidebar();
-		$this->widgets('side', 'high');
-		$this->widgets('side', 'low');
-		if (isset($this->content['sidepanel']))
-			$this->output_raw($this->content['sidepanel']);
-		$this->feed();
-		$this->widgets('side', 'bottom');
-		$this->output('</div> <!-- qa-sidepanel -->', '');
+      $this->output('<div class="qa-sidepanel">');
+      $this->widgets('side', 'top');
+      $this->sidebar();
+      $this->widgets('side', 'high');
+      $this->widgets('side', 'low');
+      $this->output_raw(@$this->content['sidepanel']);
+      //$this->feed(); @TODO check
+      $this->widgets('side', 'bottom');
+      $this->output('</div>', '');
 	}
 
 	/**
