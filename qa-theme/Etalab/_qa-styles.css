@@ -311,7 +311,6 @@ blockquote p {
     *zoom: 1;
 }
 
-
 @media (min-width: 980px) {
     .qa-main {
         width: 74.5%;
@@ -389,33 +388,6 @@ blockquote p {
     top: 50%;
     margin: -7px 0 0 -7px;
     padding: 0;
-}
-
-.qa-favorite-button,
-.qa-unfavorite-button {
-    background-image: url("images/star.png");
-    background-repeat: no-repeat;
-    width: 38px;
-    height: 38px;
-    margin: 0;
-    border: none;
-}
-.qa-favorite-button:hover,
-.qa-favorite-button:focus,
-.qa-unfavorite-button:hover,
-.qa-unfavorite-button:focus {
-    background-color: #f39c12;
-    background-position: center -38px;
-}
-
-.qa-favorite-button {
-    background-color: #ecf0f1;
-    background-position: center top;
-}
-
-.qa-unfavorite-button {
-    background-color: #f1c40f;
-    background-position: center bottom;
 }
 
 /*------[ q-list ]------*/
@@ -725,7 +697,6 @@ blockquote p {
 .qa-q-item-when-data {
     font-weight: 700;
 }
-
 
 .qa-tag-link.qa-tag-favorited,
 .qa-widget-side .qa-q-view-tag-item.qa-tag-favorited {

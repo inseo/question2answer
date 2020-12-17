@@ -575,6 +575,15 @@ class qa_html_theme extends qa_html_theme_base
 		}
 	}
 
+	public function favorite_button($tags, $class)
+	{
+		if (isset($tags)) {
+			preg_match('~title="(.*?)"~', $tags, $output);
+			isset($output[1]) ? $value = $output[1] : $value = null;
+			$this->output('<input ' . $tags . ' type="submit" value="'. $value .'" class="' . $class . '-button"/> ');
+		}
+	}
+
 	/**
 	 * Add closed icon for closed questions
 	 */
