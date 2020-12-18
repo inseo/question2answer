@@ -749,10 +749,68 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- END qa-q-view-main -->');
 	}
 
-	/**
-	 * Move user whometa to top in answer
-	 * @param array $a_item
-	 */
+	public function main_part($key, $part)
+	{
+		$isRanking = strpos($key, 'ranking') === 0;
+
+		$partdiv = (
+			strpos($key, 'custom') === 0 ||
+			strpos($key, 'form') === 0 ||
+			strpos($key, 'q_list') === 0 ||
+			(strpos($key, 'q_view') === 0 && !isset($this->content['form_q_edit'])) ||
+			strpos($key, 'a_form') === 0 ||
+			strpos($key, 'a_list') === 0 ||
+			$isRanking ||
+			strpos($key, 'message_list') === 0 ||
+			strpos($key, 'nav_list') === 0
+		);
+
+		if ($partdiv) {
+			$class = 'qa-part-' . strtr($key, '_', '-');
+			if ($isRanking)
+				$class .= ' qa-ranking-' . $part['type'] . '-' . (isset($part['sort']) ? $part['sort'] : 'points');
+			// help target CSS to page parts
+			if (strpos($key, 'a_list') === 0)
+				$this->output('<section class="' . $class . '">');
+			else 
+				$this->output('<div class="' . $class . '">');
+		}
+
+		if (strpos($key, 'custom') === 0)
+			$this->output_raw($part);
+
+		elseif (strpos($key, 'form') === 0)
+			$this->form($part);
+
+		elseif (strpos($key, 'q_list') === 0)
+			$this->q_list_and_form($part);
+
+		elseif (strpos($key, 'q_view') === 0)
+			$this->q_view($part);
+
+		elseif (strpos($key, 'a_form') === 0)
+			$this->a_form($part);
+
+		elseif (strpos($key, 'a_list') === 0)
+			$this->a_list($part);
+
+		elseif (strpos($key, 'ranking') === 0)
+			$this->ranking($part);
+
+		elseif (strpos($key, 'message_list') === 0)
+			$this->message_list_and_form($part);
+
+		elseif (strpos($key, 'nav_list') === 0) {
+			$this->part_title($part);
+			$this->nav_list($part['nav'], $part['type'], 1);
+		}
+
+		if ($partdiv) {
+			(strpos($key, 'a_list') === 0) ? $this->output('</section>') : $this->output('</div>');
+		}
+			
+	}
+
 	public function a_item_main($a_item)
 	{
 		$this->output('<div class="qa-a-item-main">');
@@ -790,15 +848,55 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- END qa-a-item-main -->');
 	}
 
-	/**
-	 * Remove comment voting here
-	 * @param array $c_item
-	 */
+
+	public function a_list($a_list)
+	{
+		if (!empty($a_list)) {
+			$this->part_title($a_list);
+
+			$this->output('<div role="list" class="qa-a-list' . ($this->list_vote_disabled($a_list['as']) ? ' qa-a-list-vote-disabled' : '') . '" ' . @$a_list['tags'] . '>', '');
+			$this->a_list_items($a_list['as']);
+			$this->output('</div> <!-- END qa-a-list -->', '');
+		}
+	}
+
+	public function a_list_item($a_item)
+	{
+		$extraclass = @$a_item['classes'] . ($a_item['hidden'] ? ' qa-a-list-item-hidden' : ($a_item['selected'] ? ' qa-a-list-item-selected' : ''));
+
+		$this->output('<div role="listitem" class="qa-a-list-item ' . $extraclass . '" ' . @$a_item['tags'] . '>');
+
+		if (isset($a_item['main_form_tags'])) {
+			$this->output('<form ' . $a_item['main_form_tags'] . '>'); // form for answer voting buttons
+		}
+
+		$this->voting($a_item);
+
+		if (isset($a_item['main_form_tags'])) {
+			$this->form_hidden_elements(@$a_item['voting_form_hidden']);
+			$this->output('</form>');
+		}
+
+		$this->a_item_main($a_item);
+		$this->a_item_clear();
+
+		$this->output('</div> <!-- END qa-a-list-item -->', '');
+	}
+
+	public function c_list($c_list, $class)
+	{
+		if (!empty($c_list)) {
+			$this->output('', '<div role="list" class="' . $class . '-c-list"' . (@$c_list['hidden'] ? ' style="display:none;"' : '') . ' ' . @$c_list['tags'] . '>');
+			$this->c_list_items($c_list['cs']);
+			$this->output('</div> <!-- END qa-c-list -->', '');
+		}
+	}
+
 	public function c_list_item($c_item)
 	{
 		$extraclass = @$c_item['classes'] . (@$c_item['hidden'] ? ' qa-c-item-hidden' : '');
 
-		$this->output('<div class="qa-c-list-item ' . $extraclass . '" ' . @$c_item['tags'] . '>');
+		$this->output('<div role="listitem" class="qa-c-list-item ' . $extraclass . '" ' . @$c_item['tags'] . '>');
 
 		$this->c_item_main($c_item);
 		$this->c_item_clear();
@@ -1305,7 +1403,6 @@ class qa_html_theme extends qa_html_theme_base
 		if (!empty($label))
 			$this->output('<p id="qa-page-links-label" class="qa-page-links-label">' . $label . '</p>');
 	}
-
 
 	public function page_links_item($page_link)
 	{
