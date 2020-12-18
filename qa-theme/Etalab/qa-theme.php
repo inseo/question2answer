@@ -1013,14 +1013,14 @@ class qa_html_theme extends qa_html_theme_base
 		$columns = $this->form_columns($form);
 
 		if ($columns)
-			$this->output('<table class="qa-form-' . $form['style'] . '-table" role="presentation">');
+			$this->output('<div class="qa-form-' . $form['style'] . '-table">');
 
 		$this->form_ok($form, $columns);
 		$this->form_fields($form, $columns);
 		$this->form_buttons($form, $columns);
 
 		if ($columns)
-			$this->output('</table>');
+			$this->output('</div>');
 
 		$this->form_hidden($form);
 
@@ -1030,15 +1030,15 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function form_ok($form, $columns)
 	{
-		$this->output('<tr role="status">');
+		$this->output('<div role="status">');
 		if (!empty($form['ok'])) {
 			$this->output(
-				'<td colspan="' . $columns . '" class="qa-form-' . $form['style'] . '-ok">',
+				'<p class="qa-form-' . $form['style'] . '-ok">',
 				$form['ok'],
-				'</td>'
+				'</p>'
 			);
 		}
-		$this->output('</tr>');
+		$this->output('</div>');
 	}
 
 	public function form_field_rows($form, $columns, $field)
@@ -1052,66 +1052,68 @@ class qa_html_theme extends qa_html_theme_base
 		} else
 			$colspan = null;
 
-		$prefixed = (@$field['type'] == 'checkbox') && ($columns == 1) && !empty($field['label']);
+		$prefixed = (@$field['type'] == 'checkbox') && !empty($field['label']);
 		$suffixed = (@$field['type'] == 'select' || @$field['type'] == 'number') && $columns == 1 && !empty($field['label']) && !@$field['loose'];
 		$skipdata = @$field['tight'];
-		$tworows = ($columns == 1) && (!empty($field['label'])) && (!$skipdata) &&
-			((!($prefixed || $suffixed)) || (!empty($field['error'])) || (!empty($field['note'])));
 
 		if (isset($field['id'])) {
-			if ($columns == 1) {
-				if (isset($field['type']) && $field['type'] == "select-radio") {
-					$this->output('<tbody id="' . $field['id'] . '" role="radiogroup" aria-label="' . $field['label'] . '">', '<tr>');
-				} else {
-					$this->output('<tbody id="' . $field['id'] . '" role="presentation">', '<tr>');
-				}
-			} else
-				$this->output('<tr id="' . $field['id'] . '">');
+			if (isset($field['type']) && $field['type'] == "select-radio") {
+				$this->output('<div id="' . $field['id'] . '" role="radiogroup" aria-label="' . $field['label'] . '">');
+			} else {
+				$this->output('<div id="' . $field['id'] . '">');
+			}
 		} else
-			$this->output('<tr>');
+			$this->output('<div>');
 
 		if ($columns > 1 || !empty($field['label']))
 			$this->form_label($field, $style, $columns, $prefixed, $suffixed, $colspan);
 
-		if ($tworows) {
-			$this->output(
-				'</tr>',
-				'<tr>'
-			);
-		}
-
 		if (!$skipdata)
 			$this->form_data($field, $style, $columns, !($prefixed || $suffixed), $colspan);
 
-		$this->output('</tr>');
+		$this->output('</div>');
+	}
 
-		if ($columns == 1 && isset($field['id']))
-			$this->output('</tbody>');
+
+	public function form_data($field, $style, $columns, $showfield, $colspan)
+	{
+		if ($showfield || (!empty($field['error'])) || (!empty($field['note']))) {
+			$this->output(
+				'<div class="qa-form-' . $style . '-data">'
+			);
+
+			if ($showfield)
+				$this->form_field($field, $style);
+
+			if (!empty($field['error'])) {
+				if (@$field['note_force'])
+					$this->form_note($field, $style, $columns);
+
+				$this->form_error($field, $style, $columns);
+			} elseif (!empty($field['note']))
+				$this->form_note($field, $style, $columns);
+
+			$this->output('</div>');
+		}
 	}
 
 	public function form_label($field, $style, $columns, $prefixed, $suffixed, $colspan)
 	{
 		$extratags = '';
 
-		if ($columns > 1 && (@$field['type'] == 'select-radio' || @$field['rows'] > 1))
-			$extratags .= ' style="vertical-align:top;"';
-
-		if (isset($colspan))
-			$extratags .= ' colspan="' . $colspan . '"';
-
-		$this->output('<td class="qa-form-' . $style . '-label"' . $extratags . '>');
+		$this->output('<div class="qa-form-' . $style . '-label"' . $extratags . '>');
 
 		// Add <label> when field with id or name is identified (except for select-radio)
 		$id = $this->getIdFromField($field);
+
+		if ($prefixed) {
+			$this->form_field($field, $style);
+		}
 
 		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
 			$this->output('<p>');
 		} else {
 			$id !== null ? $this->output('<label for="' . $id . '">') : '';
-		}
-
-		if ($prefixed) {
-			$this->form_field($field, $style);
 		}
 
 		$this->output(@$field['label']);
@@ -1128,7 +1130,46 @@ class qa_html_theme extends qa_html_theme_base
 			}
 			$id !== null ? $this->output('</label>') : '';
 		}
-		$this->output('</td>');
+		$this->output('</div>');
+	}
+
+	public function form_buttons($form, $columns)
+	{
+		if (!empty($form['buttons'])) {
+			$style = @$form['style'];
+
+			$this->output('<div class="qa-form-' . $style . '-buttons">');
+
+			foreach ($form['buttons'] as $key => $button) {
+				$this->set_context('button_key', $key);
+
+				if (empty($button))
+					$this->form_button_spacer($style);
+				else {
+					$this->form_button_data($button, $key, $style);
+					$this->form_button_note($button, $style);
+				}
+			}
+
+			$this->clear_context('button_key');
+			$this->output('</div>');
+		}
+	}
+
+	public function form_button_data($button, $key, $style)
+	{
+		$baseclass = 'qa-form-' . $style . '-button qa-form-' . $style . '-button-' . $key;
+		$this->output('<input' . rtrim(' ' . @$button['tags']) . ' value="' . @$button['label'] . '" type="submit"' .
+			(isset($button['popup'])? (' title="' . @$button['popup'] . '"') : '') .
+			(isset($style) ? (' class="' . $baseclass . '"') : '') . '/>');
+	}
+
+	public function form_spacer($form, $columns)
+	{
+		$this->output(
+			'<div class="qa-form-' . $form['style'] . '-spacer">',
+			'</div>'
+		);
 	}
 
 	/**
@@ -1358,7 +1399,7 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function ranking_spacer($class)
 	{
-		$this->output('<span class="' . $class . '-spacer">&nbsp;</span>');
+		$this->output('<span class="' . $class . '-spacer"></span>');
 	}
 
 	public function ranking_cell($content, $class)
