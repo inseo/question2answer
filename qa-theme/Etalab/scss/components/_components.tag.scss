@@ -21,6 +21,7 @@
 
   // Tag
   .qa-tag-link {
+    display: inline-block;
     padding: rem(4) rem(16) rem(8); // 4px 16px 8px
     color: theme(tag-link-txt);
     font-size: rem(14); // 14px
