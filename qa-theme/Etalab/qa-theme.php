@@ -280,6 +280,38 @@ class qa_html_theme extends qa_html_theme_base
 
 		if (strlen(@$navlink['note']))
 			$this->output('<span class="qa-' . $class . '-note">' . $navlink['note'] . '</span>');
+  }
+
+
+  /**
+	 * Remove the '«' and '»' from the first and last links
+   */
+  public function page_link_content($page_link)
+	{
+		$label = @$page_link['label'];
+		$url = @$page_link['url'];
+
+		switch ($page_link['type']) {
+			case 'this':
+				$this->output($label);
+				break;
+
+			case 'prev':
+				$this->output('<a href="' . $url . '" class="qa-page-prev">' . $label . '</a>');
+				break;
+
+			case 'next':
+				$this->output('<a href="' . $url . '" class="qa-page-next">' . $label . '</a>');
+				break;
+
+			case 'ellipsis':
+				$this->output('<span class="qa-page-ellipsis">…</span>');
+				break;
+
+			default:
+				$this->output('<a href="' . $url . '" class="qa-page-link">' . $label . '</a>');
+				break;
+		}
 	}
 
 	/**
@@ -769,7 +801,7 @@ class qa_html_theme extends qa_html_theme_base
 			// help target CSS to page parts
 			if (strpos($key, 'a_list') === 0)
 				$this->output('<section class="' . $class . '">');
-			else 
+			else
 				$this->output('<div class="' . $class . '">');
 		}
 
@@ -805,7 +837,7 @@ class qa_html_theme extends qa_html_theme_base
 		if ($partdiv) {
 			(strpos($key, 'a_list') === 0) ? $this->output('</section>') : $this->output('</div>');
 		}
-			
+
 	}
 
 	public function a_item_main($a_item)
@@ -1425,7 +1457,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function page_links_label($label)
 	{
 		if (!empty($label))
-			$this->output('<p id="qa-page-links-label" class="qa-page-links-label">' . $label . '</p>');
+			$this->output('<p id="qa-page-links-label" class="u-visually-hidden">' . $label . '</p>');
 	}
 
 	public function page_links_item($page_link)

@@ -9,8 +9,6 @@
 */
 
 .clearfix,
-.qa-page-links,
-.qa-page-links-list,
 .qa-template-admin .qa-message-buttons,
 .qa-message-item,
 .qa-q-view,
@@ -28,8 +26,6 @@
 }
 
 .clearfix:after,
-.qa-page-links:after,
-.qa-page-links-list:after,
 .qa-template-admin .qa-message-buttons:after,
 .qa-message-item:after,
 .qa-q-view:after,
@@ -428,63 +424,6 @@ blockquote p {
     height: 100%;
     display: block;
     content: url("images/favorite-light-icon-15x15.png");
-}
-
-.qa-page-links-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.qa-page-links-label {
-    float: left;
-    margin-right: 2px;
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    background: #fff;
-    display: block;
-}
-
-.qa-page-links-item {
-    float: left;
-    margin-right: 2px;
-}
-.qa-page-links-item a {
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    background: #fff;
-    display: block;
-    text-decoration: none;
-    color: #34495e;
-}
-.qa-page-links-item a:hover,
-.qa-page-links-item a:focus {
-    background: #e67e22;
-    color: #fff;
-}
-
-.qa-page-selected {
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    background: #3498db;
-    color: #fff;
-    display: block;
-}
-.qa-page-selected a {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-}
-.qa-page-selected a:hover,
-.qa-page-selected a:focus {
-    color: #fff;
-    border-bottom: 0;
-}
-
-.qa-page-ellipsis {
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    background: #fff;
-    display: block;
 }
 
 .qa-template-admin .qa-q-item-main {
