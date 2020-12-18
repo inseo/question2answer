@@ -387,34 +387,6 @@ blockquote p {
     }
 }
 
-/* separate vote buttons counter */
-.qa-vote-count-updown {
-    line-height: 1.5;
-}
-
-.qa-upvote-count,
-.qa-downvote-count {
-    text-align: center;
-    display: block;
-}
-
-.qa-upvote-count-data,
-.qa-downvote-count-data {
-    display: block;
-    margin-top: 2px;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.qa-upvote-count-pad,
-.qa-downvote-count-pad {
-    display: none;
-}
-
-.qam-qa-list-meta-box {
-    display: block;
-}
-
 .qa-q-item-avatar {
     margin: 0 2px 0 0;
 }
@@ -1386,23 +1358,6 @@ blockquote p {
     .qa-q-view-stats {
         margin-bottom: 5px;
     }
-}
-
-.qa-view-count {
-    font-size: 12px;
-    text-align: center;
-    clear: both;
-    float: left;
-    width: 100%;
-    height: auto;
-    margin: 6px 0 -4px;
-    word-break: break-word;
-}
-
-.qa-view-count-data {
-}
-
-.qa-view-count-pad {
 }
 
 .qam-q-view-close-icon {

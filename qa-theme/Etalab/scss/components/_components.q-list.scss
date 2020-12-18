@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Q list_________________Liste de questions */
+  /* - Q list___________________Liste de questions */
 } @else {
   /* Liste de questions [component]
   ========================================================================== */
@@ -14,12 +14,12 @@
   .qa-q-list-item {
     position: relative; // Nécessaire au positionnement des statistiques et du nombre de réponses
     margin-bottom: rem(12); // 12px
-    padding: rem(16) rem(16) rem(16) rem(138); // 16px 16px 16px 138px
+    padding: rem(16) rem(16) rem(16) rem(170); // 16px 16px 16px 170px
     background-color: theme(q-list-item);
 
     @include mq($from: SM) {
-      min-height: rem(136); // 136px
-      padding: rem(24) rem(24) rem(24) rem(176); // 24px 24px 24px 176px
+      min-height: rem(175); // 175px
+      padding: rem(24) rem(24) rem(24) rem(192); // 24px 24px 24px 192px
     }
   }
 
@@ -53,14 +53,14 @@
     position: absolute;
     top: rem(16); // 16px
     left: rem(16);
-    width: rem(96); // 96px
+    width: rem(128); // 128px
     padding-right: rem(8); // 8px
     border-right: 1px solid theme(default-bdc);
 
     @include mq($from: SM) {
       top: rem(24); // 24px
       left: rem(24);
-      width: rem(120); // 120px
+      width: rem(136); // 136px
       padding-right: rem(16); // 16px
     }
   }
@@ -70,8 +70,12 @@
   .qa-voting {
     display: flex;
     flex-direction: column;
+  }
+
+  // Nombre de votes calculé
+  .qa-voting-net {
     justify-content: center;
-    min-height: rem(88); // 80px
+    min-height: rem(88); // 88px
   }
 
 
@@ -126,16 +130,49 @@
   }
 
 
+  // Nombre de vues
+  // Nombre de vote
+  .qa-view-count,
+  .qa-vote-count {
+    font-size: rem(14); // 14px
+    line-height: lh(21, 16); // 21px
+    text-align: center;
+  }
+
+  // Nombre de vues
+  .qa-view-count {
+    margin-top: rem(12); // 12px
+  }
+
   // Nombre de vote
   .qa-vote-count {
     display: block;
     margin: rem(4) 0; // 4px 0
-    text-align: center;
+  }
 
-    @include mq($from: SM) {
-      font-size: rem(20); // 20px
-      line-height: lh(25, 20); // 25px
-    }
+
+  // Nombre de votes positifs
+  // Nombre de votes négatifs
+  // Nombre de vues
+  .qa-upvote-count,
+  .qa-downvote-count,
+  .qa-view-count {
+    display: block;
+  }
+
+  // Nombre de votes positifs
+  .qa-upvote-count {
+    margin-bottom: rem(4); // 4px
+  }
+
+  // Nombre de votes négatifs
+  .qa-downvote-count {
+    margin-top: rem(4); // 4px
+  }
+
+  // Nombre de vote calculé
+  .qa-vote-count {
+    margin: rem(8) 0; // 8px 0
   }
 
 
