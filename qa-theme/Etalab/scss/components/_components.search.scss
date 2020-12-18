@@ -15,14 +15,14 @@
 
     @include mq($until: SM) { // stylelint-disable order/order
       position: absolute;
-      right: rem(78); // 78px
-      bottom: rem(20); // 20px
+      top: rem(104); // 104px
+      right: rem(136); // 136px
     }
 
     @include mq($from: SM, $until: MD) {
       position: absolute;
       top: rem(44); // 44px
-      right: rem(98); // 98px
+      right: rem(152); // 152px
     }
 
     @include mq($from: MD) {

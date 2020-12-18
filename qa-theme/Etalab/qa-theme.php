@@ -167,7 +167,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->qam_search();
 		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
 		// Ask a question link
-		$this->output('<a class="qam-ask" href="' . qa_path('ask', null, qa_path_to_root()) . '">'. qa_lang_html('main/nav_ask') .'</a>');
+		$this->output('<a class="qam-ask" href="' . qa_path('ask', null, qa_path_to_root()) . '"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#ask" alt="'. qa_lang_html('main/nav_ask') .'" /></a>');
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
 		$this->nav_user_search();
