@@ -995,7 +995,7 @@ class qa_html_theme extends qa_html_theme_base
 	private function qam_search()
 	{
 		$this->output('<div role="search" class="qam-search">');
-		$this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qa-search"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+		$this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qam-search"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->output('<div id="qam-search" hidden="hidden">');
 		$this->search();
 		$this->output('</div> <!-- #qam-search -->');
