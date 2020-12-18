@@ -10,6 +10,8 @@
 
 // Definition
 $sail: #b4e1fa;
+$periwinkle-gray: #cdcdea;
+$pigeon-post: #b6b6e0;
 $blue: #0000f6;
 $dodger-blue: #5b5bff;
 $blue-ribbon: #006be6;
@@ -88,5 +90,7 @@ $theme-colors: (
   skip-link-txt: $congress-blue,
   tag-link-txt: $navy-blue,
   tag-link-bgc: $snuff,
+  tag-link--hover-bgc: $periwinkle-gray,
+  tag-link--active-bgc: $pigeon-post,
   topbar-service-link-txt: $cod-gray,
 );
