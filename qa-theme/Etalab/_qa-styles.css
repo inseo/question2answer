@@ -1895,7 +1895,6 @@ blockquote p {
     display: none;
 }
 
-
 .stick {
     top: 10px !important;
     transition: all 0.15s ease;
@@ -2134,74 +2133,6 @@ blockquote p {
 .qa-ask-box .qa-form-tall-text {
     width: 100% !important;
     margin: 0 !important;
-}
-
-@media (max-width: 979px) {
-    .qam-ask-search-box {
-        padding: 10px 10px 0 10px;
-        display: table;
-        width: 100%;
-    }
-
-    .qam-ask-mobile {
-        display: table-cell;
-    }
-    .qam-ask-mobile a {
-        padding: 20px;
-        background: #1abc9c;
-        color: #fff;
-        text-align: center;
-        font-size: 24px;
-        display: block;
-        border: none;
-        font-weight: normal;
-        margin: 0;
-    }
-    .qam-ask-mobile a a {
-        color: #fff;
-        border-bottom: 1px dotted #fff;
-    }
-    .qam-ask-mobile a a:hover,
-    .qam-ask-mobile a a:focus {
-        color: #fff;
-        border-bottom: 0;
-    }
-    .qam-ask-mobile a:hover,
-    .qam-ask-mobile a:focus {
-        font-weight: normal;
-        border: none;
-        text-decoration: none;
-    }
-    .qam-ask-mobile a.orange {
-        background-color: #ea940c;
-    }
-    .qam-ask-mobile a.carrot {
-        background-color: #df7619;
-    }
-    .qam-ask-mobile a.alizarin {
-        background-color: #e53f2e;
-    }
-    .qam-ask-mobile a.turquoise {
-        background-color: #18af91;
-    }
-    .qam-ask-mobile a.emerald {
-        background-color: #2bc06a;
-    }
-    .qam-ask-mobile a.peter-river {
-        background-color: #2791d9;
-    }
-    .qam-ask-mobile a.amethyst {
-        background-color: #954eb1;
-    }
-    .qam-ask-mobile a.wet-asphalt {
-        background-color: #2f4154;
-    }
-}
-
-@media (min-width: 980px) {
-    .qam-ask-search-box {
-        display: none;
-    }
 }
 
 @-webkit-keyframes shake {

@@ -166,9 +166,10 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</div> <!-- .qam-topbar-service -->');
 		$this->qam_search();
 		$this->output('<nav class="qam-topbar-nav" aria-label="'. qa_lang_html('etalab/main_navigation') .'" role="navigation">');
+		// Ask a question link
+		$this->output('<a class="qam-ask" href="' . qa_path('ask', null, qa_path_to_root()) . '">'. qa_lang_html('main/nav_ask') .'</a>');
 		$this->output('<button class="qam-menu-toggle" aria-expanded="false" aria-controls="qa-nav-main"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#menu-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
 		$this->nav('main');
-		$this->output('</ul>');
 		$this->nav_user_search();
 		$this->output('</nav>');
 		$this->output('</div> <!-- .qam-topbar-body -->');
@@ -323,10 +324,6 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<header role="banner" class="qam-topbar' . $class . '">');
 		$this->nav_main_sub();
 		$this->output('</header> <!-- END .qam-topbar -->');
-
-		$this->output('<aside class="qam-ask-search-box">');
-		$this->output($this->ask_button());
-		$this->output('</aside>');
 	}
 
 	/**
@@ -994,29 +991,15 @@ class qa_html_theme extends qa_html_theme_base
 	/**
 	 * Add role="search" on search container
 	 */
-  // @TODO Voir s'il n'y a pas moyen d'avoir plus simple en sortie…
+  	// @TODO Voir s'il n'y a pas moyen d'avoir plus simple en sortie…
 	private function qam_search()
 	{
-    $this->output('<div role="search" class="qam-search">');
-    $this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qa-search"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
-    $this->output('<div id="qam-search" hidden="hidden">');
-    $this->search();
-    $this->output('</div> <!-- #qam-search -->');
+		$this->output('<div role="search" class="qam-search">');
+		$this->output('<button class="qam-search-toggle" aria-expanded="false" aria-controls="qa-search"><img role="img" width="24" height="24" src="qa-theme/Etalab/images/icon.svg#search-toggle" alt="'. qa_lang_html('etalab/menu') .'" /></button>');
+		$this->output('<div id="qam-search" hidden="hidden">');
+		$this->search();
+		$this->output('</div> <!-- #qam-search -->');
 		$this->output('</div>');
-	}
-
-	/**
-	 * Custom ask button for medium and small screen
-	 * @return string Ask button html markup
-	 */
-	private function ask_button()
-	{
-		return
-			'<div class="qam-ask-mobile">' .
-			'<a href="' . qa_path('ask', null, qa_path_to_root()) . '">' .
-			qa_lang_html('main/nav_ask') .
-			'</a>' .
-			'</div>';
 	}
 
 	/**
