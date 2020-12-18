@@ -89,6 +89,11 @@
       width: rem(20); // 20px
       height: rem(20);
     }
+
+    &:focus-within {
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
   }
 
 
