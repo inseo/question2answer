@@ -535,7 +535,7 @@ class qa_html_theme extends qa_html_theme_base
 
 		if (isset($post['select_text']))
 			$this->output('<p class="qa-a-selected-text">' . @$post['select_text'] . '</p>');
-	
+
 		if (isset($post['select_tags']))
 			$this->post_hover_button($post, 'select_tags', qa_lang('question/select_popup'), 'qa-a-select');
 		elseif (isset($post['unselect_tags']))
@@ -569,7 +569,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function post_tag_item($taghtml, $class)
 	{
 		if(stristr($taghtml, 'qa-tag-favorited')) {
-			$favhtml = ' <span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
+			$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
 			$taghtml = str_replace ('</a>', $favhtml.'</a>', $taghtml);
 		}
 
@@ -657,7 +657,7 @@ class qa_html_theme extends qa_html_theme_base
 		//	if(substr($q_item['netvotes_view']['suffix'], -1) == "s") {
 		//		$q_item['netvotes_view']['suffix'] = substr($q_item['netvotes_view']['suffix'],0,-1);
 		//	}
-		//} 
+		//}
 		$this->voting($q_item);
 		parent::view_count($q_item);
 
@@ -682,7 +682,7 @@ class qa_html_theme extends qa_html_theme_base
 		// 		// TODO
 		// 		$q_view['netvotes_view']['suffix'] = substr($q_view['netvotes_view']['suffix'],0,-1);
 		// 	}
-		// } 
+		// }
 		$this->voting($q_view);
 		$this->a_count($q_view);
 		parent::view_count($q_view);

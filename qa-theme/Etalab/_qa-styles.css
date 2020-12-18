@@ -459,23 +459,6 @@ blockquote p {
     content: url("images/favorite-light-icon-15x15.png");
 }
 
-.qa-tag-link.qa-tag-favorited,
-.qa-widget-side .qa-q-view-tag-item.qa-tag-favorited {
-    position: relative;
-    padding-left: 25px;
-}
-.qa-tag-link.qa-tag-favorited:before,
-.qa-widget-side .qa-q-view-tag-item.qa-tag-favorited:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 17px;
-    height: 100%;
-    display: block;
-    content: url("images/star14.png");
-    background-color: #b94a00;
-}
-
 .qa-page-links-list {
     margin: 0;
     padding: 0;
