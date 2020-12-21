@@ -106,6 +106,10 @@
         text-decoration: underline;
         box-shadow: none;
       }
+
+      &[aria-current="true"] {
+        box-shadow: none;
+      }
     }
   }
 }
