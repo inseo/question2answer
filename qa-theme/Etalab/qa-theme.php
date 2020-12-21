@@ -681,12 +681,6 @@ class qa_html_theme extends qa_html_theme_base
 	public function q_item_stats($q_item)
 	{
 		$this->output('<div class="qa-q-item-stats">');
-		// TODO
-		//if($q_item['netvotes_view']['data'] == 0) {
-		//	if(substr($q_item['netvotes_view']['suffix'], -1) == "s") {
-		//		$q_item['netvotes_view']['suffix'] = substr($q_item['netvotes_view']['suffix'],0,-1);
-		//	}
-		//}
 		$this->voting($q_item);
 		parent::view_count($q_item);
 
@@ -705,13 +699,6 @@ class qa_html_theme extends qa_html_theme_base
 	public function q_view_stats($q_view)
 	{
 		$this->output('<div class="qa-q-view-stats">');
-		// TODO
-		// if($q_view['netvotes_view']['data'] == 0) {
-		// 	if(substr(strip_tags($q_view['netvotes_view']['suffix']), -1) == "s") {
-		// 		// TODO
-		// 		$q_view['netvotes_view']['suffix'] = substr($q_view['netvotes_view']['suffix'],0,-1);
-		// 	}
-		// }
 		$this->voting($q_view);
 		$this->a_count($q_view);
 		parent::view_count($q_view);
@@ -1253,6 +1240,44 @@ class qa_html_theme extends qa_html_theme_base
 		return $isIt;
 	}
 
+
+	/**
+	 * Find if it is an autocomplete field (based on id's)
+	 * Return autocomplete value
+	 * @param $field
+	 */
+	private function isItAnAutocompleteField($field)
+	{
+		$autocomplete = false;
+		$id = $this->getIdFromField($field);
+		switch($id) {
+			case "emailhandle":
+			case "handle":
+				$autocomplete = 'username';
+				break;
+			case "email":
+				$autocomplete = 'email';
+				break;
+			case "password":
+				if(isset($field['note']))
+					$autocomplete = 'current-password';
+				else
+					$autocomplete = 'new-password';
+				break;
+			case "oldpassword":
+				$autocomplete = 'current-password';
+				break;
+			case "newpassword1":
+			case "newpassword2":
+				$autocomplete = 'new-password';
+				break;	
+			default:
+				$autocomplete = false;
+				break;
+		}
+		return $autocomplete;
+	}
+
 	/**
 	 * Return a new $tags string to add on a field element.
 	 * $endOfId is not required and used to complete the id adding a string at the end
@@ -1287,6 +1312,8 @@ class qa_html_theme extends qa_html_theme_base
 			$tags .= ' aria-describedby="' . $ariaDescribedBy . '"';
 		if ($this->isItARequiredField($field))
 			$tags .= ' aria-required="true"';
+		if ($this->isItAnAutocompleteField($field))
+			$tags .= ' autocomplete="'. $this->isItAnAutocompleteField($field) .'"';
 		return $tags;
 	}
 
