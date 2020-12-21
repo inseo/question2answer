@@ -102,12 +102,9 @@
       border-radius: rem(16); // 16px
 
       &:hover,
-      &:active {
-        text-decoration: underline;
-        box-shadow: none;
-      }
-
+      &:active,
       &[aria-current="true"] {
+        text-decoration: underline;
         box-shadow: none;
       }
     }
