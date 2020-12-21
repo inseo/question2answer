@@ -1137,7 +1137,7 @@ class qa_html_theme extends qa_html_theme_base
 			$id !== null ? $this->output('<label for="' . $id . '">') : '';
 			$this->output(@$field['label']);
 			if($this->isItARequiredField($field)) {
-				$this->output(' <span class="required" aria-hidden="true">('. qa_lang_html('etalab/required') .')</span>');
+				$this->output('&nbsp;<span class="required" aria-hidden="true">('. qa_lang_html('etalab/required') .')</span>');
 			}
 			$id !== null ? $this->output('</label>') : '';
 		}
