@@ -1144,15 +1144,11 @@ class qa_html_theme extends qa_html_theme_base
 
 		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
 			$this->output('<p>');
-		} else {
-			$id !== null ? $this->output('<label for="' . $id . '">') : '';
-		}
-
-		$this->output(@$field['label']);
-
-		if ((isset($field['type']) && $field['type'] == "select-radio") || $id == null) {
+			$this->output(@$field['label']);
 			$this->output('</p>');
 		} else {
+			$id !== null ? $this->output('<label for="' . $id . '">') : '';
+			$this->output(@$field['label']);
 			if($this->isItARequiredField($field)) {
 				$this->output(' <span class="required" aria-hidden="true">('. qa_lang_html('etalab/required') .')</span>');
 			}
