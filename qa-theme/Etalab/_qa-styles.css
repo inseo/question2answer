@@ -912,8 +912,7 @@ blockquote p {
     color: #e74c3c;
 }
 
-.qa-form-tall-help,
-.qa-form-wide-help {
+.qa-form-tall-help {
     display: inline-block;
     width: 18px;
     height: 18px;

@@ -4,10 +4,22 @@
   /* Conteneur des éléments de formulaire dans les pages d'administration [component]
   ========================================================================== */
 
+
+  // Spacer
+  .qa-form-wide-spacer {
+    height: rem(32); // 32px
+
+    + .qa-form-wide-spacer {
+      display: none;
+    }
+  }
+
+
   // Conteneur des champs de formulaire
   .qa-form-wide-data,
   .qa-form-tall-label,
-  .qa-form-tall-data {
+  .qa-form-tall-data,
+  .qa-form-tall-select {
     margin-bottom: rem(24); // 24px
   }
 
@@ -91,19 +103,14 @@
   }
 
   [id="option_smtp_port"],
-  [id="option_smtp_secure"],
-  [id=""] {
+  [id="option_smtp_secure"] {
     margin-top: rem(8); // 8px
   }
 
   [id="block_bad_usernames"],
   [id="block_bad_words"],
   [id="block_ips_write"],
-  [id=""],
-  [id=""],
-  [id=""],
-  [id=""],
-  [id=""], {
+  [id="mailing_body"] {
     .qa-form-tall-data {
       display: flex;
       justify-content: space-between;
@@ -115,5 +122,74 @@
       width: 50%;
       margin-left: rem(16); // 16px
     }
+  }
+
+  [id="site_language"],
+  [id="site_theme"],
+  [id="site_theme_mobile"],
+  [id="site_text_direction"],
+  [id="tags_or_categories"],
+  [id="logo_width"],
+  [id="logo_height"],
+  [id="mailing_per_minute"] {
+    .qa-form-tall-label {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: rem(24); // 24px
+    }
+
+    label {
+      width: 100%;
+    }
+
+    select,
+    input {
+      width: calc(50% - #{rem(16)}); // 50% - 16px
+    }
+
+    .qa-form-tall-suffix {
+      flex-shrink: 0;
+      width: 50%;
+      margin-left: rem(16); // 16px
+    }
+  }
+
+
+  // Cas particulier d'une case à cocher avec vis à vis
+  [id="recalc_hotness_q_view"],
+  [id="moderate_users"],
+  [id^="feed_"]:not([id="feed_number_items"]) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .qa-form-wide-data {
+      flex-shrink: 0;
+      width: 50%;
+      margin: 0 0 rem(8) rem(16); // 0 0 8px 16px
+    }
+
+    .qa-form-wide-note {
+      width: auto;
+      margin-left: 0;
+    }
+  }
+
+
+  // Indicateur d'aide
+  .qa-form-wide-help {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(24); // 24px
+    height: rem(24);
+    color: theme(form-wide-note-txt);
+    font-weight: 700;
+    font-size: rem(14);
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    cursor: help;
   }
 }
