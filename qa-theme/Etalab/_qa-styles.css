@@ -831,12 +831,6 @@ blockquote p {
     }
 }
 
-[class^="qa-part-form"],
-[class^="qa-part-custom"] {
-    padding: 20px;
-    margin-bottom: 5px;
-    background: #fff;
-}
 [class^="qa-part-form"] > h2:first-child,
 [class^="qa-part-custom"] > h2:first-child {
     margin-top: 0;
@@ -852,14 +846,6 @@ blockquote p {
     width: 50px;
 }
 
-.qa-form-tall-note,
-.qa-form-wide-note {
-    color: #7f8c8d;
-    font-size: 0.8em;
-}
-.qa-form-tall-note {
-    margin: 10px 0 5px;
-}
 
 .qa-form-tall-button,
 .qa-form-wide-button,
@@ -913,32 +899,6 @@ blockquote p {
     background-color: #ea6153;
 }
 
-.qa-form-wide-label,
-.qa-form-wide-data,
-.qa-form-tall-spacer {
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.qa-form-tall-label {
-    padding: 5px 0 0;
-}
-
-.qa-form-tall-data {
-    padding: 5px 0;
-}
-
-.qa-form-wide-label {
-    padding-right: 5px;
-}
-.qa-form-wide-data {
-    padding-left: 5px;
-}
-.qa-form-wide-text,
-.qa-form-wide-email {
-    width: 100%;
-}
-
 .qa-form-tall-ok,
 .qa-form-wide-ok {
     background-color: #27ae60;
@@ -950,14 +910,6 @@ blockquote p {
 .qa-form-wide-error,
 .qa-form-tall-error {
     color: #e74c3c;
-}
-
-.qa-form-tall-spacer {
-    display: block;
-    margin: 20px 0 19px 0;
-    padding: 0;
-    border-top: none;
-    line-height: 0;
 }
 
 .qa-form-tall-help,

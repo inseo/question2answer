@@ -1,0 +1,119 @@
+@if $toc {
+  /* - Form_____________________Conteneur des éléments de formulaire dans les pages d'administration */
+} @else {
+  /* Conteneur des éléments de formulaire dans les pages d'administration [component]
+  ========================================================================== */
+
+  // Conteneur des champs de formulaire
+  .qa-form-wide-data,
+  .qa-form-tall-label,
+  .qa-form-tall-data {
+    margin-bottom: rem(24); // 24px
+  }
+
+
+  // Conteneur des cases à cocher et des boutons radio
+  .qa-form-wide-label,
+  .qa-form-tall-label {
+    &:only-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  // Conteneur de champs comprenant des éléments en vis à vis
+  .qa-form-wide-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  // Labels
+  .qa-form-tall-label,
+  .qa-form-wide-label {
+
+    // Précédant un champs de saisie
+    &:not(:only-child) {
+      margin-bottom: rem(8); // 8px
+    }
+
+    // Contenant un paragraphe
+    p {
+      font-size: rem(14); // 14px
+    }
+  }
+
+
+  // Conteneurs qui suivent une case à cocher ou un radio button
+  [id="email_privacy"],
+  [id="avatar_profile_size"],
+  [id="block_bad_usernames"],
+  [id="editor_for_qs"],
+  [id="min_len_q_title"],
+  [id="min_len_a_content"],
+  [id="block_bad_words"],
+  [id="sort_answers_by"],
+  [id="page_size_q_as"],
+  [id="pages_prev_next"],
+  [id="block_ips_write"] {
+    margin-top: rem(24); // 24px
+  }
+
+
+  // Texte additionnels
+  .qa-form-tall-note,
+  .qa-form-wide-note,
+  .qa-form-tall-suffix {
+    color: theme(form-tall-note-txt);
+    font-size: rem(12); // 12px
+
+    // Qui suit une liste de cases à cocher ou de boutons radio
+    [role="list"] + & {
+      display: block;
+      margin-top: rem(-12); // -12px
+      margin-left: rem(32); // 32px
+    }
+
+    // Qui se trouve en vis à vis d'autre chose
+    .qa-form-wide-data & {
+      flex-shrink: 0;
+      width: 50%;
+      margin-left: rem(16); // 16px
+    }
+  }
+
+
+  // Cas particulier des champs et labels qui ne se trouvent pas dans les bons div
+  [id="smtp_port"],
+  [id="smtp_secure"] {
+    margin-bottom: rem(24); // 24px
+  }
+
+  [id="option_smtp_port"],
+  [id="option_smtp_secure"],
+  [id=""] {
+    margin-top: rem(8); // 8px
+  }
+
+  [id="block_bad_usernames"],
+  [id="block_bad_words"],
+  [id="block_ips_write"],
+  [id=""],
+  [id=""],
+  [id=""],
+  [id=""],
+  [id=""], {
+    .qa-form-tall-data {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .qa-form-tall-note {
+      flex-shrink: 0;
+      width: 50%;
+      margin-left: rem(16); // 16px
+    }
+  }
+}
