@@ -1,5 +1,5 @@
 @if $toc {
-  /* - Checkbox / Radio_________________Conteneur des cases à cocher et des boutons radio */
+  /* - Checkbox / Radio_________Conteneur des cases à cocher et des boutons radio */
 } @else {
   /* Conteneur des cases à cocher et des boutons radio [component]
   ========================================================================== */
@@ -12,22 +12,6 @@
     // Qui est le dernier de ce type-là
     &:last-of-type {
       margin-bottom: rem(24); // 24px
-    }
-  }
-
-
-  // Case à cocher
-  // Bouton radio
-  .qam-checkbox input[type="checkbox"],
-  .qam-radio input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-
-    // État tabulé
-    &:focus + label::before {
-      z-index: 25000;
-      outline: 2px solid theme(default-focus);
-      outline-offset: 2px;
     }
   }
 }

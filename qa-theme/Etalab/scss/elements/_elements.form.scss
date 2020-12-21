@@ -109,6 +109,22 @@
   }
 
 
+  // Case à cocher
+  // Bouton radio
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+
+    // État tabulé
+    &:focus + label::before {
+      z-index: 25000;
+      outline: 2px solid theme(default-focus);
+      outline-offset: 2px;
+    }
+  }
+
+
   // Champs texte
   // Champs password
   // Champs mail
