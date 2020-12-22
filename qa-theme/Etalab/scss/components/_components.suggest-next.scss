@@ -6,6 +6,7 @@
 
   // Conteneur
   .qa-suggest-next {
+    margin-top: rem(32); // 32px
     padding: rem(24); // 24px
     background-color: theme(suggest-next-bgc);
     border-left: rem(4) solid theme(suggest-next-bdc);
