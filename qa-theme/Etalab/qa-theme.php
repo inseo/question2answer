@@ -56,17 +56,6 @@ class qa_html_theme extends qa_html_theme_base
 	}
 
 	/**
-	 * Adding theme stylesheets USELESS TO DELETE
-	 */
-	// public function head_css()
-	// {
-	// 	// UNUSED TO DELETE
-	// 	if ($this->isRTL)
-	// 		$this->content['css_src'][] = $this->rooturl . 'qa-styles-rtl.css?' . QA_VERSION;
-	// 	parent::head_css();
-	// }
-
-	/**
 	 * Adding theme javascripts
 	 */
 	public function head_script()
@@ -1256,6 +1245,7 @@ class qa_html_theme extends qa_html_theme_base
 				$autocomplete = 'username';
 				break;
 			case "email":
+			case "a_email":
 				$autocomplete = 'email';
 				break;
 			case "password":
