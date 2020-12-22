@@ -51,6 +51,8 @@
   .qa-form-wide-button-change,
   .qa-form-wide-button-setbonus,
   .qa-template-user .qa-form-tall-button-post,
+  .qa-form-tall-button-test,
+  .qa-form-tall-button-start,
   [class*="qa-form-tall-button-add"],
   [class*="qa-form-wide-button-delete"] {
     @extend %qam-button;
@@ -74,5 +76,11 @@
   .qa-form-tall-buttons,
   .qa-form-wide-buttons {
     margin-top: rem(24); // 24px
+  }
+
+
+  // Spacer de boutons
+  .qa-form-tall-buttons-spacer {
+    display: none;
   }
 }
