@@ -10,7 +10,9 @@
     padding-right: rem(32); // 32px
 
     // Dans les pages de liste de tags
-    .qa-template-tag & {
+    // Dans les pages de question des catégories
+    .qa-template-tag &,
+    .qa-template-questions & {
       padding-right: rem(64); // 64px
     }
   }
@@ -45,7 +47,9 @@
   // Conteneur du bouton de mise en favori / suppression des favoris
   .qa-favoriting {
     // Dans les pages de liste de tags
-    .qa-template-tag & {
+    // Dans les pages de question des catégories
+    .qa-template-tag &,
+    .qa-template-questions & {
       right: rem(40); // 40px
     }
 
