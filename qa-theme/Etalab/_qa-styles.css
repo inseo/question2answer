@@ -507,88 +507,12 @@ blockquote p {
 
 .qa-top-users-avatar .qa-avatar-link img {
     border: 1px solid #cbd7e3;
-}
-
-.qa-top-users-label .qa-user-link {
-    background-color: #e74c3c;
-    display: block;
-    float: left;
-    color: #fff;
-    padding: 2px 1em;
-    position: relative;
-}
-
-.qa-top-users-label .qa-user-link:hover,
-.qa-top-users-label .qa-user-link:focus {
-    background-color: #eb695c;
-    text-decoration: none;
-}
-
-.qa-top-users-label .qa-user-link:before {
-    content: "";
-    position: absolute;
-    left: -5px;
-    top: 30%;
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-right: 5px solid #e74c3c;
-}
-
-@media (min-width: 980px) {
-    .qa-top-users-label .qa-user-link:hover:after,
-    .qa-top-users-label .qa-user-link:focus:after {
-        transform: translate(80px, 0);
-    }
-
-    .qa-top-users-label .qa-user-link:after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        margin-top: -7px;
-        border-top: 7px solid transparent;
-        border-bottom: 7px solid transparent;
-        border-left: 7px solid #e74c3c;
-        transform: translate(0, 0);
-        transition: transform 0.5s ease;
-    }
-}
 
 .qa-top-users-label .qa-user-link.qa-user-favorited {
     background-image: url("images/icons/fev-star.png");
     background-repeat: no-repeat;
     background-position: 2px center;
     padding-left: 22px;
-}
-
-.qa-top-users-score {
-    position: relative;
-    float: right;
-    padding: 2px 6px 2px 6px;
-    background-color: #2ecc71;
-    color: #fff;
-}
-.qa-ranking-users-points .qa-top-users-score {
-    padding-left: 1.8em;
-}
-.qa-ranking-users-points .qa-top-users-score:before {
-    content: "\e810";
-    font-family: "fontello";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1.5em;
-    height: 100%;
-    background-color: #27ae60;
-    text-align: center;
-    line-height: 1.6em;
 }
 
 .qa-browse-cat-list {
