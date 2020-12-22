@@ -335,7 +335,6 @@ class qa_html_theme extends qa_html_theme_base
 		$this->body_suffix();
 	}
 
-
 	public function notice($notice)
 	{
 		$this->output('<div class="qa-notice" id="' . $notice['id'] . '" role="status">');
@@ -1512,6 +1511,20 @@ class qa_html_theme extends qa_html_theme_base
 			if (isset($item['score']))
 				$this->ranking_score($item, $class);
 		}
+	}
+
+	public function ranking_score($item, $class)
+	{
+		$score = $item['score'];
+		if (isset($item['raw']['points'])) {
+			$score = $item['raw']['points'];
+			if($score <= 1) 
+				$score = qa_lang_html_sub('etalab/0_1_point', $score);
+			else {
+				$score = qa_lang_html_sub('main/x_points', $score);
+			}
+		}
+		$this->ranking_cell($score, $class . '-score');
 	}
 
 	public function ranking_spacer($class)
