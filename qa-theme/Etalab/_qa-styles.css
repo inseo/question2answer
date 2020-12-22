@@ -846,59 +846,6 @@ blockquote p {
     width: 50px;
 }
 
-
-.qa-form-tall-button,
-.qa-form-wide-button,
-.qa-form-basic-button {
-    -webkit-appearance: none;
-    padding: 10px 15px;
-    border: 0;
-    font-size: 14px;
-    background: #3498db none;
-    color: #fff;
-}
-.qa-form-tall-button:hover,
-.qa-form-tall-button:focus,
-.qa-form-wide-button:hover,
-.qa-form-wide-button:focus,
-.qa-form-basic-button:hover,
-.qa-form-basic-button:focus {
-    border: 0;
-    background-color: #4aa3df;
-}
-.qa-form-tall-button a,
-.qa-form-tall-button a:hover,
-.qa-form-tall-button a:focus,
-.qa-form-wide-button a,
-.qa-form-wide-button a:hover,
-.qa-form-wide-button a:focus,
-.qa-form-basic-button a,
-.qa-form-basic-button a:hover,
-.qa-form-basic-button a:focus {
-    color: #fff;
-}
-
-@media (max-width: 767px) {
-    .qa-form-tall-button,
-    .qa-form-wide-button,
-    .qa-form-basic-button {
-        width: 100%;
-        display: block;
-        margin-bottom: 1em !important;
-    }
-}
-
-.qa-form-tall-button-cancel,
-.qa-form-wide-button-cancel {
-    background: #e74c3c none;
-}
-.qa-form-tall-button-cancel:hover,
-.qa-form-tall-button-cancel:focus,
-.qa-form-wide-button-cancel:hover,
-.qa-form-wide-button-cancel:focus {
-    background-color: #ea6153;
-}
-
 .qa-form-tall-ok,
 .qa-form-wide-ok {
     background-color: #27ae60;
@@ -968,11 +915,7 @@ blockquote p {
     margin-bottom: 5px;
     background: #fff;
 }
-.qa-template-user .qa-form-wide-buttons,
-.qa-template-user .qa-form-tall-buttons {
-    border-bottom: none;
-    padding-bottom: 0;
-}
+
 .qa-template-user .qa-form-wide-label {
     min-width: 110px;
     width: auto;

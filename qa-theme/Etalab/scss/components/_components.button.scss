@@ -5,12 +5,17 @@
   ========================================================================== */
 
   // Style par défaut (bouton primaire)
-  .qam-button {
+  .qam-button,
+  %qam-button,
+  .qa-form-tall-button,
+  .qa-form-wide-button {
     @include unstyled-button($extend: true, $important: false);
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    max-width: 100%;
     min-height: rem(40); // 40px
+    margin: rem(8) rem(4) rem(8) 0; // 8px 4px 8px 0
     padding: rem(8) rem(24); // 8px 24px
     color: theme(button-txt);
     font-size: rem(16); // 16px
@@ -35,7 +40,20 @@
   }
 
   // Bouton secondaire
-  .qam-button-secondary {
+  .qam-button-secondary,
+  .qa-form-basic-button,
+  .qa-form-tall-button-cancel,
+  .qa-form-tall-button-reset,
+  .qa-form-wide-button-cancel,
+  .qa-form-wide-button-reset,
+  .qa-form-wide-button-showdefaults,
+  .qa-form-wide-button-doversioncheck,
+  .qa-form-wide-button-change,
+  .qa-form-wide-button-setbonus,
+  .qa-template-user .qa-form-tall-button-post,
+  [class*="qa-form-tall-button-add"],
+  [class*="qa-form-wide-button-delete"] {
+    @extend %qam-button;
     color: theme(button-secondary-txt);
     background-color: theme(button-secondary-bgc);
     box-shadow: inset 0 0 0 1px currentColor;
@@ -49,5 +67,12 @@
     &:active {
       background-image: linear-gradient(0deg, theme(button-secondary--active-bgc), theme(button-secondary--active-bgc));
     }
+  }
+
+
+  // Conteneur des boutons
+  .qa-form-tall-buttons,
+  .qa-form-wide-buttons {
+    margin-top: rem(24); // 24px
   }
 }
