@@ -32,7 +32,8 @@
         content: "";
         display: inline-block;
         width: rem(24); // 24px
-        height: rem(24); // 24px
+        min-width: rem(24);
+        height: rem(24);
         margin-right: rem(8); // 8px
         border: 1px solid currentColor;
       }
@@ -164,6 +165,12 @@
       outline: 2px solid theme(default-focus);
       outline-offset: 2px;
     }
+  }
+
+
+  // Champs d'upload
+  input[type="file"] {
+    max-width: 100%;
   }
 
 
