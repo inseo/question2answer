@@ -122,7 +122,6 @@
     [id="block_bad_usernames"],
     [id="block_bad_words"],
     [id="block_ips_write"],
-    [id="name_display"],
     [id="mailing_body"] {
       .qa-form-tall-data {
         display: flex;
@@ -225,6 +224,7 @@
 
   // Notification d'erreur
   .qa-form-tall-error {
+    margin-top: rem(8); // 8px
     color: theme(form-error-txt);
   }
 
