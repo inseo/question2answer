@@ -1041,8 +1041,7 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<div role="status">');
 		if (!empty($form['ok'])) {
 			$this->output(
-        // @TODO Ajouter la valeur de l'attribut alt au fichier de traduction
-				'<p class="qa-form-' . $form['style'] . '-ok"><img src="' . $this->rooturl . 'images/icon.svg#ok" alt="Succès" width="24" height="24" />',
+				'<p class="qa-form-' . $form['style'] . '-ok"><img src="' . $this->rooturl . 'images/icon.svg#ok" alt="" width="24" height="24" />',
 				$form['ok'],
 				'</p>'
 			);
@@ -1126,6 +1125,9 @@ class qa_html_theme extends qa_html_theme_base
 		} else {
 			$id !== null ? $this->output('<label for="' . $id . '">') : '';
 			$this->output(@$field['label']);
+			if($help = $this->thereIsComplementaryHelp($field)) {
+				$this->output('- '. $help .'');
+			}
 			if($this->isItARequiredField($field)) {
 				$this->output('&nbsp;<span class="required" aria-hidden="true">('. qa_lang_html('etalab/required') .')</span>');
 			}
@@ -1175,6 +1177,29 @@ class qa_html_theme extends qa_html_theme_base
 			'<div class="qa-form-' . $form['style'] . '-spacer">',
 			'</div>'
 		);
+	}
+
+	/**
+	 * Find any complementary help to add on label
+	 * Return string or false
+	 * @param $field
+	 */
+	private function thereIsComplementaryHelp($field) {
+		$complementaryHelp = false;
+		$id = $this->getIdFromField($field);
+		switch($id) {
+			case "password":
+				$complementaryHelp = qa_lang_html('etalab/characters_min');
+				break;
+			case "newpassword1":
+			case "newpassword2":
+				$complementaryHelp = qa_lang_html('etalab/characters_min');
+				break;
+			default:
+				$complementaryHelp = false;
+				break;
+		}
+		return $complementaryHelp;
 	}
 
 	/**
@@ -1404,9 +1429,8 @@ class qa_html_theme extends qa_html_theme_base
 		$tag = ($columns > 1) ? 'span' : 'p';
 		$this->output('<' . $tag . ' role="alert" ');
 		if ($id !== null)
-      $this->output('id="error_' . $id . '" ');
-    // @TODO Ajouter la valeur de l'attribut alt au fichier de traduction
-		$this->output('class="qa-form-' . $style . '-error"><img src="' . $this->rooturl . 'images/icon.svg#error" alt="Attention" width="24" height="24" />' . $field['error'] . '</' . $tag . '>');
+      		$this->output('id="error_' . $id . '" ');
+		$this->output('class="qa-form-' . $style . '-error"><img src="' . $this->rooturl . 'images/icon.svg#error" alt="" width="24" height="24" />' . $field['error'] . '</' . $tag . '>');
 	}
 
 	public function form_note($field, $style, $columns)

@@ -10,6 +10,7 @@
 		'favorited' => 'favorited',
 		'open_profil' => 'open profil',
 		'1_best_answer_chosen' => '1 best answer chosen',
+		'characters_min' => '8 minimum characters',
 		'powered_by' => 'Powered by',
 		'theme_by' => 'Theme by'
 	);
