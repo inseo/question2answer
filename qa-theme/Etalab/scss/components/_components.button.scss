@@ -53,6 +53,7 @@
   .qa-template-user .qa-form-tall-button-post,
   .qa-form-tall-button-test,
   .qa-form-tall-button-start,
+  .qa-form-tall-button-saveview,
   [class*="qa-form-tall-button-add"],
   [class*="qa-form-wide-button-delete"] {
     @extend %qam-button;
