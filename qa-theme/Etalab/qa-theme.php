@@ -1442,6 +1442,32 @@ class qa_html_theme extends qa_html_theme_base
 		}
 	}
 
+	public function ranking_table_item($item, $class, $spacer)
+	{
+		if ($spacer)
+			$this->ranking_spacer($class);
+
+		if (empty($item)) {
+			$this->ranking_spacer($class);
+			$this->ranking_spacer($class);
+
+		} else {
+			if (isset($item['count']))
+				$this->ranking_count($item, $class);
+
+			if (isset($item['avatar'])) {
+				// extract <img> outside <a> and replace inside <label for="
+				$img = preg_replace('/<a.*?>/i', '', $item['avatar']);
+				$img = preg_replace('/<\/a>/i', '', $img);
+				$item['label'] = $img . $item['label'];
+			}
+			$this->ranking_label($item, $class);
+
+			if (isset($item['score']))
+				$this->ranking_score($item, $class);
+		}
+	}
+
 	public function ranking_spacer($class)
 	{
 		$this->output('<span class="' . $class . '-spacer"></span>');
