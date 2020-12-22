@@ -331,19 +331,6 @@ blockquote p {
     width: 14px;
 }
 
-.qa-favoriting {
-    position: absolute;
-    right: 10px;
-    top: 5px;
-}
-.qa-favoriting .qa-waiting {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin: -7px 0 0 -7px;
-    padding: 0;
-}
-
 /*------[ q-list ]------*/
 
 .qa-q-list-item.qa-q-favorited {

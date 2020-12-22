@@ -652,7 +652,8 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($tags)) {
 			preg_match('~title="(.*?)"~', $tags, $output);
 			isset($output[1]) ? $value = $output[1] : $value = null;
-			$this->output('<input ' . $tags . ' type="submit" value="'. $value .'" class="' . $class . '-button"/> ');
+      $this->output('<input ' . $tags . ' type="submit" value="'. $value .'" class="' . $class . '-button"/> ');
+      $this->output('<img role="img" src="' . $this->rooturl . 'images/icon.svg#' . $class . '" alt="" width="24" height="24" />');
 		}
 	}
 
@@ -1518,7 +1519,7 @@ class qa_html_theme extends qa_html_theme_base
 		$score = $item['score'];
 		if (isset($item['raw']['points'])) {
 			$score = $item['raw']['points'];
-			if($score <= 1) 
+			if($score <= 1)
 				$score = qa_lang_html_sub('etalab/0_1_point', $score);
 			else {
 				$score = qa_lang_html_sub('main/x_points', $score);
@@ -1567,5 +1568,5 @@ class qa_html_theme extends qa_html_theme_base
 		}
 		$this->page_link_content($page_link);
 		$this->output('</li>');
-	}
+  }
 }
