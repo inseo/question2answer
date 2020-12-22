@@ -193,6 +193,14 @@
   }
 
 
+  // Cas particulier de l'intitulé des catégories sur le formulaire de question
+  // Cas particulier de l'intitulé des catégories dans l'administration des catégories
+  label[for="category_0"],
+  label[for="parent_0"] {
+    margin-bottom: rem(8); // 8px
+  }
+
+
   // Indicateur d'aide
   .qa-form-wide-help {
     display: inline-flex;
