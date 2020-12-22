@@ -831,11 +831,6 @@ blockquote p {
     }
 }
 
-[class^="qa-part-form"] > h2:first-child,
-[class^="qa-part-custom"] > h2:first-child {
-    margin-top: 0;
-}
-
 .qa-form-tall-text,
 .qa-form-tall-email {
     width: 100%;
