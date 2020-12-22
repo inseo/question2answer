@@ -679,12 +679,6 @@ blockquote p {
 }
 
 /*------[ users ]------*/
-.qa-part-message-list {
-    padding: 20px;
-    margin-bottom: 5px;
-    background: #fff;
-}
-
 .qa-template-user .qa-form-wide-label {
     min-width: 110px;
     width: auto;
@@ -786,16 +780,10 @@ blockquote p {
     margin-bottom: 0;
 }
 
-.qa-part-q-list .qa-link-next,
-.qa-part-ranking-users,
-.qa-part-nav-list-categories {
+.qa-part-q-list .qa-link-next, {
     padding: 10px;
     margin-bottom: 10px;
     background: #fff;
-}
-.qa-part-ranking-users h2,
-.qa-part-nav-list-categories h2 {
-    margin: -10px -10px 5px -10px;
 }
 
 /*------[ q-view ]------*/
