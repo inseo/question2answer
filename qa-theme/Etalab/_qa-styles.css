@@ -169,24 +169,6 @@ blockquote p {
     line-height: 1.5em;
 }
 
-.qa-notice-close-button {
-    margin: 0;
-    float: right;
-    width: 24px;
-    height: 24px;
-    display: block;
-    background: transparent url("images/icons/close-black.png") no-repeat center;
-    text-indent: -9999px;
-    border: none;
-    outline: none;
-    transition: background-image 0.5s;
-}
-.qa-notice-close-button:hover,
-.qa-notice-close-button:focus {
-    background: transparent url("images/icons/close-red.png"); /* override generic input styles */
-    border: none;
-}
-
 /*------[ main nav css ]------*/
 @media (max-width: 767px) {
     .qa-template-questions.qam-body-fixed,
@@ -840,7 +822,6 @@ blockquote p {
 .qa-form-wide-number {
     width: 50px;
 }
-
 
 .qa-form-tall-help {
     display: inline-block;

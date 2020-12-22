@@ -335,6 +335,26 @@ class qa_html_theme extends qa_html_theme_base
 		$this->body_suffix();
 	}
 
+
+	public function notice($notice)
+	{
+		$this->output('<div class="qa-notice" id="' . $notice['id'] . '" role="status">');
+
+		if (isset($notice['form_tags']))
+			$this->output('<form ' . $notice['form_tags'] . '>');
+
+		$this->output_raw($notice['content']);
+
+		$this->output('<input ' . $notice['close_tags'] . ' type="submit" value="'. qa_lang('etalab/close') .'" aria-label="'. qa_lang('etalab/close_this_message') .'" class="qa-notice-close-button"/> ');
+
+		if (isset($notice['form_tags'])) {
+			$this->form_hidden_elements(@$notice['form_hidden']);
+			$this->output('</form>');
+		}
+
+		$this->output('</div>');
+	}
+
 	/**
 	 * Header in full width top bar
 	 */

@@ -11,6 +11,8 @@
 		'open_profil' => 'open profil',
 		'1_best_answer_chosen' => '1 best answer chosen',
 		'characters_min' => '8 minimum characters',
+		'close' => 'Close',
+		'close_this_message' => 'Close this message',
 		'powered_by' => 'Powered by',
 		'theme_by' => 'Theme by'
 	);
