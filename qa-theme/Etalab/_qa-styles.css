@@ -457,7 +457,7 @@ blockquote p {
 }
 
 /*------[ lists ]------*/
-.qa-part-nav-list {
+/*.qa-part-nav-list {
     padding: 20px;
     margin-bottom: 5px;
     background: #fff;
@@ -468,7 +468,7 @@ blockquote p {
         overflow-x: auto;
         overflow-y: hidden;
     }
-}
+}*/
 .qa-ranking-item {
     display: inline-block;
     position: relative;
@@ -503,112 +503,6 @@ blockquote p {
     display: block;
     float: left;
     margin-right: 1em;
-}
-
-.qa-top-users-avatar .qa-avatar-link img {
-    border: 1px solid #cbd7e3;
-
-.qa-top-users-label .qa-user-link.qa-user-favorited {
-    background-image: url("images/icons/fev-star.png");
-    background-repeat: no-repeat;
-    background-position: 2px center;
-    padding-left: 22px;
-}
-
-.qa-browse-cat-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-.qa-browse-cat-list .qa-browse-cat-list {
-    margin: 1em 0 0 1em;
-}
-
-.qa-browse-cat-item {
-    font-size: 0.875em;
-    line-height: 1.71429em;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 5px 0;
-    position: relative;
-}
-.qa-browse-cat-item:last-child {
-    border-bottom: 0 !important;
-}
-
-.qa-browse-cat-nolink,
-.qa-browse-cat-link,
-.qa-browse-cat-link:hover,
-.qa-browse-cat-link:focus,
-.qa-browse-cat-link:visited {
-    background-color: #e74c3c;
-    display: inline-block;
-    color: #fff;
-    padding: 2px 0.6em;
-    position: relative;
-}
-
-.qa-browse-cat-nolink {
-    cursor: help;
-}
-
-.qa-browse-cat-link {
-    cursor: pointer;
-    background-color: #c0392b;
-}
-.qa-browse-cat-link:hover,
-.qa-browse-cat-link:focus {
-    text-decoration: none;
-    background-color: #d34a3b;
-}
-.qa-browse-cat-link:before {
-    content: "";
-    position: absolute;
-    right: -5px;
-    top: 5px;
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid #c0392b;
-}
-
-.qa-browse-cat-note {
-    display: block;
-    font-size: 0.75em;
-    line-height: 2em;
-}
-.qa-browse-cat-note a {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    display: inline-block;
-    padding: 2px 10px 2px 2em;
-    background-color: #2ecc71;
-    color: #fff;
-}
-.qa-browse-cat-note a:before {
-    background-color: #27ae60;
-    content: "\e801";
-    font-family: "fontello";
-    display: inline-block;
-    text-align: center;
-    width: 1.5em;
-    height: 100%;
-    line-height: 2.4em;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.qa-browse-cat-note a:hover,
-.qa-browse-cat-note a:focus {
-    background-color: #48d684;
-    text-decoration: none;
-}
-.qa-browse-cat-note.qam-cat-note {
-    padding: 5px;
-    margin: 10px 0 0;
-    background-color: #f5f7f7;
 }
 
 .qa-part-form-plugin-options {
