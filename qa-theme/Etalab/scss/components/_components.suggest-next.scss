@@ -1,0 +1,17 @@
+@if $toc {
+  /* - Suggest next_____________Barre de suggestion affichée en bas de page */
+} @else {
+  /* Barre de suggestion affichée en bas de page [component]
+  ========================================================================== */
+
+  // Conteneur
+  .qa-suggest-next {
+    padding: rem(24); // 24px
+    background-color: theme(suggest-next-bgc);
+    border-left: rem(4) solid theme(suggest-next-bdc);
+
+    @include mq($from: SM) {
+      padding: rem(32) rem(48); // 32px 48px
+    }
+  }
+}

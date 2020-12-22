@@ -1000,22 +1000,6 @@ blockquote p {
     background: #ecf0f1 url("images/favorite-icon-15x15.png");
 }
 
-.qa-suggest-next {
-    padding: 10px;
-    margin-bottom: 5px;
-    background: #3498db;
-    color: #fff;
-}
-.qa-suggest-next a {
-    color: #fff;
-    border-bottom: 1px dotted #fff;
-}
-.qa-suggest-next a:hover,
-.qa-suggest-next a:focus {
-    color: #fff;
-    border-bottom: 0;
-}
-
 /*------[ q-view ]------*/
 .qa-form-light-button {
     -webkit-appearance: none;
