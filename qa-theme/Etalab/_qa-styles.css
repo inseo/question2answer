@@ -798,13 +798,6 @@ blockquote p {
     margin: -10px -10px 5px -10px;
 }
 
-.qa-favorite-image {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: #ecf0f1 url("images/favorite-icon-15x15.png");
-}
-
 /*------[ q-view ]------*/
 .qa-form-light-button {
     -webkit-appearance: none;

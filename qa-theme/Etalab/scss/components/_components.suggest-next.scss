@@ -15,4 +15,13 @@
       padding: rem(32) rem(48); // 32px 48px
     }
   }
+
+  // Image de favoris
+  .qa-favorite-image {
+    display: inline-block;
+    width: rem(24); // 24px
+    height: rem(24);
+    margin-left: rem(8); // 8px
+    background: url("images/icon.svg#qa-favorite") 50% 50% / contain no-repeat;
+  }
 }
