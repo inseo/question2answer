@@ -79,7 +79,7 @@
   .qa-form-tall-note,
   .qa-form-wide-note,
   .qa-form-tall-suffix {
-    color: theme(form-tall-note-txt);
+    color: theme(form-note-txt);
     font-size: rem(12); // 12px
 
     // Qui suit une liste de cases à cocher ou de boutons radio
@@ -122,6 +122,7 @@
     [id="block_bad_usernames"],
     [id="block_bad_words"],
     [id="block_ips_write"],
+    [id="name_display"],
     [id="mailing_body"] {
       .qa-form-tall-data {
         display: flex;
@@ -200,12 +201,37 @@
     align-items: center;
     width: rem(24); // 24px
     height: rem(24);
-    color: theme(form-wide-note-txt);
+    color: theme(form-help-txt);
     font-weight: 700;
     font-size: rem(14);
     border: 2px solid currentColor;
     border-radius: 50%;
     cursor: help;
+  }
+
+
+  // Notification d'erreur
+  // Notification de succès
+  .qa-form-tall-error,
+  .qa-form-wide-error,
+  .qa-form-tall-ok,
+  .qa-form-wide-ok {
+    img {
+      display: inline-block;
+      margin-right: rem(8); // 8px
+      vertical-align: bottom;
+    }
+  }
+
+  // Notification d'erreur
+  .qa-form-tall-error {
+    color: theme(form-error-txt);
+  }
+
+  // Notification de succès
+  .qa-form-tall-ok {
+    margin-bottom: rem(24); // 24px
+    color: theme(form-ok-txt);
   }
 
 

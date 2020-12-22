@@ -841,18 +841,6 @@ blockquote p {
     width: 50px;
 }
 
-.qa-form-tall-ok,
-.qa-form-wide-ok {
-    background-color: #27ae60;
-    padding: 10px;
-    display: table-cell;
-    color: #fff;
-}
-
-.qa-form-wide-error,
-.qa-form-tall-error {
-    color: #e74c3c;
-}
 
 .qa-form-tall-help {
     display: inline-block;

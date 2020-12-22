@@ -34,10 +34,12 @@ $ebony-clay: #26353f;
 $mine-shaft: #383838;
 $cod-gray: #1c1c1c;
 $jade: #03bd5b;
+$jewel: #0d6635;
 $tara: #daf5e7;
 $yellow-orange: #ff9947;
 $serenade: #fff0e4;
 $punch: #d63626;
+$bright-red: #b60000;
 $sea-pink: #efaca6;
 
 // Abbreviations
@@ -76,8 +78,10 @@ $theme-colors: (
   button-secondary-txt: $navy-blue,
   button-secondary--hover-bgc: $gallery,
   button-secondary--active-bgc: $alto,
-  form-tall-note-txt: $dove-gray,
-  form-wide-note-txt: $navy-blue,
+  form-error-txt: $bright-red,
+  form-ok-txt: $jewel,
+  form-note-txt: $dove-gray,
+  form-help-txt: $navy-blue,
   info-txt: $dove-gray,
   nav-main-ask-bgc: $gallery,
   nav-main-link-txt: $endeavou,
