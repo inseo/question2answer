@@ -603,10 +603,48 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('</p>');
 	}
 
+	public function post_meta_where($post, $class)
+	{
+		if(stristr($post['where']['data'], 'qa-cat-favorited')) {
+		 	$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/cat_favorited') .')</span>';
+		 	$post['where']['data'] = str_replace ('</a>', $favhtml.'</a>', $post['where']['data']);
+		}
+		$this->output_split(@$post['where'], $class . '-where');
+	}
+
+	public function post_meta_who($post, $class)
+	{
+		if (isset($post['who'])) {
+			$this->output('<span class="' . $class . '-who">');
+
+			if (strlen(@$post['who']['prefix']))
+				$this->output('<span class="' . $class . '-who-pad">' . $post['who']['prefix'] . '</span>');
+
+			if (isset($post['who']['data']))
+				$this->output('<span class="' . $class . '-who-data">' . $post['who']['data'] . '</span>');
+
+			if (isset($post['who']['title']))
+				$this->output('<span class="' . $class . '-who-title">' . $post['who']['title'] . '</span>');
+
+			// You can also use $post['level'] to get the author's privilege level (as a string)
+
+			if (isset($post['who']['points'])) {
+				$post['who']['points']['prefix'] = '(' . $post['who']['points']['prefix'];
+				$post['who']['points']['suffix'] .= ')';
+				$this->output_split($post['who']['points'], $class . '-who-points');
+			}
+
+			if (strlen(@$post['who']['suffix']))
+				$this->output('<span class="' . $class . '-who-pad">' . $post['who']['suffix'] . '</span>');
+
+			$this->output('</span>');
+		}
+	}
+
 	public function post_tag_item($taghtml, $class)
 	{
 		if(stristr($taghtml, 'qa-tag-favorited')) {
-			$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
+			$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/cat_favorited') .')</span>';
 			$taghtml = str_replace ('</a>', $favhtml.'</a>', $taghtml);
 		}
 
