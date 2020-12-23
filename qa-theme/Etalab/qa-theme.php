@@ -620,14 +620,18 @@ class qa_html_theme extends qa_html_theme_base
 			if (strlen(@$post['who']['prefix']))
 				$this->output('<span class="' . $class . '-who-pad">' . $post['who']['prefix'] . '</span>');
 
-			if (isset($post['who']['data']))
+			if (isset($post['who']['data'])) {
+				if(stristr($post['who']['data'], 'qa-user-favorited')) {
+					$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/tag_favorited') .')</span>';
+					$post['who']['data'] = str_replace ('</a>', $favhtml.'</a>', $post['who']['data']);
+			   }
 				$this->output('<span class="' . $class . '-who-data">' . $post['who']['data'] . '</span>');
+			}
 
 			if (isset($post['who']['title']))
 				$this->output('<span class="' . $class . '-who-title">' . $post['who']['title'] . '</span>');
 
 			// You can also use $post['level'] to get the author's privilege level (as a string)
-
 			if (isset($post['who']['points'])) {
 				$post['who']['points']['prefix'] = '(' . $post['who']['points']['prefix'];
 				$post['who']['points']['suffix'] .= ')';
