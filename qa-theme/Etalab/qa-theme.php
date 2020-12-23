@@ -1483,15 +1483,14 @@ class qa_html_theme extends qa_html_theme_base
 
 			for ($row = 0; $row < $rows; $row++) {
 				$this->set_context('ranking_row', $row);
-				$this->output('<li>');
 
 				for ($column = 0; $column < $columns; $column++) {
+					$this->output('<li>');
 					$this->set_context('ranking_column', $column);
 					$this->ranking_table_item(@$ranking['items'][$column * $rows + $row], $class, $column > 0);
+					$this->output('</li>');
 				}
-
 				$this->clear_context('ranking_column');
-				$this->output('</li>');
 			}
 			$this->clear_context('ranking_row');
 			$this->output('</ul>');
