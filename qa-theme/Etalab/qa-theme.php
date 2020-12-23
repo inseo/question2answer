@@ -618,7 +618,17 @@ class qa_html_theme extends qa_html_theme_base
 		if (isset($item['avatar'])) {
 			if (isset($prefix))
 				$this->output($prefix);
-			$item['avatar'] = str_replace('alt=""', 'alt="'. $item['raw']['handle'] .' ('. qa_lang_html('etalab/open_profil') .')"', $item['avatar']);
+
+			$alt = "";
+			if(isset($item['raw']['handle'])) {
+				$alt = $item['raw']['handle'];
+			}
+			else {
+				if(isset($item['raw']['fromhandle']))
+					$alt = $item['raw']['fromhandle'];
+			}
+
+			$item['avatar'] = str_replace('alt=""', 'alt="'. $alt .' ('. qa_lang_html('etalab/open_profil') .')"', $item['avatar']);
 
 			$this->output(
 				'<span class="' . $class . '-avatar">',
