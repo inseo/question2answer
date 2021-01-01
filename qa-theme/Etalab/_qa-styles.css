@@ -333,9 +333,6 @@ blockquote p {
 
 /*------[ q-list ]------*/
 
-.qa-q-list-item.qa-q-favorited {
-    border-left: 1px solid #8e44ad;
-}
 
 .qa-template-user-activity .qa-q-item-stats {
     width: 65px;

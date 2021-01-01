@@ -24,6 +24,12 @@
   }
 
 
+  // Question mise en favori
+  .qa-q-list-item.qa-q-favorited {
+    border-left: rem(4) solid theme(q-list-item--favorited-bdc);
+  }
+
+
   // Titre
   .qa-q-item-title {
     margin: 0 0 rem(8) 0; // 0 0 8px 0
