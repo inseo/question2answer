@@ -464,7 +464,7 @@ class qa_html_theme extends qa_html_theme_base
 		$closedText = "(" . qa_lang('main/closed') . ")";
 		$imgHtml = empty($q_item['closed'])
 			? ''
-      : '<img src="' . $this->rooturl . 'images/icon.svg#q-list-close-icon" class="qam-q-list-close-icon" title="' . $closedText . '" alt="' . $closedText . '" width="20" height="20" />';
+      : '<img src="' . $this->rooturl . 'images/icon.svg#close-icon" class="qam-q-list-close-icon" title="' . $closedText . '" alt="' . $closedText . '" width="20" height="20" />';
 
 		$id = $this->getIdFromField($q_item);
 		$this->output('<h2 class="qa-q-item-title" ');
@@ -723,7 +723,8 @@ class qa_html_theme extends qa_html_theme_base
 		$closedText = qa_lang('main/closed');
 		$imgHtml = empty($q_view['closed'])
 			? ''
-			: '<img src="' . $this->rooturl . $this->icon_url . '/closed-q-view.png" class="qam-q-view-close-icon" alt="' . $closedText . '" width="24" height="24" title="' . $closedText . '"/>';
+      : '<img src="' . $this->rooturl . 'images/icon.svg#close-icon" class="qam-q-view-close-icon" title="' . $closedText . '" alt="' . $closedText . '" width="30" height="30" />';
+
 
 		if (isset($this->content['title'])) {
 			$this->output(
