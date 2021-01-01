@@ -40,17 +40,4 @@
       background-color: theme(tag-link--active-bgc);
     }
   }
-
-
-  // Favoris
-  .qa-tag-favorited {
-    padding-left: rem(32); // 32px
-  }
-
-  .qa-tag-favorited {
-    background-image: url("images/icon.svg#qa-favorite");
-    background-repeat: no-repeat;
-    background-position: #{rem(8)} #{rem(8)};
-    background-size: #{rem(16)} #{rem(16)};
-  }
 }
