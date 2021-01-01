@@ -11,8 +11,10 @@
 
     // Dans les pages de liste de tags
     // Dans les pages de question des catégories
+    // Dans les pages d'activité récente
     .qa-template-tag &,
-    .qa-template-questions & {
+    .qa-template-questions &,
+    .qa-template-activity & {
       padding-right: rem(64); // 64px
     }
   }
@@ -48,8 +50,10 @@
   .qa-favoriting {
     // Dans les pages de liste de tags
     // Dans les pages de question des catégories
+    // Dans les pages d'activité récente
     .qa-template-tag &,
-    .qa-template-questions & {
+    .qa-template-questions &,
+    .qa-template-activity & {
       right: rem(40); // 40px
     }
 
