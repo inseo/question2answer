@@ -605,7 +605,7 @@ class qa_html_theme extends qa_html_theme_base
 
 	public function post_meta_where($post, $class)
 	{
-		if(stristr($post['where']['data'], 'qa-cat-favorited')) {
+		if(stristr(@$post['where']['data'], 'qa-cat-favorited')) {
 		 	$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/cat_favorited') .')</span>';
 		 	$post['where']['data'] = str_replace ('</a>', $favhtml.'</a>', $post['where']['data']);
 		}
