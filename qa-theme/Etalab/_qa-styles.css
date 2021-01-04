@@ -333,9 +333,6 @@ blockquote p {
 
 /*------[ q-list ]------*/
 
-.qa-q-list-item.qa-q-favorited {
-    border-left: 1px solid #8e44ad;
-}
 
 .qa-template-user-activity .qa-q-item-stats {
     width: 65px;
@@ -366,33 +363,6 @@ blockquote p {
         vertical-align: middle;
         line-height: 1;
     }
-}
-
-.qa-q-item-meta .qa-category-link.qa-cat-favorited {
-    position: relative;
-    padding-left: 14px;
-}
-.qa-q-item-meta .qa-category-link.qa-cat-favorited:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 17px;
-    height: 100%;
-    display: block;
-    content: url("images/favorite-light-icon-15x15.png");
-}
-.qa-q-item-meta .qa-user-link.qa-user-favorited {
-    position: relative;
-    padding-left: 14px;
-}
-.qa-q-item-meta .qa-user-link.qa-user-favorited:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 17px;
-    height: 100%;
-    display: block;
-    content: url("images/favorite-light-icon-15x15.png");
 }
 
 .qa-template-admin .qa-q-item-main {
