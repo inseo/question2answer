@@ -650,7 +650,6 @@ class qa_html_theme extends qa_html_theme_base
 			$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/cat_favorited') .')</span>';
 			$taghtml = str_replace ('</a>', $favhtml.'</a>', $taghtml);
 		}
-
 		$this->output('<li class="' . $class . '-tag-item">' . $taghtml . '</li>');
 	}
 
@@ -1558,7 +1557,7 @@ class qa_html_theme extends qa_html_theme_base
 				$item['label'] = $img . $item['label'];
 			}
 
-			if(isset($item['label']) && stristr($item['label'], 'qa-user-favorited')) {
+			if(isset($item['label']) && (stristr($item['label'], 'qa-user-favorited') || stristr($item['label'], 'qa-tag-favorited'))) {
 				$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/tag_favorited') .')</span>';
 				$item['label'] = str_replace ('</a>', $favhtml.'</a>', $item['label']);
 			}
