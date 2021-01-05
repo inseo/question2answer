@@ -256,6 +256,7 @@ class qa_html_theme extends qa_html_theme_base
 					'"' . (strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
 					(@$navlink['selected'] ? (' aria-current="true"') : '') .
 					(isset($navlink['target']) ? (' target="' . $navlink['target'] . '"') : '') . '>' . $navlink['label'] .
+					(@$navlink['favorited'] ? '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>' : '') .
 					'</a>'
 			);
 		} else {
@@ -263,7 +264,10 @@ class qa_html_theme extends qa_html_theme_base
 				'<span class="qa-' . $class . '-nolink' . (@$navlink['selected'] ? (' qa-' . $class . '-selected') : '') .
 					(@$navlink['favorited'] ? (' qa-' . $class . '-favorited') : '') . '"' .
 					(strlen(@$navlink['popup']) ? (' title="' . $navlink['popup'] . '"') : '') .
-					'>' . $navlink['label'] . '</span>'
+					'>' . 
+					$navlink['label'] . 
+					(@$navlink['favorited'] ? '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>' : '') .
+					'</span>'
 			);
 		}
 
@@ -605,7 +609,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function post_meta_where($post, $class)
 	{
 		if(stristr(@$post['where']['data'], 'qa-cat-favorited')) {
-		 	$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/cat_favorited') .')</span>';
+		 	$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
 		 	$post['where']['data'] = str_replace ('</a>', $favhtml.'</a>', $post['where']['data']);
 		}
 		$this->output_split(@$post['where'], $class . '-where');
@@ -621,7 +625,7 @@ class qa_html_theme extends qa_html_theme_base
 
 			if (isset($post['who']['data'])) {
 				if(stristr($post['who']['data'], 'qa-user-favorited')) {
-					$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/tag_favorited') .')</span>';
+					$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
 					$post['who']['data'] = str_replace ('</a>', $favhtml.'</a>', $post['who']['data']);
 			   	}
 				$this->output('<span class="' . $class . '-who-data">' . $post['who']['data'] . '</span>');
@@ -647,7 +651,7 @@ class qa_html_theme extends qa_html_theme_base
 	public function post_tag_item($taghtml, $class)
 	{
 		if(stristr($taghtml, 'qa-tag-favorited')) {
-			$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/cat_favorited') .')</span>';
+			$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
 			$taghtml = str_replace ('</a>', $favhtml.'</a>', $taghtml);
 		}
 		$this->output('<li class="' . $class . '-tag-item">' . $taghtml . '</li>');
@@ -1558,7 +1562,7 @@ class qa_html_theme extends qa_html_theme_base
 			}
 
 			if(isset($item['label']) && (stristr($item['label'], 'qa-user-favorited') || stristr($item['label'], 'qa-tag-favorited'))) {
-				$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/tag_favorited') .')</span>';
+				$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/favorited') .')</span>';
 				$item['label'] = str_replace ('</a>', $favhtml.'</a>', $item['label']);
 			}
 			$this->ranking_label($item, $class);

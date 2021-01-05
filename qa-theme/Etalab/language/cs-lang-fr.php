@@ -7,8 +7,7 @@
 		'main_navigation' => 'Navigation principale', // accessibility value to describe main navigation
 		'required' => 'obligatoire',
 		'all_fields_are_required' => 'Tous les champs sont obligatoires',
-		'cat_favorited' => 'favorite',
-		'tag_favorited' => 'favori',
+		'favorited' => 'favori',
 		'open_profil' => 'voir le profil',
 		'1_best_answer_chosen' => '1 meilleure réponse choisie',
 		'characters_min' => '8 caractères minimum',
