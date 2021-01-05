@@ -406,7 +406,6 @@ class qa_html_theme extends qa_html_theme_base
       $this->widgets('side', 'high');
       $this->widgets('side', 'low');
       $this->output_raw(@$this->content['sidepanel']);
-      //$this->feed(); @TODO check
       $this->widgets('side', 'bottom');
       $this->output('</div>', '');
 	}
@@ -624,7 +623,7 @@ class qa_html_theme extends qa_html_theme_base
 				if(stristr($post['who']['data'], 'qa-user-favorited')) {
 					$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/tag_favorited') .')</span>';
 					$post['who']['data'] = str_replace ('</a>', $favhtml.'</a>', $post['who']['data']);
-			   }
+			   	}
 				$this->output('<span class="' . $class . '-who-data">' . $post['who']['data'] . '</span>');
 			}
 
@@ -1072,7 +1071,6 @@ class qa_html_theme extends qa_html_theme_base
 	/**
 	 * Add role="search" on search container
 	 */
-  	// @TODO Voir s'il n'y a pas moyen d'avoir plus simple en sortie…
 	private function qam_search()
 	{
 		$this->output('<div role="search" class="qam-search">');
@@ -1558,6 +1556,11 @@ class qa_html_theme extends qa_html_theme_base
 				$img = preg_replace('/<a.*?>/i', '', $item['avatar']);
 				$img = preg_replace('/<\/a>/i', '', $img);
 				$item['label'] = $img . $item['label'];
+			}
+
+			if(isset($item['label']) && stristr($item['label'], 'qa-user-favorited')) {
+				$favhtml = '<span class="u-visually-hidden">('. qa_lang_html('etalab/tag_favorited') .')</span>';
+				$item['label'] = str_replace ('</a>', $favhtml.'</a>', $item['label']);
 			}
 			$this->ranking_label($item, $class);
 
