@@ -757,60 +757,18 @@ blockquote p {
 }
 
 /*------[ q-view ]------*/
-.qa-form-light-button {
-    -webkit-appearance: none;
-    display: block;
-    float: right;
-    margin: 0 0 0 5px;
-    padding: 10px 15px;
-    border: 0;
-    font-size: 14px;
-    background: #2c3e50 none center no-repeat;
-    color: #fff;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    text-indent: -9999px;
-}
-.qa-form-light-button:hover,
-.qa-form-light-button:focus {
-    background-color: #476481;
-    border: 0;
-}
+
 .qa-form-light-button a,
 .qa-form-light-button a:hover,
 .qa-form-light-button a:focus {
     color: #fff;
 }
 
-.qa-form-light-button-edit,
-.qa-form-light-button-retagcat {
-    background-image: url("images/icons/edit-white.png");
-}
-.qa-form-light-button-flag {
-    background-image: url("images/icons/flag-white.png");
-}
-.qa-form-light-button-unflag {
-    background-color: #812b2b;
-    background-image: url("images/icons/flag-white.png");
-}
 .qa-form-light-button-clearflags {
     background-image: url("images/icons/un-flag-white.png");
 }
-.qa-form-light-button-hide {
-    background-image: url("images/icons/hide-white.png");
-}
-.qa-form-light-button-follow {
-    background-image: url("images/icons/link-white.png");
-}
-.qa-form-light-button-reshow {
-    background-image: url("images/icons/show-white.png");
-}
 .qa-form-light-button-claim {
     background-image: url("images/icons/claim-white.png");
-}
-.qa-form-light-button-delete {
-    background-image: url("images/icons/delete-white.png");
 }
 .qa-form-light-button-approve {
     background-image: url("images/icons/approve-white.png");
@@ -819,12 +777,6 @@ blockquote p {
 .qa-form-light-button-reject {
     background-image: url("images/icons/rejected-white.png");
 }
-.qa-form-light-button-close {
-    background-image: url("images/icons/close-white.png");
-}
-.qa-form-light-button-reopen {
-    background-image: url("images/icons/open-white.png");
-}
 .qa-form-light-button-block {
     background-image: url("images/icons/rejected-white.png");
 }
@@ -832,25 +784,6 @@ blockquote p {
     background-image: url("images/icons/reply-white.png");
 }
 
-.qa-form-light-button-answer {
-    background-image: #27ae60;
-    background-image: url("images/icons/answer-white.png");
-    float: left;
-    margin: 0 5px 0 0;
-}
-.qa-form-light-button-answer:hover,
-.qa-form-light-button-answer:focus {
-    background-color: #2ecc71;
-}
-
-.qa-form-light-button-comment {
-    background-image: url("images/icons/comment-white.png");
-    float: left;
-    margin: 0;
-}
-
-.qa-form-light-button-answer,
-.qa-form-light-button-comment,
 .qa-form-light-button-claim {
     width: auto;
     padding: 0 10px 0 30px;
@@ -859,10 +792,7 @@ blockquote p {
     line-height: 32px;
     text-indent: 0;
 }
-.qa-form-light-button-answer:hover,
-.qa-form-light-button-answer:focus,
-.qa-form-light-button-comment:hover,
-.qa-form-light-button-comment:focus,
+
 .qa-form-light-button-claim:hover,
 .qa-form-light-button-claim:focus {
     background-position: 8px center;
@@ -931,11 +861,7 @@ blockquote p {
     margin-top: 20px;
 }
 
-.qa-q-view-buttons {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #dee1e3;
-}
+
 .qa-q-view-buttons .qa-waiting {
     float: right;
     margin: 9px 0 0 5px;
@@ -1019,15 +945,6 @@ blockquote p {
     opacity: 0.6;
 }
 
-.qa-q-item-flags,
-.qa-q-view-flags,
-.qa-a-item-flags,
-.qa-c-item-flags {
-    color: #e74c3c;
-    font-weight: bold;
-    padding-left: 4px;
-}
-
 /*------[ a-list ]------*/
 .qa-part-a-form {
     padding: 20px;
@@ -1084,11 +1001,6 @@ blockquote p {
     display: block;
 }
 
-.qa-a-item-buttons {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #dee1e3;
-}
 .qa-a-item-buttons .qa-waiting {
     float: right;
     margin: 9px 0 0 5px;
@@ -1274,57 +1186,19 @@ blockquote p {
     background-position: -44px 0;
 }
 
-.qa-c-list-item .qa-form-light-button {
-    padding: 10px 15px;
-    background: #bdc3c7 none center no-repeat;
-    color: #34495e;
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    text-indent: -9999px;
-}
-.qa-c-list-item .qa-form-light-button:hover,
-.qa-c-list-item .qa-form-light-button:focus {
-    background-color: #d6dadb;
-}
+
 .qa-c-list-item .qa-form-light-button a,
 .qa-c-list-item .qa-form-light-button a:hover,
 .qa-c-list-item .qa-form-light-button a:focus {
     color: #34495e;
 }
-.qa-c-list-item .qa-form-light-button-comment {
-    background-image: url("images/icons/comment.png");
-    float: left;
-    margin: 0;
-}
-.qa-c-list-item .qa-form-light-button-edit,
-.qa-c-list-item .qa-form-light-button-retagcat {
-    background-image: url("images/icons/edit.png");
-}
-.qa-c-list-item .qa-form-light-button-flag {
-    background-image: url("images/icons/flag.png");
-}
-.qa-c-list-item .qa-form-light-button-unflag {
-    background-color: #e4afaf;
-    background-image: url("images/icons/flag.png");
-}
+
 .qa-c-list-item .qa-form-light-button-clearflags {
     background-image: url("images/icons/un-flag.png");
 }
-.qa-c-list-item .qa-form-light-button-hide {
-    background-image: url("images/icons/hide.png");
-}
-.qa-c-list-item .qa-form-light-button-follow {
-    background-image: url("images/icons/link.png");
-}
-.qa-c-list-item .qa-form-light-button-reshow {
-    background-image: url("images/icons/show.png");
-}
+
 .qa-c-list-item .qa-form-light-button-claim {
     background-image: url("images/icons/claim.png");
-}
-.qa-c-list-item .qa-form-light-button-delete {
-    background-image: url("images/icons/delete.png");
 }
 .qa-c-list-item .qa-form-light-button-approve {
     background-image: url("images/icons/approve.png");

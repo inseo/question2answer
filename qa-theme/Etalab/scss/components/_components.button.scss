@@ -30,12 +30,12 @@
 
     // État survolé
     &:hover {
-      background-image: linear-gradient(0deg, theme(button--hover-bgc), theme(button--hover-bgc));
+      background-color: theme(button--hover-bgc);
     }
 
     // État actif
     &:active {
-      background-image: linear-gradient(0deg, theme(button--active-bgc), theme(button--active-bgc));
+      background-color: theme(button--active-bgc);
     }
   }
 
@@ -54,6 +54,15 @@
   .qa-form-tall-button-test,
   .qa-form-tall-button-start,
   .qa-form-tall-button-saveview,
+  .qa-form-light-button-hide,
+  .qa-form-light-button-close,
+  .qa-form-light-button-reopen,
+  .qa-form-light-button-flag,
+  .qa-form-light-button-unflag,
+  .qa-form-light-button-edit,
+  .qa-form-light-button-retagcat,
+  .qa-form-light-button-follow,
+  .qa-form-light-button-delete,
   [class*="qa-form-tall-button-add"],
   [class*="qa-form-wide-button-delete"] {
     @extend %qam-button;
@@ -63,12 +72,12 @@
 
     // État survolé
     &:hover {
-      background-image: linear-gradient(0deg, theme(button-secondary--hover-bgc), theme(button-secondary--hover-bgc));
+      background-color: theme(button-secondary--hover-bgc);
     }
 
     // État actif
     &:active {
-      background-image: linear-gradient(0deg, theme(button-secondary--active-bgc), theme(button-secondary--active-bgc));
+      background-color: theme(button-secondary--active-bgc);
     }
   }
 
@@ -83,5 +92,47 @@
   // Spacer de boutons
   .qa-form-tall-buttons-spacer {
     display: none;
+  }
+
+
+  // Icônes et texte
+  .qa-form-light-button-answer,
+  .qa-form-light-button-reshow,
+  .qa-form-light-button-comment {
+    @extend %qam-button;
+    padding-left: rem(40);
+    text-transform: capitalize;
+    background-repeat: no-repeat;
+    background-position: #{rem(12)} #{rem(12)}; // 12px 12px
+    background-size: #{rem(16)} #{rem(16)}; // 16px 16px
+  }
+
+  // Icônes seules
+  .qa-form-light-button-hide,
+  .qa-form-light-button-close,
+  .qa-form-light-button-reopen,
+  .qa-form-light-button-flag,
+  .qa-form-light-button-unflag,
+  .qa-form-light-button-edit,
+  .qa-form-light-button-retagcat,
+  .qa-form-light-button-follow,
+  .qa-form-light-button-delete {
+    min-width: rem(40); // 40px
+    padding: rem(8); // 8px
+    overflow: hidden;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    background-position: #{rem(12)} #{rem(12)}; // 12px 12px
+    background-size: #{rem(16)} #{rem(16)}; // 16px 16px
+    cursor: pointer;
+  }
+
+  // Arrières-plan
+  $icons: "answer", "hide", "reshow", "close", "reopen", "flag", "unflag", "edit", "retagcat", "follow", "comment", "delete"; // stylelint-disable order/order
+
+  @each $icon in $icons {
+    .qa-form-light-button-#{$icon} {
+      background-image: url("images/icon.svg#button-#{$icon}");
+    }
   }
 }
