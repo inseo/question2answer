@@ -36,13 +36,14 @@ $ebony-clay: #26353f;
 $mine-shaft: #383838;
 $cod-gray: #1c1c1c;
 $jade: #03bd5b;
+$mountain-meadow: #169b62;
 $jewel: #0d6635;
 $tara: #daf5e7;
-$yellow-orange: #ff9947;
 $serenade: #fff0e4;
+$sea-pink: #efaca6;
+$yellow-orange: #ff9947;
 $punch: #d63626;
 $bright-red: #b60000;
-$sea-pink: #efaca6;
 
 // Abbreviations
 // - bgc => background-color
@@ -101,6 +102,8 @@ $theme-colors: (
   q-list-item: $alabaster,
   q-list-item--favorited-bdc: $navy-blue,
   q-item-flags: $bright-red,
+  q-view-closed: $yellow-orange,
+  a-list-item-selected: $mountain-meadow,
   search-field-sdw: $navy-blue,
   search-button-bgc: $navy-blue,
   skip-bgc: $mystic,
