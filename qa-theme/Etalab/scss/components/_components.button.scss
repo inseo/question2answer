@@ -63,6 +63,8 @@
   .qa-form-light-button-retagcat,
   .qa-form-light-button-follow,
   .qa-form-light-button-delete,
+  .qa-a-select-button,
+  .qa-a-unselect-button,
   [class*="qa-form-tall-button-add"],
   [class*="qa-form-wide-button-delete"] {
     @extend %qam-button;
@@ -116,7 +118,9 @@
   .qa-form-light-button-edit,
   .qa-form-light-button-retagcat,
   .qa-form-light-button-follow,
-  .qa-form-light-button-delete {
+  .qa-form-light-button-delete,
+  .qa-a-select-button,
+  .qa-a-unselect-button {
     min-width: rem(40); // 40px
     padding: rem(8); // 8px
     overflow: hidden;
@@ -134,5 +138,15 @@
     .qa-form-light-button-#{$icon} {
       background-image: url("images/icon.svg#button-#{$icon}");
     }
+  }
+
+  // Bouton de sélection
+  .qa-a-select-button {
+    background-image: url("images/icon.svg#button-select");
+  }
+
+  // Bouton de suppression de la sélection
+  .qa-a-unselect-button {
+    background-image: url("images/icon.svg#button-unselect");
   }
 }
