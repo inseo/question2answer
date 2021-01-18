@@ -5,14 +5,16 @@
   ========================================================================== */
 
   // Liste de tags
-  .qa-q-item-tag-list {
+  .qa-q-item-tag-list,
+  .qa-q-view-tag-list {
     display: flex;
     flex-wrap: wrap;
   }
 
 
   // Éléments de liste
-  .qa-q-item-tag-item {
+  .qa-q-item-tag-item,
+  .qa-q-view-tag-item {
     display: inline-flex;
     margin-right: rem(12); // 12px
     margin-bottom: rem(12);
