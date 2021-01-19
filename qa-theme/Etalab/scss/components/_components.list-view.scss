@@ -27,10 +27,40 @@
   }
 
   // Questions et commentaires masqués
-  .qa-a-list-item-hidden,
-  .qa-c-item-hidden {
-    opacity: .6;
+  .qa-main-hidden {
+    .qa-main-heading,
+    .qa-q-view-stats,
+    .qa-q-view-avatar-meta,
+    .qa-q-view-content,
+    .qa-part-a-list,
+    .qa-q-view-follows,
+    .qa-q-view-closed,
+    .qa-q-view-tags {
+      opacity: .6;
+    }
   }
+
+  .qa-a-list-item-hidden {
+    .qa-voting,
+    .qa-a-item-main form > *,
+    .qa-a-item-main .qa-a-item-c-list {
+      opacity: .6;
+    }
+  }
+
+  .qa-c-item-hidden {
+    .qa-voting,
+    .qa-c-item-avatar-meta,
+    .qa-c-item-content {
+      opacity: .6;
+    }
+  }
+
+  // Boutons de suppression et de réaffichage de l'élément
+  .qa-a-list-item-hidden .qa-a-item-main .qa-a-item-buttons {
+    opacity: 1;
+  }
+
 
   // Réponse sélectionnée
   .qa-a-list-item-selected {
