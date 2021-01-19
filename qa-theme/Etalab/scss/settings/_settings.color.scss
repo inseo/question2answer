@@ -9,18 +9,15 @@
 // @note Les couleurs sont nommées grâce à l'outil [Chir.ag’s Name that Color](http://chir.ag/projects/name-that-color/).
 
 // Definition
-$sail: #b4e1fa;
 $periwinkle-gray: #cdcdea;
 $pigeon-post: #b6b6e0;
-$dodger-blue: #5b5bff;
 $governor-bay: #2e2ec8;
-$blue: #0000f6;
 $dark-blue: #0000c3;
 $blue-ribbon: #006be6;
+$cerulean-blue: #3b55d1;
 $endeavou: #0053b3;
 $congress-blue: #003b80;
 $navy-blue: #000091;
-$prussian-blue: #00234d;
 $white: #fff;
 $gallery: #f0f0f0;
 $alabaster: #f8f8f8;
@@ -28,21 +25,14 @@ $mystic: #ebeff3;
 $alto: #e0e0e0;
 $snuff: #e5e5f4;
 $geyser: #c9d3df;
-$cadet-blue: #adb9c9;
-$regent-gray: #8393a7;
 $blue-bayoux: #53657d;
 $dove-gray: #6a6a6a;
-$ebony-clay: #26353f;
 $mine-shaft: #383838;
 $cod-gray: #1c1c1c;
-$jade: #03bd5b;
 $mountain-meadow: #169b62;
 $jewel: #0d6635;
-$tara: #daf5e7;
-$serenade: #fff0e4;
-$sea-pink: #efaca6;
 $yellow-orange: #ff9947;
-$punch: #d63626;
+$blaze-orange: #fa5c00;
 $bright-red: #b60000;
 
 // Abbreviations
@@ -82,6 +72,7 @@ $theme-colors: (
   button-secondary-txt: $navy-blue,
   button-secondary--hover-bgc: $gallery,
   button-secondary--active-bgc: $alto,
+  error-bdc: $bright-red,
   form-error-txt: $bright-red,
   form-ok-txt: $jewel,
   form-note-txt: $dove-gray,
@@ -94,6 +85,7 @@ $theme-colors: (
   nav-sub-link--hover-bgc: $gallery,
   nav-sub-link-current-bgc: $gallery,
   nav-sub-link-current-sdw: $navy-blue,
+  notice-bdc: $cerulean-blue,
   page-links-item-txt: $cod-gray,
   page-links-item--current-bgc: $navy-blue,
   page-links-item--current-txt: $white,
@@ -108,6 +100,7 @@ $theme-colors: (
   search-button-bgc: $navy-blue,
   skip-bgc: $mystic,
   skip-link-txt: $congress-blue,
+  success-bdc: $jewel,
   suggest-next-bdc: $navy-blue,
   suggest-next-bgc: $gallery,
   tag-link-txt: $navy-blue,
@@ -115,4 +108,5 @@ $theme-colors: (
   tag-link--hover-bgc: $periwinkle-gray,
   tag-link--active-bgc: $pigeon-post,
   topbar-service-link-txt: $cod-gray,
+  warning-bdc: $blaze-orange,
 );
