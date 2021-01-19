@@ -350,24 +350,11 @@
   // Boutons d'interactions
   .qa-template-question .qa-form-light-buttons {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
 
-    input:first-child,
-    .qa-form-light-button-delete {
-      margin-right: 0;
+    input:last-child {
+      margin-left: auto;
     }
-  }
-
-  // Boutons principaux
-  .qa-template-question .qa-form-light-button-answer,
-  .qa-template-question .qa-form-light-button-comment,
-  [class].qa-template-question [class].qa-form-light-button-reshow {
-    margin-right: auto;
-  }
-
-  // Bouton secondaire
-  .qa-form-light-button-delete {
-    order: -1;
   }
 
 
