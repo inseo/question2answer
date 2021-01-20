@@ -9,7 +9,8 @@
     position: absolute;
     padding: rem(16) 0; // 16px
     background-color: theme(skip-bgc);
-    transform: translateY(-100%);
+    border-top: 1px solid theme(skip-bdc);
+    transform: translateY(-400%);
 
     &:focus-within {
       position: relative;

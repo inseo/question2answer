@@ -39,5 +39,11 @@
   .qa-notice {
     background-color: rgba(theme(notice-bdc), .1);
     border-left-color: theme(notice-bdc);
+
+    &[id="notice_visitor"] {
+      margin-bottom: 0;
+      padding: rem(12) rem(24); // 12px
+      border-left-width: 0;
+    }
   }
 }
