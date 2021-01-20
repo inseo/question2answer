@@ -287,6 +287,12 @@
     box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), .15);
 
     @include mq($until: MD) {
+      right: rem(20); // 20px
+      left: rem(20); // 20px
+    }
+
+    @include mq($until: SM) {
+      right: 0;
       left: 0;
     }
 

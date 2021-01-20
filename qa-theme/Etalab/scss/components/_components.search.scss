@@ -36,14 +36,19 @@
     @include mq($until: MD) {
       position: absolute;
       top: 100%;
-      right: 0;
-      left: 0;
+      right: rem(20); // 20px
+      left: rem(20); // 20px
       z-index: 1090;
       padding: rem(32) rem(20); // 40px 20px
       text-align: left;
       background-color: theme(default-bgc);
       border-top: 1px solid theme(default-bdc);
       box-shadow: 5px 5px 10px 0 rgba(theme(default-box-shadow), .15);
+    }
+
+    @include mq($until: SM) {
+      right: 0;
+      left: 0;
     }
 
     @include mq($from: MD) {
