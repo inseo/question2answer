@@ -9,7 +9,7 @@ This theme applies the French government graphic charter and is fully compliant 
 ## Installation
 
 1. Download and extract "q2a-etalab-theme" directory, then upload it to your Q2A site's themes directory (e.g. `qa-theme/q2a-etalab-theme`).
-2. In Q2A go to **Admin > General** and set up the default theme to "Etalab" and save changes.
+2. In Q2A go to **Admin > General** and set up the default theme to "q2a-etalab-theme" and save changes.
 
 ## Translation
 
