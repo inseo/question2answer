@@ -1,15 +1,15 @@
-# Q2A Etalab Theme [Question2Answer](http://www.question2answer.org/)
+# Etalab Theme
 
 ## Description
 
-Q2A Etalab Theme is a [Question2Answer](https://www.question2answer.org/) Theme created by [Etalab](https://www.etalab.gouv.fr/) and based on [SnowFlat Theme](https://github.com/q2a/question2answer/tree/dev/qa-theme/SnowFlat).
+Etalab is a [Question2Answer](https://www.question2answer.org/) Theme created by [Etalab](https://www.etalab.gouv.fr/) and based on [SnowFlat Theme](https://github.com/q2a/question2answer/tree/dev/qa-theme/SnowFlat).
 
 This theme applies the French government graphic charter and is fully compliant with the French government accessibility guidelines: RGAA 4 (Référentiel Général d'Amélioration de l'Accessibilité).
 
 ## Installation
 
-1. Download and extract "q2a-etalab-theme" directory, then upload it to your Q2A site's themes directory (e.g. `qa-theme/q2a-etalab-theme`).
-2. In Q2A go to **Admin > General** and set up the default theme to "q2a-etalab-theme" and save changes.
+1. Download and extract "Etalab" directory, then upload it to your Q2A site's themes directory (e.g. `qa-theme/Etalab`).
+2. In Q2A go to **Admin > General** and set up the default theme to "Etalab" and save changes.
 
 ## Translation
 
