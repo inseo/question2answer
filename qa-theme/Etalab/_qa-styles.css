@@ -307,60 +307,6 @@ blockquote p {
     background: #fff;
 }
 
-.qa-message-list {
-    margin-top: 10px;
-}
-
-.qa-message-item {
-    border-bottom: 1px solid #e0e0e0;
-    margin: 0;
-    padding: 10px;
-}
-
-.qa-message-item:nth-child(even) {
-    background-color: #f2f5f5;
-}
-.qa-message-item:last-child {
-    border-bottom: none;
-}
-
-.qa-message-content {
-    display: block;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px dashed #e0e0e0;
-    word-wrap: break-word;
-}
-
-.qa-message-avatar-meta {
-    display: block;
-    float: left;
-    margin: 0;
-}
-
-.qa-message-avatar {
-    display: inline-block;
-    margin-right: 4px;
-    vertical-align: middle;
-}
-
-.qa-message-meta {
-    color: #666;
-    display: inline-block;
-    font-size: .625em;
-    vertical-align: middle;
-}
-
-.qa-message-buttons {
-    display: inline-block;
-    margin-left: 12px;
-    vertical-align: middle;
-}
-
-.qa-message-buttons .qa-form-light-button {
-    padding: 0;
-}
-
 .qa-part-form-message .qam-pm-message {
     padding: 10px;
     background: #27ae60;
