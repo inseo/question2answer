@@ -8,7 +8,8 @@
   .qam-button,
   %qam-button,
   .qa-form-tall-button,
-  .qa-form-wide-button {
+  .qa-form-wide-button,
+  .qa-form-light-button-reply {
     @include unstyled-button($extend: true, $important: false);
     display: inline-flex;
     flex-direction: row;
@@ -104,7 +105,8 @@
   // Icônes et texte
   .qa-form-light-button-answer,
   .qa-form-light-button-reshow,
-  .qa-form-light-button-comment {
+  .qa-form-light-button-comment,
+  .qa-form-light-button-reply {
     @extend %qam-button;
     padding-left: rem(40);
     text-transform: capitalize;
@@ -157,5 +159,10 @@
   // Bouton de fermeture de l'info de première visite
   .qa-notice-close-button {
     margin-left: rem(16);
+  }
+
+  // Bouton de réponse à un message privé
+  .qa-form-light-button-reply {
+    background-image: url("images/icon.svg#button-answer");
   }
 }

@@ -26,6 +26,11 @@
     min-height: rem(32); // 32px
     padding: rem(16) rem(56) rem(8) rem(40); // 16px 56px 16px 40px
     background: url("images/icon.svg#message-content") rem(-2) rem(12) / rem(32) rem(32) no-repeat; // -2px 12 / 32px 32px
+
+    // Texte d'un message privé
+    .qa-template-messages & {
+      padding-right: rem(200); // 200px
+    }
   }
 
 
