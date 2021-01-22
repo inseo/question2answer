@@ -162,21 +162,6 @@ blockquote p {
 
 /*------[ q-list ]------*/
 
-.qa-template-user-activity .qa-q-item-stats {
-    width: 65px;
-}
-.qa-template-user-answers .qa-q-item-stats {
-    width: 68px;
-}
-@media (min-width: 241px) and (max-width: 799px) {
-    .qa-template-user-activity .qa-q-item-stats {
-        width: 60px;
-    }
-    .qa-template-user-answers .qa-q-item-stats {
-        width: 60px;
-    }
-}
-
 .qa-q-item-avatar {
     margin: 0 2px 0 0;
 }
@@ -411,17 +396,7 @@ blockquote p {
 }
 
 /*------[ users ]------*/
-.qa-template-user .qa-form-wide-label {
-    min-width: 110px;
-    width: auto;
-}
 
-.qa-part-form-profile .qa-form-wide-data {
-    word-break: break-word;
-}
-.qa-part-form-profile .qa-form-tall-image {
-    text-align: center;
-}
 .qa-part-form-profile .qa-form-wide-button-approve {
     background: #27ae60 none;
 }
@@ -429,82 +404,9 @@ blockquote p {
 .qa-part-form-profile .qa-form-wide-button-approve:focus {
     background-color: #2ecc71;
 }
-.qa-part-form-profile .qa-form-wide-button-block {
-    background: #e74c3c none;
-}
-.qa-part-form-profile .qa-form-wide-button-block:hover,
-.qa-part-form-profile .qa-form-wide-button-block:focus {
-    background-color: #ea6153;
-}
 
-@media (min-width: 980px) {
-    .qa-template-user [class^="qa-part-form"],
-    .qa-template-user .qa-part-message-list {
-        width: 49.8%;
-    }
-    .qa-template-user [class^="qa-part-form"],
-    .qa-template-user .qa-part-message-list {
-        float: right;
-        clear: right;
-    }
-    .qa-template-user .qa-part-form-profile {
-        float: left;
-    }
-}
-.qa-part-form-activity h2,
-.qa-part-message-list h2 {
-    margin-top: 0;
-}
 
-#level .qa-form-wide-static a:first-child {
-    background: #27ae60 url("images/icons/mail-white.png") no-repeat 5px center;
-    padding: 2px 5px 2px 25px;
-    border: 1px solid #1e8449;
-    display: inline-block;
-    color: #fff;
-}
-#level .qa-form-wide-static a:hover:first-child,
-#level .qa-form-wide-static a:focus:first-child {
-    background-color: #2ecc71;
-    background-image: url("images/icons/mail-white.png");
-    border: 1px solid #25a25a;
-    color: #fff;
-    text-decoration: none;
-}
 
-.qa-part-form-activity .qa-uf-user-points,
-.qa-part-form-activity .qa-uf-user-q-posts,
-.qa-part-form-activity .qa-uf-user-a-posts,
-.qa-part-form-activity .qa-uf-user-c-posts,
-.qa-part-form-activity .qa-uf-user-q-votes,
-.qa-part-form-activity .qa-uf-user-a-votes,
-.qa-part-form-activity .qa-uf-user-upvotes,
-.qa-part-form-activity .qa-uf-user-downvotes,
-.qa-part-form-activity .qa-uf-user-upvoteds,
-.qa-part-form-activity .qa-uf-user-downvoteds {
-    font-size: 1.5em;
-    font-weight: 700;
-}
-.qa-part-form-activity .qa-uf-user-points,
-.qa-part-form-activity .qa-uf-user-q-posts,
-.qa-part-form-activity .qa-uf-user-a-posts,
-.qa-part-form-activity .qa-uf-user-c-posts,
-.qa-part-form-activity .qa-uf-user-q-votes,
-.qa-part-form-activity .qa-uf-user-a-votes {
-    color: #3498db;
-}
-.qa-part-form-activity .qa-uf-user-upvotes,
-.qa-part-form-activity .qa-uf-user-upvoteds {
-    color: #27ae60;
-}
-.qa-part-form-activity .qa-uf-user-downvotes,
-.qa-part-form-activity .qa-uf-user-downvoteds {
-    color: #e74c3c;
-}
-.qa-part-form-activity .qa-form-wide-static {
-    color: #7f8c8d;
-    font-size: .75em;
-}
 
 /*------[ favorites ]------*/
 

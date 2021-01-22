@@ -25,9 +25,11 @@
 
 
   // Conteneur des cases à cocher et des boutons radio
+  // Intitulé sur la page utilisateur
   .qa-form-wide-label,
   .qa-form-tall-label {
-    &:only-child {
+    &:only-child,
+    [class].qa-template-user & {
       margin-bottom: 0;
     }
   }
