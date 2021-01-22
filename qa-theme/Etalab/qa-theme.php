@@ -1413,6 +1413,15 @@ class qa_html_theme extends qa_html_theme_base
 		$this->output('<input ' . $tags . ' type="checkbox" value="1"' . (@$field['value'] ? ' checked' : '') . ' class="qa-form-' . $style . '-checkbox"/>');
 	}
 
+	public function form_static($field, $style)
+	{
+		if(@$field['id'] == 'permits' && isset($field['value'])) {
+			$field['value'] = '<ul id="qa-permits"><li>' . $field['value'] . '</li></ul>';
+			$field['value'] = preg_replace('/<br \/>/', '</li><li>', $field['value']);
+		}
+		$this->output('<span class="qa-form-' . $style . '-static">' . @$field['value'] . '</span>');
+	}
+
 	public function form_password($field, $style)
 	{
 		$tags = $this->adaptFieldTagsForAccessibility($field);
