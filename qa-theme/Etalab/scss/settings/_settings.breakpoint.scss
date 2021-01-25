@@ -24,6 +24,6 @@ $mq-breakpoints: (
   LG: 1200px,
 );
 
-$mq-show-breakpoints: (XS, SM, MD, LG);
+//$mq-show-breakpoints: (XS, SM, MD, LG);
 
 @import "node_modules/sass-mq/mq";
